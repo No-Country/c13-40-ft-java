@@ -14,12 +14,27 @@ const Navbar = () => {
   return (
     <div className="w-full h-screen relative">
       <div className="sticky h-20 w-full bg-black flex justify-between items-center p-4">
+        <Image
+          className="hidden md:block"
+          src="/LogoNav.png"
+          width={100}
+          height={100}
+        />
         <GiHamburgerMenu
           onClick={() => setOpen(!open)}
           className="text-2xl text-white cursor-pointer md:hidden"
         />
+        <div className="hidden md:block flex justify-center items center text-white">
+          <span className="cursor-pointer mx-2 hover:opacity-80">Home</span>
+          <span className="cursor-pointer mx-2 hover:opacity-80">Products</span>
+          <span className="cursor-pointer mx-2 hover:opacity-80">
+            Categories
+          </span>
+          <span className="cursor-pointer mx-2 hover:opacity-80">About</span>
+          <span className="cursor-pointer mx-2 hover:opacity-80">Contact</span>
+        </div>
         <Image
-          className="mx-auto"
+          className="mx-auto md:hidden"
           src="/LogoNav.png"
           width={100}
           height={100}
