@@ -1,4 +1,4 @@
-import CardCategories from "../components/navbar/CardCategories";
+import CardCategories from "../components/CardCategories";
 
 export default function Categories() {
   return (
