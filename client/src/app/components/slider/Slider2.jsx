@@ -9,8 +9,19 @@ export default class MultipleItems extends Component {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 3,
+      slidesToShow: 5,
       slidesToScroll: 3,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true,
+          },
+        },
+      ],
     };
     return (
       <div className="w-full overflow-hidden cursor-pointer ml-16 z-0 mt-6">
