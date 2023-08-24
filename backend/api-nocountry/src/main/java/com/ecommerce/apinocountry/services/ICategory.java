@@ -1,6 +1,6 @@
-package com.ecommerce.apinocountry.model.service;
+package com.ecommerce.apinocountry.services;
 
-import com.ecommerce.apinocountry.model.entity.Category;
+import com.ecommerce.apinocountry.models.entities.Category;
 import java.util.List;
 import java.util.Optional;
 /**

@@ -1,9 +1,11 @@
-package com.ecommerce.apinocountry.model.service;
+package com.ecommerce.apinocountry.services;
 
-import com.ecommerce.apinocountry.model.entity.Product;
-import com.ecommerce.apinocountry.model.repository.ProductRepository;
+import com.ecommerce.apinocountry.models.entities.Product;
+import com.ecommerce.apinocountry.repositories.ProductRepository;
 import java.util.List;
 import java.util.Optional;
+
+import com.ecommerce.apinocountry.services.IProduct;
 import org.springframework.stereotype.Service;
 
 

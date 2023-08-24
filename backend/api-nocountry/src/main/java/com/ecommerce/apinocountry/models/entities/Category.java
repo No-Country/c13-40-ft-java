@@ -1,4 +1,4 @@
-package com.ecommerce.apinocountry.model.entity;
+package com.ecommerce.apinocountry.models.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;

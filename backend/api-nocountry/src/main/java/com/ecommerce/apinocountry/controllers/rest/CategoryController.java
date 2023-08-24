@@ -1,7 +1,7 @@
 package com.ecommerce.apinocountry.controllers.rest;
 
-import com.ecommerce.apinocountry.model.entity.Category;
-import com.ecommerce.apinocountry.model.service.ICategory;
+import com.ecommerce.apinocountry.models.entities.Category;
+import com.ecommerce.apinocountry.services.ICategory;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author godoy
  */
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/api/v1/comfy")
 public class CategoryController {
     
      private ICategory icategoria;

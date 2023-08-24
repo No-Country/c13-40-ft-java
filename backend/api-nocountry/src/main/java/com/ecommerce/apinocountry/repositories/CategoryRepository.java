@@ -1,6 +1,6 @@
-package com.ecommerce.apinocountry.model.repository;
+package com.ecommerce.apinocountry.repositories;
 
-import com.ecommerce.apinocountry.model.entity.Category;
+import com.ecommerce.apinocountry.models.entities.Category;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 /**

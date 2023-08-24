@@ -4,9 +4,8 @@
  */
 package com.ecommerce.apinocountry.controllers.rest;
 
-import com.ecommerce.apinocountry.model.entity.Product;
-import com.ecommerce.apinocountry.model.service.ICategory;
-import com.ecommerce.apinocountry.model.service.IProduct;
+import com.ecommerce.apinocountry.models.entities.Product;
+import com.ecommerce.apinocountry.services.IProduct;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +27,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author godoy
  */
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/v1/comfy")
 public class ProductController {
      /*
         *Dependency injection of product and category services
