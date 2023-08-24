@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class products {
 
     @GetMapping("/")
-        public String Home(){
-
+    public String Home(){
         return "Servicio API No Country";
-        }
+    }
 
 }
