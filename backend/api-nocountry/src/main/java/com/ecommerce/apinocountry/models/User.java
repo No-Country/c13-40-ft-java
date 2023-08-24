@@ -1,13 +1,11 @@
 package com.ecommerce.apinocountry.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,6 +17,22 @@ public class User {
     private String email;
     private String country;
     private String password;
+
+    @ManyToOne
+    private Role role;
+
+    public User(){
+
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     public Long getId() {
         return id;
     }

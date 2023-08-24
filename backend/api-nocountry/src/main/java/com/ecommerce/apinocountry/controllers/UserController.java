@@ -31,7 +31,11 @@ public class UserController {
     }
 
 
-
+    @PutMapping("/{userId}")
+    public ResponseEntity<User> editUser(@PathVariable Long userId, @RequestBody User updatedUser) {
+        User editedUser = userService.editUser(userId, updatedUser);
+        return ResponseEntity.ok(editedUser);
+    }
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
