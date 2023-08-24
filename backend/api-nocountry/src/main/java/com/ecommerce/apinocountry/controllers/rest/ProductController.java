@@ -6,6 +6,7 @@ package com.ecommerce.apinocountry.controllers.rest;
 
 import com.ecommerce.apinocountry.models.entities.Product;
 import com.ecommerce.apinocountry.services.IProduct;
+import jakarta.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -82,21 +84,59 @@ public class ProductController {
     /*
     * Endpoint to insert a new product
     */
-    @PostMapping
-    public ResponseEntity<Product> saveProduct(@RequestBody Product product){
-        return ResponseEntity.ok(iproduct.inserProduct(product));
+    @PostMapping("/insertProduct")
+    public ResponseEntity<Object> saveProduct(@Valid @RequestBody Product product, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            bindingResult.getFieldErrors().forEach((error) -> {
+                String fieldName = error.getField();
+                String errorMessage = error.getDefaultMessage();
+                errors.put(fieldName, errorMessage);
+            });
+            return ResponseEntity.badRequest().body(errors);
+        }
+        Product savedProduct = iproduct.inserProduct(product);
+        
+        if (savedProduct != null) {
+            return ResponseEntity.ok(savedProduct);
+        } else {
+            String errorMessage = "No se pudo insertar el producto.";
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
+        }
     }
 
     /*
     * Endpoint to update an existing product
     */
-    @PutMapping
-    public ResponseEntity<Product> updateProduct(@RequestBody Product product){
-        Optional<Product> productupdate = iproduct.getProduct(product.getId());
-        if(productupdate.isPresent()){
-            return ResponseEntity.ok(iproduct.updateProduct(product));
-        }else{
-             return ResponseEntity.notFound().build();
+    @PutMapping("/updateProduct/{id}")
+    public ResponseEntity<Object> updateProduct(@PathVariable("id") Long id, @Valid @RequestBody Product product, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            bindingResult.getFieldErrors().forEach((error) -> {
+                String fieldName = error.getField();
+                String errorMessage = error.getDefaultMessage();
+                errors.put(fieldName, errorMessage);
+            });
+            return ResponseEntity.badRequest().body(errors);
+        }
+
+        Optional<Product> productUpdate = iproduct.getProduct(id);
+        if (productUpdate.isPresent()) {
+            Product updatedProduct = productUpdate.get();
+            updatedProduct.setName(product.getName());
+            updatedProduct.setDescription(product.getDescription());
+            updatedProduct.setImage(product.getImage());
+            updatedProduct.setStock(product.getStock());
+            updatedProduct.setPrice(product.getPrice());
+            updatedProduct.setCategory(product.getCategory());
+
+            Product savedProduct = iproduct.updateProduct(updatedProduct);
+            return ResponseEntity.ok(savedProduct);
+        } else {
+            Map<String, String> errorMessage = new HashMap<>();
+            errorMessage.put("message", "Product not found");
+            errorMessage.put("details", "El producto con el ID proporcionado no fue encontrado.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
         }
     }
 
@@ -118,6 +158,4 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
         }
     }
-
-
 }

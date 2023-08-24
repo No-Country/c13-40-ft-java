@@ -1,6 +1,6 @@
-package com.ecommerce.apinocountry.controllers;
+package com.ecommerce.apinocountry.controllers.rest;
 
-import com.ecommerce.apinocountry.models.User;
+import com.ecommerce.apinocountry.models.entities.User;
 import com.ecommerce.apinocountry.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

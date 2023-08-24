@@ -1,6 +1,6 @@
 package com.ecommerce.apinocountry.services;
 
-import com.ecommerce.apinocountry.models.Role;
+import com.ecommerce.apinocountry.models.entities.Role;
 import com.ecommerce.apinocountry.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

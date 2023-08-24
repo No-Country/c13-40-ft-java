@@ -1,4 +1,4 @@
-package com.ecommerce.apinocountry.models;
+package com.ecommerce.apinocountry.models.entities;
 
 import jakarta.persistence.*;
 import org.springframework.boot.autoconfigure.web.WebProperties;

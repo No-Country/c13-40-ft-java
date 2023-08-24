@@ -1,6 +1,6 @@
-package com.ecommerce.apinocountry.controllers;
+package com.ecommerce.apinocountry.controllers.rest;
 
-import com.ecommerce.apinocountry.models.Role;
+import com.ecommerce.apinocountry.models.entities.Role;
 import com.ecommerce.apinocountry.services.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -2,6 +2,7 @@ package com.ecommerce.apinocountry.controllers.rest;
 
 import com.ecommerce.apinocountry.models.entities.Category;
 import com.ecommerce.apinocountry.services.ICategory;
+import jakarta.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -75,23 +77,55 @@ public class CategoryController {
     /*
     *Endpoint to insert a new category
     */
-    @PostMapping("/inserCategory")
-    public ResponseEntity<Category> saveCategory(@RequestBody Category category){
-        return ResponseEntity.ok(icategoria.inserCategory(category));
+    @PostMapping("/insertCategory")
+    public ResponseEntity<Object> saveCategory(@Valid @RequestBody Category category, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            bindingResult.getFieldErrors().forEach((error) -> {
+                String fieldName = error.getField();
+                String errorMessage = error.getDefaultMessage();
+                errors.put(fieldName, errorMessage);
+            });
+            return ResponseEntity.badRequest().body(errors);
+        }
+        
+        Category savedCategory = icategoria.inserCategory(category);
+        
+        if (savedCategory != null) {
+            return ResponseEntity.ok(savedCategory);
+        } else {
+            String errorMessage = "No se pudo insertar la categoría.";
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
+        }
     }
 
     /*
     *Endpoint to update an existing category
     */
-    @PutMapping("/updateCategory")
-    public ResponseEntity<Category> updateCategory(@RequestBody Category category){
-        Optional<Category> categoryupdate = icategoria.getCategory(category.getId());
-        if(categoryupdate.isPresent()){
-            return ResponseEntity.ok(icategoria.updateCategory(category));
-        }else{
-             return ResponseEntity.notFound().build();
-        }
-    }
+    @PutMapping("/updateCategory/{id}")
+    public ResponseEntity<Object> updateCategory(@PathVariable("id") Long id, @Valid @RequestBody Category category, BindingResult bindingResult) {
+         if (bindingResult.hasErrors()) {
+             Map<String, String> errors = new HashMap<>();
+             bindingResult.getFieldErrors().forEach((error) -> {
+                 String fieldName = error.getField();
+                 String errorMessage = error.getDefaultMessage();
+                 errors.put(fieldName, errorMessage);
+             });
+             return ResponseEntity.badRequest().body(errors);
+         }
+         Optional<Category> categoryUpdate = icategoria.getCategory(id);
+         if (categoryUpdate.isPresent()) {
+             Category updatedCategory = categoryUpdate.get();
+             updatedCategory.setName(category.getName());
+             Category savedCategory = icategoria.updateCategory(updatedCategory);
+             return ResponseEntity.ok(savedCategory);
+         } else {
+             Map<String, String> errorMessage = new HashMap<>();
+             errorMessage.put("message", "Category not found");
+             errorMessage.put("details", "La categoría con el ID proporcionado no fue encontrada.");
+             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+         }
+     }
 
     /*
     *Endpoint to delete a category by its ID

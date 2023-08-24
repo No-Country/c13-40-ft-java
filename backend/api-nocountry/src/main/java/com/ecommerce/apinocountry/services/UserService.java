@@ -1,6 +1,6 @@
 package com.ecommerce.apinocountry.services;
 
-import com.ecommerce.apinocountry.models.User;
+import com.ecommerce.apinocountry.models.entities.User;
 import com.ecommerce.apinocountry.repositories.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

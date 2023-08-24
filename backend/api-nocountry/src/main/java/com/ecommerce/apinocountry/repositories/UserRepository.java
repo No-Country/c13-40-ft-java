@@ -1,6 +1,6 @@
 package com.ecommerce.apinocountry.repositories;
 
-import com.ecommerce.apinocountry.models.User;
+import com.ecommerce.apinocountry.models.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

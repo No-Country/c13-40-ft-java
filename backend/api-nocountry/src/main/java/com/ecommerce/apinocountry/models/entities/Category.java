@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 /**
  * This class represents the Category entity in the database.
@@ -23,6 +24,7 @@ public class Category {
     private Long id;
 
     @Column(name = "categorys")
+    @NotBlank(message = "name is required")
     private String name;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)// One-to-Many relationship with Product entity, mapped by the 'categoria' field in Product

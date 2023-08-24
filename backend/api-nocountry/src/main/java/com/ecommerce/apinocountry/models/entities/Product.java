@@ -1,6 +1,5 @@
 package com.ecommerce.apinocountry.models.entities;
 
-import com.ecommerce.apinocountry.models.entities.Category;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,6 +11,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PositiveOrZero;
 
 /**
  * This class represents the Product entity in the database.
@@ -66,6 +67,7 @@ public class Product {
     }
 
     @Column(name = "name_product")
+    @NotBlank(message = "name is required")
     public String getName() {
         return name;
     }
@@ -74,6 +76,7 @@ public class Product {
     }
 
     @Column(name = "description_product")
+    @NotBlank(message = "description is required")
     public String getDescription() {
         return description;
     }
@@ -83,6 +86,7 @@ public class Product {
 
     @Column(name = "image_product", length = 150000)
     @Lob
+    @NotBlank(message = "image is required")
     public String getImage() {
         return image;
     }
@@ -91,6 +95,7 @@ public class Product {
     }
 
     @Column(name = "stock_product")
+    @PositiveOrZero(message = "stock is required")
     public Integer getStock() {
         return stock;
     }
@@ -99,6 +104,7 @@ public class Product {
     }
 
     @Column(name = "price_product")
+    @PositiveOrZero(message = "price is required")
     public Double getPrice() {
         return price;
     }
@@ -107,6 +113,7 @@ public class Product {
     }
 
     @Column(name = "category")
+    @PositiveOrZero(message = "category is required")
     public Long getCategory() {
         return category;
     }
