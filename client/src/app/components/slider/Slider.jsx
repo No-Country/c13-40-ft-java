@@ -14,34 +14,25 @@ export default class MultipleItems extends Component {
     };
     return (
       <div className="w-full overflow-hidden cursor-pointer ml-16 z-0 mt-6">
-        <h2 className="font-bold text-xl mb-2"> ¡Lo más buscado! </h2>
+        <h2 className="font-medium text-xl mb-2"> ¡Lo más buscado! </h2>
         <Slider {...settings}>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>1</h3>
+          <div className="h-28 lg:h-52">
+            <div className="bg-tertiary w-11/12 h-full border boder-1 border-black rounded-lg overflow-hidden"></div>
           </div>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>2</h3>
+          <div className="h-28 lg:h-52">
+            <div className="bg-tertiary w-11/12 h-full border boder-1 border-black rounded-lg overflow-hidden"></div>
           </div>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>3</h3>
+          <div className="h-28 lg:h-52">
+            <div className="bg-tertiary w-11/12 h-full border boder-1 border-black rounded-lg overflow-hidden"></div>
           </div>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>4</h3>
+          <div className="h-28 lg:h-52">
+            <div className="bg-tertiary w-11/12 h-full border boder-1 border-black rounded-lg overflow-hidden"></div>
           </div>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>5</h3>
+          <div className="h-28 lg:h-52">
+            <div className="bg-tertiary w-11/12 h-full border boder-1 border-black rounded-lg overflow-hidden"></div>
           </div>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>6</h3>
-          </div>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>7</h3>
-          </div>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>8</h3>
-          </div>
-          <div className="bg-tertiary h-28 lg:h-52 border boder-1 border-black rounded-lg overflow-hidden">
-            <h3>9</h3>
+          <div className="h-28 lg:h-52">
+            <div className="bg-tertiary w-11/12 h-full border boder-1 border-black rounded-lg overflow-hidden"></div>
           </div>
         </Slider>
       </div>
