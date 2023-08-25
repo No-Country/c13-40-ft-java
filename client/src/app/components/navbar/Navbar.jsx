@@ -16,7 +16,8 @@ const Navbar = () => {
       <div className="sticky h-20 w-full bg-primary flex justify-between items-center p-4">
         <Image
           className="hidden md:block"
-          src="/LogoNav.png"
+          src="/logo.svg"
+          alt="Comfy logo"
           width={100}
           height={100}
         />
@@ -35,7 +36,8 @@ const Navbar = () => {
         </div>
         <Image
           className="mx-auto md:hidden"
-          src="/LogoNav.png"
+          src="/logo.svg"
+          alt="Comfy logo"
           width={100}
           height={100}
         />
