@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "../public/logo.svg";
+import Logo from "public/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
