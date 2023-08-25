@@ -1,7 +1,6 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "./logo.svg";
+import Logo from "../../public/logo.svg";
 import {
   AiFillFacebook,
   AiOutlineInstagram,
@@ -13,6 +12,7 @@ import {
 const Footer = () => {
   return (
     <footer className="bg-background p-4 pt-16 pb-12 space-y-8 sm:px-8 md:pb-8 md:pr-4 lg:px-10 text-lg text-primary xl:pb-12 xl:pt-24 xl:pl-20 2xl:pl-32 2xl:pt-32">
+      {/* Logo */}
       <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-4 md:grid-cols-6 md:gap-x-4 lg:grid-cols-11 lg:gap-x-0">
         <div className="col-span-2 sm:col-span-4 md:col-span-2 lg:col-span-3">
           <Image src={Logo} alt="Comfy logo" width={130} quality={100} />
@@ -22,6 +22,7 @@ const Footer = () => {
             <AiFillLinkedin />
             <AiOutlineTwitter />
           </div>
+          {/* Address */}
           <div className="space-y-4">
             <h6 className="font-bold">Address</h6>
             <address className="not-italic space-y-2">
@@ -31,6 +32,7 @@ const Footer = () => {
             </address>
           </div>
         </div>
+        {/* Shop */}
         <div className="space-y-6 sm:order-3 lg:col-span-2">
           <h6 className="font-bold">Shop</h6>
           <ul className="space-y-2">
@@ -45,6 +47,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+        {/* My Account */}
         <div className="space-y-6 sm:order-1 lg:col-span-2">
           <h6 className="font-bold">My Account</h6>
           <ul className="space-y-2">
@@ -59,6 +62,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+        {/* Help */}
         <div className="space-y-6 sm:order-2 lg:col-span-2">
           <h6 className="font-bold">Help</h6>
           <ul className="space-y-2">
@@ -73,6 +77,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+        {/* Legal Stuff */}
         <div className="space-y-6 sm:order-4 lg:col-span-2">
           <h6 className="font-bold">Legal Stuff</h6>
           <ul className="space-y-2">
@@ -88,6 +93,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
+      {/* Copyright */}
       <p className="text-center text-base sm:text-left">
         Copyright ©2020 COMFY. All Rights Reserved.
       </p>
