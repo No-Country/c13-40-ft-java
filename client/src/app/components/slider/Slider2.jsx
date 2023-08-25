@@ -9,7 +9,7 @@ export default class MultipleItems extends Component {
       dots: false,
       infinite: true,
       speed: 500,
-      slidesToShow: 5,
+      slidesToShow: 4,
       slidesToScroll: 3,
       responsive: [
         {
@@ -24,7 +24,7 @@ export default class MultipleItems extends Component {
       ],
     };
     return (
-      <div className="w-full overflow-hidden cursor-pointer ml-16 z-0 mt-6">
+      <div className="w-full lg:w-8/12 overflow-hidden cursor-pointer ml-16 lg:ml-0 z-0 mt-6">
         <h2 className="font-medium text-xl mb-2"> Nuevos artículos </h2>
         <Slider {...settings}>
           <div className="h-28 lg:h-52">
