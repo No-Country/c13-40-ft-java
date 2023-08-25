@@ -3,7 +3,7 @@ import Link from "next/link";
 import Logo from "../public/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 
-const LoginPage = () => {
+const Login = () => {
   return (
     <main className="flex flex-col items-center h-screen space-y-10">
       {/* Logo */}
@@ -22,7 +22,7 @@ const LoginPage = () => {
           src={Logo}
           alt="Comfy logo"
           quality={100}
-          className="rounded-full overflow-visible"
+          className="overflow-visible"
           style={{
             transform: "scale(1.2)",
             width: "80vw",
@@ -36,7 +36,7 @@ const LoginPage = () => {
       {/* Login */}
       <div className="flex justify-around w-full">
         <Link
-          href="/login"
+          href="/login/login2"
           style={{
             width: "156px",
             height: "38px",
@@ -48,7 +48,7 @@ const LoginPage = () => {
 
         {/* Signup */}
         <Link
-          href="/signup"
+          href="/login/signup"
           style={{
             width: "156px",
             height: "38px",
@@ -89,4 +89,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
