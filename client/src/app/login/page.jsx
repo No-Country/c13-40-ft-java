@@ -16,7 +16,7 @@ const Login = () => {
           borderRadius: "50%",
           margin: "50px 0",
         }}
-        className="bg-highlight"
+        className="bg-primary"
       >
         <Image
           src={Logo}
@@ -41,7 +41,7 @@ const Login = () => {
             width: "156px",
             height: "38px",
           }}
-          className="button bg-link border rounded-md font-bold flex items-center justify-center"
+          className="button bg-secondary border rounded-md font-bold flex items-center justify-center"
         >
           Login
         </Link>
@@ -53,13 +53,13 @@ const Login = () => {
             width: "156px",
             height: "38px",
           }}
-          className="button border-link border-2 rounded-md flex items-center justify-center"
+          className="button border-secondary border-2 rounded-md flex items-center justify-center"
         >
           Sign Up
         </Link>
       </div>
 
-      <hr className="mt-12 border border-nav w-full" />
+      <hr className="mt-12 border border-fifth w-full" />
 
       {/* Google */}
       <div>
@@ -82,7 +82,7 @@ const Login = () => {
       </div>
 
       {/* Guest */}
-      <Link href="/" className="underline font-medium text-link">
+      <Link href="/" className="underline font-medium text-secondary">
         Continuar como invitado
       </Link>
     </main>

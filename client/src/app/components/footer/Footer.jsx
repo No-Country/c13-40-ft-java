@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-background p-4 pt-16 pb-12 space-y-8 sm:px-8 md:pb-8 md:pr-4 lg:px-10 text-lg text-primary xl:pb-12 xl:pt-24 xl:pl-20 2xl:pl-32 2xl:pt-32">
+    <footer className="bg-footer2 p-4 pt-16 pb-12 space-y-8 sm:px-8 md:pb-8 md:pr-4 lg:px-10 text-lg text-footer1 xl:pb-12 xl:pt-24 xl:pl-20 2xl:pl-32 2xl:pt-32">
       {/* Logo */}
       <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-4 md:grid-cols-6 md:gap-x-4 lg:grid-cols-11 lg:gap-x-0">
         <div className="col-span-2 sm:col-span-4 md:col-span-2 lg:col-span-3">
