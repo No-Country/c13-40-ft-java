@@ -4,12 +4,38 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { ImSearch } from "react-icons/im";
 import { MdShoppingCart } from "react-icons/md";
 import { HiOutlineUserCircle } from "react-icons/hi";
-import { BiSolidCategory } from "react-icons/bi";
-import { FaHeart } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const links = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "Products",
+      link: "/products",
+    },
+    {
+      name: "Categories",
+      link: "/categories",
+    },
+    {
+      name: "Favorites",
+      link: "/favorites",
+    },
+    {
+      name: "About",
+      link: "/about",
+    },
+    {
+      name: "Contact",
+      link: "/contact",
+    },
+  ];
 
   return (
     <div className="w-full relative">
@@ -26,13 +52,15 @@ const Navbar = () => {
           className="text-2xl text-black cursor-pointer md:hidden"
         />
         <div className="hidden md:block flex justify-center items center text-black font-bold">
-          <span className="cursor-pointer mx-2 hover:opacity-60">Home</span>
-          <span className="cursor-pointer mx-2 hover:opacity-60">Products</span>
-          <span className="cursor-pointer mx-2 hover:opacity-60">
-            Categories
-          </span>
-          <span className="cursor-pointer mx-2 hover:opacity-60">About</span>
-          <span className="cursor-pointer mx-2 hover:opacity-60">Contact</span>
+          {links.map((l) => (
+            <Link
+              key={l.name}
+              href={l.link}
+              className="cursor-pointer mx-2 font-bold hover:text-white transition-all duration-500 ease"
+            >
+              {l.name}
+            </Link>
+          ))}
         </div>
         <Image
           className="mx-auto md:hidden"
@@ -53,14 +81,15 @@ const Navbar = () => {
         } md:hidden h-screen w-6/12 z-10 bg-primary transition-all duration-700 ease`}
       >
         <div className="flex flex-col justify-center items-start p-4">
-          <div className="flex flex-row my-2 cursor-pointer">
-            <BiSolidCategory className="text-2xl text-black" />
-            <span className="text-black ml-2">Categories</span>
-          </div>
-          <div className="flex flex-row my-2 cursor-pointer">
-            <FaHeart className="text-2xl text-black" />
-            <span className="text-black ml-2">Favorites</span>
-          </div>
+          {links.map((l) => (
+            <Link
+              className="my-2 font-bold hover:text-white transition-all duration-500 ease"
+              key={l.name}
+              href={l.link}
+            >
+              {l.name}
+            </Link>
+          ))}
         </div>
       </div>
     </div>
