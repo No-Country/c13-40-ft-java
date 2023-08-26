@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 // Add Imagen de fondo y eskeleton
 // Add Prop de Href
 function CardCategories({ Categorie, imageUrl }) {
