@@ -127,6 +127,7 @@ public class CategoryController {
          }
      }
 
+
     /*
     *Endpoint to delete a category by its ID
     */
