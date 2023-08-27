@@ -1,24 +1,22 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useContext } from "react";
+import { ComfyContext } from "../context/ComfyContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Slider from "./components/slider/Slider";
-import Slider2 from "./components/slider/Slider2";
-import LoadingModal from "./components/loadingModal/LoadingModal";
+import Slider from "../components/slider/Slider";
+import Slider2 from "../components/slider/Slider2";
+import LoadingModal from "../components/loadingModal/LoadingModal";
 import Image from "next/image";
 
 const Home = () => {
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1400);
-  }, []);
+  const { loading, setLoading } = useContext(ComfyContext);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  setTimeout(() => {setLoading(false)}, 1200);
 
   return (
     <>

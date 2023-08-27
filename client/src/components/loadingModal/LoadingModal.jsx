@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const LoadingModal = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 1200 });
   }, []);
 
   return (
@@ -14,7 +14,7 @@ const LoadingModal = () => {
       <Image
         className="w-32"
         data-aos="zoom-in"
-        src="/LogoNav.png"
+        src="/LoadingLogo.png"
         width={1000}
         height={1000}
       />
