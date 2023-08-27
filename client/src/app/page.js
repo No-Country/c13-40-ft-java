@@ -13,10 +13,10 @@ const Home = () => {
       />
       <Slider />
       <Image
-        className="md:hidden mt-4 h-6"
+        className="md:hidden mt-4 h-8"
         src="/Divisor.png"
-        width={500}
-        height={100}
+        width={1000}
+        height={150}
       />
       <Slider2 />
     </div>

@@ -4,6 +4,12 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { ImSearch } from "react-icons/im";
 import { MdShoppingCart } from "react-icons/md";
 import { HiOutlineUserCircle } from "react-icons/hi";
+import { AiFillHome } from "react-icons/ai";
+import { BiSolidStore } from "react-icons/bi";
+import { BiSolidCategory } from "react-icons/bi";
+import { MdFavorite } from "react-icons/md";
+import { HiInformationCircle } from "react-icons/hi";
+import { GrContact } from "react-icons/gr";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,26 +20,38 @@ const Navbar = () => {
     {
       name: "Home",
       link: "/",
+      icon: <AiFillHome className="text-base mr-2 text-black cursor-pointer" />,
     },
     {
       name: "Products",
       link: "/products",
+      icon: (
+        <BiSolidStore className="text-base mr-2 text-black cursor-pointer" />
+      ),
     },
     {
       name: "Categories",
       link: "/categories",
+      icon: (
+        <BiSolidCategory className="text-base mr-2 text-black cursor-pointer" />
+      ),
     },
     {
       name: "Favorites",
       link: "/favorites",
+      icon: <MdFavorite className="text-base mr-2 text-black cursor-pointer" />,
     },
     {
       name: "About",
       link: "/about",
+      icon: (
+        <HiInformationCircle className="text-base mr-2 text-black cursor-pointer" />
+      ),
     },
     {
       name: "Contact",
       link: "/contact",
+      icon: <GrContact className="text-base mr-2 text-black cursor-pointer" />,
     },
   ];
 
@@ -83,11 +101,11 @@ const Navbar = () => {
         <div className="flex flex-col justify-center items-start p-4">
           {links.map((l) => (
             <Link
-              className="my-2 font-bold hover:text-white transition-all duration-500 ease"
+              className="my-2 flex justify-center items-center font-bold hover:text-white transition-all duration-500 ease"
               key={l.name}
               href={l.link}
             >
-              {l.name}
+              {l.icon} {l.name}
             </Link>
           ))}
         </div>
