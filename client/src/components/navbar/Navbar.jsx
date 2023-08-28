@@ -56,8 +56,8 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="w-full relative">
-      <div className="sticky h-20 w-full bg-primary flex justify-between items-center p-4">
+    <div className="w-full sticky top-0 z-50">
+      <div className="h-20 w-full bg-primary flex justify-between items-center p-4">
         <Image
           className="hidden md:block"
           src="/logo.svg"

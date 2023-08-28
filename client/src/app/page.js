@@ -7,16 +7,18 @@ import Slider from "../components/slider/Slider";
 import Slider2 from "../components/slider/Slider2";
 import LoadingModal from "../components/loadingModal/LoadingModal";
 import Image from "next/image";
+import Categories from "../components/categories/Categories";
 
 const Home = () => {
-
   const { loading, setLoading } = useContext(ComfyContext);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  setTimeout(() => {setLoading(false)}, 1200);
+  setTimeout(() => {
+    setLoading(false);
+  }, 1200);
 
   return (
     <>
@@ -35,11 +37,12 @@ const Home = () => {
           />
           <Slider />
           <Image
-            className="md:hidden mt-4 h-8"
+            className="md:hidden mt-8 h-8"
             src="/Divisor.png"
             width={1000}
             height={150}
           />
+          <Categories />
           <Slider2 />
         </div>
       )}
