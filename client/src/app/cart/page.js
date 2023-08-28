@@ -15,14 +15,21 @@ export default function Cart() {
         <p className="text-3xl font-serif font-extrabold">YOUR CART</p>
       </div>
 
-      <div className="flex flex-col mx-3 gap-2 rounded-md">
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-        <CartItem />
-      </div>
+      <table className="table-auto mx-3 md:mx-32 lg:mx-52 xl:mx-96  rounded-md">
+        <thead>
+          <tr className="ml-6 border-b">
+            <th className="text-left">Products</th>
+            <th className="hidden sm:table-cell text-center">Quantity</th>
+            <th className="text-center">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Agregar componente dinamicamente */}
+          <CartItem />
+          <CartItem />
+          <CartItem />
+        </tbody>
+      </table>
     </section>
   );
 }

@@ -1,5 +1,5 @@
-import { AiFillHeart, AiOutlineArrowLeft } from "react-icons/ai";
-import { FaTrash } from "react-icons/fa";
+import QuantityButtons from "../Buttons/QuantityButtons";
+
 // nombres de props de ejemplo
 function CartItem({
   ProductName,
@@ -8,24 +8,36 @@ function CartItem({
   ProductImg,
 }) {
   return (
-    <article className="flex rounded-md bg-slate-50 drop-shadow-lg">
-      {/* revisar prop img */}
-      <img
-        className="w-28 h-28 rounded"
-        src="https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-      />
-      <div className="flex flex-col ml-4">
-        <p className="text-lg font-bold">Produc Name</p>
-        <p>Lorem ipsum dolor it </p>
-        <p className="text-lg font-bold">$130</p>
-        {/* // falta un contador para agregar mas unidades  */}
-      </div>
-      <div className="flex flex-col items-end ml-16 gap-14 text-2xl">
-        {/* cambio de corazon al agregar fav */}
-        <AiFillHeart className="cursor-pointer hover:text-red-950" />
-        <FaTrash className="cursor-pointer hover:text-red-600 duration-200" />
-      </div>
-    </article>
+    <>
+      <tr className="border-b">
+        <td className="flex py-3 ">
+          <img
+            className="w-28 h-28 rounded
+                md:w-32 md:h-32 xl:w-40 xl:h-40"
+            src="https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+            alt="Product"
+          />
+          <div className="flex flex-col flex-grow ml-4 xl:ml-9">
+            <p className="text-lg lg:text-2xl font-bold">Product Name</p>
+            <p className="lg:text-lg mt-3 sm:mt-0"> Category</p>
+            <p className="hidden lg:table-cell text-left mt-5">
+              ProductDescriptionLorem ipsum dolor, sit amet consectetur
+              adipisicing elit
+            </p>
+            <div className="flex mt-5 sm:hidden">
+              <QuantityButtons />
+            </div>
+          </div>
+        </td>
+        {/* fila cantidad oculta en mobile */}
+        <td className="hidden sm:table-cell   text-center ">
+          <QuantityButtons />
+        </td>
+        <td className="text-center">
+          <span className="lg:text-xl font-extrabold">$149.90</span>
+        </td>
+      </tr>
+    </>
   );
 }
 
