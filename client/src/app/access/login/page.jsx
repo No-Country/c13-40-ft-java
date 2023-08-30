@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   return (
-    <main className="flex flex-col items-center h-full mb-20">
+    <main className="flex flex-col items-center h-full">
       {/* Logo */}
       <Image
         src={Logo}

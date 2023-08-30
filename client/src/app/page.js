@@ -1,11 +1,53 @@
+"use client";
+import { useEffect, useContext } from "react";
 
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Slider from "../components/slider/Slider";
+import Slider2 from "../components/slider/Slider2";
+import LoadingModal from "../components/loadingModal/LoadingModal";
+import Image from "next/image";
+import { ComfyContext } from "../context/ComfyContext";
+
+import Categories from "../components/categories/Categories";
 
 const Home = () => {
+  const { loading, setLoading } = useContext(ComfyContext);
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
+  setTimeout(() => {
+    setLoading(false);
+  }, 1200);
+
   return (
     <>
-      <div className="w-full h-screen flex justify-center items-center">
-        <h1 className="text-2xl font-bold">Hola c13-40-ft-java</h1>
-      </div>
+      {loading ? (
+        <LoadingModal />
+      ) : (
+        <div
+          data-aos="fade"
+          className="w-full h-full flex justify-start items-center flex-col mt-8"
+        >
+          <Image
+            className="h-40 lg:h-72 object-cover"
+            src="/Garden.png"
+            width={2000}
+            height={500}
+          />
+          <Slider />
+          <Image
+            className="md:hidden mt-8 h-8"
+            src="/Divisor.png"
+            width={1000}
+            height={150}
+          />
+          <Categories />
+          <Slider2 />
+        </div>
+      )}
     </>
   );
 };

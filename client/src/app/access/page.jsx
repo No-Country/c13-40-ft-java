@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Access = () => {
   return (
-    <main className="flex flex-col items-center h-full space-y-10 mb-20">
+    <main className="flex flex-col items-center h-full space-y-10">
       {/* Logo */}
       <div
         style={{
