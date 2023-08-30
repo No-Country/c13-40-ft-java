@@ -7,8 +7,7 @@ import Slider from "../components/slider/Slider";
 import Slider2 from "../components/slider/Slider2";
 import LoadingModal from "../components/loadingModal/LoadingModal";
 import Image from "next/image";
-import { ComfyContext } from "@/context/ComfyContext";
-
+import { ComfyContext } from "../context/ComfyContext";
 
 import Categories from "../components/categories/Categories";
 

@@ -25,9 +25,7 @@ const Navbar = () => {
     {
       name: "Products",
       link: "/products",
-      icon: (
-        <BiSolidStore className="text-base mr-2 cursor-pointer" />
-      ),
+      icon: <BiSolidStore className="text-base mr-2 cursor-pointer" />,
     },
     {
       name: "Favorites",
@@ -37,9 +35,7 @@ const Navbar = () => {
     {
       name: "About",
       link: "/about",
-      icon: (
-        <HiInformationCircle className="text-base mr-2 cursor-pointer" />
-      ),
+      icon: <HiInformationCircle className="text-base mr-2 cursor-pointer" />,
     },
     {
       name: "Contact",
