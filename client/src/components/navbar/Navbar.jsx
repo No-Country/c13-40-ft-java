@@ -58,7 +58,7 @@ const Navbar = () => {
           onClick={() => setOpen(!open)}
           className="text-2xl text-black cursor-pointer md:hidden"
         />
-        <div className="hidden md:block flex justify-center items center text-black font-bold">
+        <div className="hidden md:flex justify-center items center text-black font-bold">
           {links.map((l) => (
             <Link
               key={l.name}
@@ -78,7 +78,9 @@ const Navbar = () => {
         />
         <div className="flex justify-center items-center">
           <ImSearch className="text-xl text-black cursor-pointer" />
-          <MdShoppingCart className="text-2xl mx-1 text-black cursor-pointer" />
+          <Link href="/cart">
+            <MdShoppingCart className="text-2xl mx-1 text-black cursor-pointer" />
+          </Link>
           <HiOutlineUserCircle className="text-2xl text-black cursor-pointer" />
         </div>
       </div>
