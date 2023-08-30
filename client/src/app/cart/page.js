@@ -73,13 +73,11 @@ export default function Cart() {
           </tr>
         </tfoot>
       </table>
+      {/* boton de Checkout */}
       <div className="flex justify-center items-center">
         <a
           href="#_"
-          className="inline-flex items-center justify-center w-full px-6 xl:px-10 py-3 mb-2 xl:text-xl text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0"
-          data-primary="green-400"
-          data-rounded="rounded-2xl"
-          data-primary-reset="{}"
+          className="inline-flex items-center justify-center w-full px-6 xl:px-10 py-3 mb-2 xl:text-xl text-black bg-orange-100 border border-black hover:bg-orange-200 sm:w-auto sm:mb-0"
         >
           Checkout
           <svg
