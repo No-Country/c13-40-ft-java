@@ -29,6 +29,9 @@ module.exports = {
         fifth: {
           DEFAULT: "#D7B39C",
         },
+        sixth: {
+          DEFAULT: "#49454F",
+        },
       },
     },
   },

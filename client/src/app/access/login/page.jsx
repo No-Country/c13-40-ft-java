@@ -19,7 +19,7 @@ const Login = () => {
   };
 
   return (
-    <main className="flex flex-col items-center h-screen">
+    <main className="flex flex-col items-center h-full mb-20">
       {/* Logo */}
       <Image
         src={Logo}
@@ -33,17 +33,15 @@ const Login = () => {
         className="mt-24 mb-16"
       />
 
+      {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="overflow-visible w-screen"
+        className="overflow-visible"
         style={{ width: "325px" }}
       >
+        {/* Email */}
         <div className="flex items-center mb-6">
-          <label
-            htmlFor="email"
-            className="mr-2 text-3xl"
-            style={{ color: "#49454F" }}
-          >
+          <label htmlFor="email" className="mr-2 text-3xl text-sixth">
             <MdAlternateEmail />
           </label>
           <input
@@ -55,11 +53,12 @@ const Login = () => {
             className="border border-2 border-primary rounded-md outline-none px-4 py-2 w-full w-64"
           />
         </div>
+
+        {/* Password */}
         <div className="flex items-center mb-4">
           <label
             htmlFor="password"
-            className="mr-2 text-3xl"
-            style={{ color: "#49454F" }}
+            className="mr-2 text-3xl text-sixth text-sixth"
           >
             <IoMdLock />
           </label>
@@ -76,11 +75,12 @@ const Login = () => {
             </span>
           </div>
         </div>
-        {/* Forgot Password */}
 
+        {/* Forgot Password */}
         <div className="font-medium text-important text-xs underline mb-4 mx-auto pl-4">
           <Link href="/">Forgot your password?</Link>
         </div>
+
         {/* Submit */}
         <div>
           <button
@@ -103,11 +103,10 @@ const Login = () => {
         <Link
           href="/"
           style={{
-            borderColor: "#49454F",
             width: "292px",
             height: "41px",
           }}
-          className="flex items-center justify-start button border border-2 rounded-md px-4 space-x-6"
+          className="flex items-center justify-start button border border-sixth border-2 rounded-md px-4 space-x-6"
         >
           <FcGoogle
             style={{

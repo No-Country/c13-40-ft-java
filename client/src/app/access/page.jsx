@@ -5,7 +5,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Access = () => {
   return (
-    <main className="flex flex-col items-center h-screen space-y-10">
+    <main className="flex flex-col items-center h-full space-y-10 mb-20">
       {/* Logo */}
       <div
         style={{
@@ -65,11 +65,10 @@ const Access = () => {
         <Link
           href="/"
           style={{
-            borderColor: "#49454F",
             width: "292px",
             height: "41px",
           }}
-          className="flex items-center justify-start button border border-2 rounded-md px-4 space-x-6"
+          className="flex items-center justify-start button border border-2 rounded-md px-4 space-x-6 border-sixth"
         >
           <FcGoogle
             style={{
