@@ -3,7 +3,7 @@ import Link from "next/link";
 import Logo from "public/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 
-const Login = () => {
+const Access = () => {
   return (
     <main className="flex flex-col items-center h-screen space-y-10">
       {/* Logo */}
@@ -89,4 +89,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Access;
