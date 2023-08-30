@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import CartItem from "../../components/Cards/CartItem";
+import CartItem from "../../components/cards/CartItem";
 
 export default function Cart() {
   return (

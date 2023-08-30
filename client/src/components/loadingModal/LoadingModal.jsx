@@ -10,7 +10,7 @@ const LoadingModal = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen absolute top-0 flex justify-center items-center bg-white z-200">
+    <div className="w-full h-screen absolute top-0 flex justify-center items-center bg-white z-50">
       <Image
         className="w-32"
         data-aos="zoom-in"

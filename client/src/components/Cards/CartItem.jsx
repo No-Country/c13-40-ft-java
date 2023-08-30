@@ -1,4 +1,4 @@
-import QuantityButtons from "../Buttons/QuantityButtons";
+import QuantityButtons from "../buttons/QuantityButtons";
 
 // nombres de props de ejemplo
 function CartItem({

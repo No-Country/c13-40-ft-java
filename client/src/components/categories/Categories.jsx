@@ -1,9 +1,9 @@
-import CardCategories from "../../components/Cards/CardCategories";
+import CardCategories from "../cards/CardCategories";
 
 export default function Categories() {
   return (
-    <section className="w-full flex flex-col items-center mb-12">
-      <h2 className="text-3xl">Explore by Category</h2>
+    <section className="w-full flex flex-col items-center my-12">
+      <h2 className="text-2xl font-bold">Explore by Category</h2>
 
       {/* imagenes solo de prueba */}
       <div className="w-full flex flex-col lg:w-auto lg:flex-row lg:gap-5 items-center">

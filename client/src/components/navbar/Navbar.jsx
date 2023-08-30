@@ -30,13 +30,6 @@ const Navbar = () => {
       ),
     },
     {
-      name: "Categories",
-      link: "/categories",
-      icon: (
-        <BiSolidCategory className="text-base mr-2 cursor-pointer" />
-      ),
-    },
-    {
       name: "Favorites",
       link: "/favorites",
       icon: <MdFavorite className="text-base mr-2 cursor-pointer" />,
@@ -56,8 +49,8 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="w-full relative">
-      <div className="sticky h-20 w-full bg-primary flex justify-between items-center p-4">
+    <div className="w-full sticky top-0 z-40">
+      <div className="h-20 w-full bg-primary flex justify-between items-center p-4">
         <Image
           className="hidden md:block"
           src="/logo.svg"
