@@ -3,20 +3,20 @@ import Link from "next/link";
 import Logo from "public/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 
-const Login = () => {
+const Access = () => {
   return (
-    <main className="flex flex-col items-center h-screen space-y-10">
+    <main className="flex flex-col items-center h-full space-y-10">
       {/* Logo */}
       <div
         style={{
           width: "80vw",
-          maxWidth: "200px",
+          maxWidth: "240px",
           height: "80vw",
-          maxHeight: "200px",
+          maxHeight: "240px",
           borderRadius: "50%",
           margin: "50px 0",
         }}
-        className="bg-primary"
+        className="bg-primary flex items-center justify-center"
       >
         <Image
           src={Logo}
@@ -24,11 +24,10 @@ const Login = () => {
           quality={100}
           className="overflow-visible"
           style={{
-            transform: "scale(1.2)",
             width: "80vw",
-            maxWidth: "200px",
+            maxWidth: "300px",
             height: "80vw",
-            maxHeight: "200px",
+            maxHeight: "300px",
           }}
         />
       </div>
@@ -36,7 +35,7 @@ const Login = () => {
       {/* Login */}
       <div className="flex justify-around w-full">
         <Link
-          href="/login/login2"
+          href="/access/login"
           style={{
             width: "156px",
             height: "38px",
@@ -48,7 +47,7 @@ const Login = () => {
 
         {/* Signup */}
         <Link
-          href="/login/signup"
+          href="/access/register"
           style={{
             width: "156px",
             height: "38px",
@@ -66,11 +65,10 @@ const Login = () => {
         <Link
           href="/"
           style={{
-            borderColor: "#49454F",
             width: "292px",
             height: "41px",
           }}
-          className="flex items-center justify-start button border border-2 rounded-md px-4 space-x-6"
+          className="flex items-center justify-start button border border-2 rounded-md px-4 space-x-6 border-sixth"
         >
           <FcGoogle
             style={{
@@ -89,4 +87,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Access;
