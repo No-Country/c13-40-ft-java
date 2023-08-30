@@ -8,14 +8,14 @@ function QuantityButtons() {
         <button>
           <IoIosRemove
             className="cursor-pointer hover:text-amber-700"
-            size="23px"
+            size="20px"
           />
         </button>
         <span className="text-xl"> 1 </span>
         <button>
           <IoIosAdd
             className="cursor-pointer hover:text-amber-700"
-            size="23px"
+            size="20px"
           />
         </button>
       </div>

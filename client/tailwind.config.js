@@ -32,6 +32,11 @@ module.exports = {
           DEFAULT: "#D7B39C",
         },
       },
+      fontFamily: {
+        ADLaMDisplay: ["ADLaM DisplaY", "sans-serif"],
+        Lusitana: ["Lusitana", "serif"],
+        ArchivoBlack: ["Archivo Black", "sans-serif"],
+      },
     },
   },
   plugins: [],
