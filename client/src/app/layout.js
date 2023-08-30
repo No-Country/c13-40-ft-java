@@ -1,10 +1,10 @@
 import "./globals.css";
 import { Roboto } from "next/font/google";
-import ContextProvider from "../context/ComfyContext";
 
 // Components
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
+import ContextProvider from "@/context/ComfyContext";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 
