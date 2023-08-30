@@ -10,13 +10,13 @@ const Access = () => {
       <div
         style={{
           width: "80vw",
-          maxWidth: "200px",
+          maxWidth: "240px",
           height: "80vw",
-          maxHeight: "200px",
+          maxHeight: "240px",
           borderRadius: "50%",
           margin: "50px 0",
         }}
-        className="bg-primary"
+        className="bg-primary flex items-center justify-center"
       >
         <Image
           src={Logo}
@@ -24,11 +24,10 @@ const Access = () => {
           quality={100}
           className="overflow-visible"
           style={{
-            transform: "scale(1.2)",
             width: "80vw",
-            maxWidth: "200px",
+            maxWidth: "300px",
             height: "80vw",
-            maxHeight: "200px",
+            maxHeight: "300px",
           }}
         />
       </div>
@@ -36,7 +35,7 @@ const Access = () => {
       {/* Login */}
       <div className="flex justify-around w-full">
         <Link
-          href="/login/login2"
+          href="/access/login"
           style={{
             width: "156px",
             height: "38px",
@@ -48,7 +47,7 @@ const Access = () => {
 
         {/* Signup */}
         <Link
-          href="/login/signup"
+          href="/access/register"
           style={{
             width: "156px",
             height: "38px",
