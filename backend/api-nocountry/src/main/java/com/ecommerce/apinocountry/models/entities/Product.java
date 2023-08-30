@@ -33,22 +33,28 @@ public class Product {
     @Column(name = "price_product")
     @PositiveOrZero(message = "Product price must be zero or positive")
     private Double price;
+    
+    @Column(name = "category_id") // Esto puede variar dependiendo de tu base de datos
+    @PositiveOrZero(message = "Category ID must be zero or positive")
+    private Long categorys;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "category_id", referencedColumnName = "id_category", insertable = false, updatable = false)
+
+    @ManyToOne
+    @JoinColumn(name = "category_ide", referencedColumnName = "id_category", insertable = true, updatable = true)
     @JsonBackReference
     private Category category;
-
+    
     public Product() {
     }
 
-    public Product(Long id, String name, String description, String image, Integer stock, Double price, Category category) {
+    public Product(Long id, String name, String description, String image, Integer stock, Double price,Long categorys, Category category) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.image = image;
         this.stock = stock;
         this.price = price;
+        this.categorys = categorys;
         this.category = category;
     }
 
@@ -98,6 +104,14 @@ public class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+    
+    public Long getCategorys() {
+        return categorys;
+    }
+
+    public void setCategorys(Long categorys) {
+        this.categorys = categorys;
     }
 
     public Category getCategory() {

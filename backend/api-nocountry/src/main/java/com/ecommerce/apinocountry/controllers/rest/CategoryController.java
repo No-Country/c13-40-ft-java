@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author godoy
  */
 @RestController
-@RequestMapping("/api/v1/comfy")
+@RequestMapping("/")
 public class CategoryController {
     
      private ICategory icategoria;
@@ -61,7 +61,7 @@ public class CategoryController {
     /*
     *Endpoint to retrieve a category by its name
     */
-    @GetMapping("/namecategory/{name}")
+    @GetMapping("/namecategory/{name}") 
     public ResponseEntity<?> getCategoryByName(@PathVariable("name") String name){
         Optional<Category> category = icategoria.getCategoryByName(name);
         if(category.isPresent()){

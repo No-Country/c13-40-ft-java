@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author godoy
  */
 @RestController
-@RequestMapping("/api/v1/comfy")
+@RequestMapping("/")
 public class ProductController {
      /*
         *Dependency injection of product and category services
@@ -84,7 +85,7 @@ public class ProductController {
     /*
     * Endpoint to insert a new product
     */
-    @PostMapping("/insertProduct")
+    @PostMapping(path = "/insertProduct", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> saveProduct(@Valid @RequestBody Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             Map<String, String> errors = new HashMap<>();
