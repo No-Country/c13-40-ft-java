@@ -1,7 +1,6 @@
 package com.ecommerce.apinocountry.models.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.PositiveOrZero;
 
 import java.util.Date;
 
