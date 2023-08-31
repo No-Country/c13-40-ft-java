@@ -1,3 +1,4 @@
+import { HiOutlineTrash } from "react-icons/hi";
 import AddToCartButton from "../Buttons/AddToCartButton";
 
 // nombres de props de ejemplo
@@ -27,6 +28,12 @@ function FavoritesItem({
           </p>
           <div className="flex mt-5 sm:hidden">
             <AddToCartButton />
+            <button
+              type="button"
+              class="lg:hidden px-3 py-2.5 inline-flex justify-center items-center gap-2 rounded-lg border-2 border-red-200 font-semibold text-red-500 hover:text-white hover:bg-red-500 hover:border-red-500    transition-all text-sm "
+            >
+              <HiOutlineTrash size="22px" />
+            </button>
             {/* // Add to cart btn */}
           </div>
         </div>
@@ -34,12 +41,20 @@ function FavoritesItem({
       {/* fila cantidad oculta en mobile */}
       <td className="hidden sm:table-cell   text-center ">
         <AddToCartButton />
-        {/* // Add to cart btn */}
       </td>
       <td className="text-center">
         <span className="lg:text-xl font-medium font-ArchivoBlack">
           $149.90
         </span>
+      </td>
+
+      <td className="hidden md:table-cell text-center">
+        <button
+          type="button"
+          class="px-3 py-2.5 inline-flex justify-center items-center gap-2 rounded-lg border-2 border-red-200  text-red-500 hover:text-white hover:bg-red-500 hover:border-red-500  transition-all"
+        >
+          <HiOutlineTrash size="22px" />
+        </button>
       </td>
     </tr>
   );

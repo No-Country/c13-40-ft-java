@@ -1,4 +1,3 @@
-import CartItem from "@/components/Cards/CartItem";
 import FavoritesItem from "@/components/Cards/FavoritesItem";
 import Link from "next/link";
 import React from "react";
@@ -38,6 +37,9 @@ function Favorites() {
             </th>
             <th className="text-center text-sm opacity-60 font-semibold ">
               PRICE
+            </th>
+            <th className="hidden md:table-cell text-center text-sm opacity-60 font-semibold ">
+              REMOVE
             </th>
           </tr>
         </thead>
