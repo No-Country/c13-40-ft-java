@@ -34,13 +34,13 @@ public class Product {
     @PositiveOrZero(message = "Product price must be zero or positive")
     private Double price;
     
-    @Column(name = "category_id") // Esto puede variar dependiendo de tu base de datos
+    @Column(name = "category") // Esto puede variar dependiendo de tu base de datos
     @PositiveOrZero(message = "Category ID must be zero or positive")
     private Long categorys;
 
 
     @ManyToOne
-    @JoinColumn(name = "category_ide", referencedColumnName = "id_category", insertable = true, updatable = true)
+    @JoinColumn(name = "category_id", referencedColumnName = "id_category", insertable = true, updatable = true)
     @JsonBackReference
     private Category category;
     
