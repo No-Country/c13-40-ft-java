@@ -1,6 +1,7 @@
 package com.ecommerce.apinocountry.models.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.PositiveOrZero;
 
 import java.util.Date;
 
@@ -17,12 +18,24 @@ public class User {
     private String email;
     private String country;
     private String password;
+    
 
     @ManyToOne
     private Role role;
 
     public User(){
 
+    }
+
+    public User(Long id, String firstName, String lastName, Date birthDate, String email, String country, String password, Role role) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.email = email;
+        this.country = country;
+        this.password = password;
+        this.role = role;
     }
 
     public Role getRole() {
@@ -88,8 +101,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
 
 }

@@ -1,5 +1,6 @@
 package com.ecommerce.apinocountry.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,10 +17,17 @@ public class Role {
     private String name;
 
     @OneToMany(mappedBy = "role")
-    List<User> users;
+     List<User> users;
 
     public Role(){
 
+    }
+
+    public Role(Long id, String description, String name, List<User> users) {
+        this.id = id;
+        this.description = description;
+        this.name = name;
+        this.users = users;
     }
 
     public List<User> getUsers() {

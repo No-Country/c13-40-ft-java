@@ -11,7 +11,7 @@ public interface IProduct {
     List<Product> listProducts();
     Optional<Product> getProduct(Long id);
     Optional<Product> getProductByName(String name);
-    Product inserProduct(Product product);
+    public Product inserProduct(Product product);
     Product updateProduct(Product product);
     void deleteProduct(Long id);
 }

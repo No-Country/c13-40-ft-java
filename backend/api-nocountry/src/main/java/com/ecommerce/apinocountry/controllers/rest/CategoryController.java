@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +26,8 @@ import org.springframework.web.bind.annotation.RestController;
  * @author godoy
  */
 @RestController
-@RequestMapping("/api/v1/comfy")
+@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/")
 public class CategoryController {
     
      private ICategory icategoria;
@@ -61,7 +63,7 @@ public class CategoryController {
     /*
     *Endpoint to retrieve a category by its name
     */
-    @GetMapping("/namecategory/{name}")
+    @GetMapping("/namecategory/{name}") 
     public ResponseEntity<?> getCategoryByName(@PathVariable("name") String name){
         Optional<Category> category = icategoria.getCategoryByName(name);
         if(category.isPresent()){

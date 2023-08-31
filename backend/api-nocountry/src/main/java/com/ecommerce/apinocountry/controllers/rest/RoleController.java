@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/comfy")
+@RequestMapping("/")
 public class RoleController {
     private final RoleService roleService;
 
@@ -18,12 +18,12 @@ public class RoleController {
     }
 
 
-    @GetMapping()
+    @GetMapping("/roles")
     public List<Role> getAllRoles() {
         return roleService.getAllRoles();
     }
 
-    @PostMapping()
+    @PostMapping("/insertRole")
     public Role createRole(@RequestBody Role role){
         return roleService.saverRole(role);
     }
