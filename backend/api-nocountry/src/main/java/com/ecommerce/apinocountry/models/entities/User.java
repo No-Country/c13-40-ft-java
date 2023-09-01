@@ -1,11 +1,13 @@
 package com.ecommerce.apinocountry.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.PositiveOrZero;
 
 import java.util.Date;
 
 @Entity
-@Table(name = "users")
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,16 +19,19 @@ public class User {
     private String email;
     private String country;
     private String password;
+    private Long rol_id;
     
 
     @ManyToOne
-    private Role role;
+    @JoinColumn(name = "rol_id", insertable = false, updatable = false)
+    @JsonBackReference
+    private Role roles;
 
     public User(){
 
     }
 
-    public User(Long id, String firstName, String lastName, Date birthDate, String email, String country, String password, Role role) {
+    public User(Long id, String firstName, String lastName, Date birthDate, String email, String country, String password, Long rol_id,Role roles) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -34,16 +39,11 @@ public class User {
         this.email = email;
         this.country = country;
         this.password = password;
-        this.role = role;
+        this.rol_id = rol_id;
+        this.roles = roles;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
+  
 
     public Long getId() {
         return id;
@@ -99,6 +99,24 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Column(name = "rol_id")
+    @PositiveOrZero(message = "rol is required")
+    public Long getRol_id() {
+        return rol_id;
+    }
+
+    public void setRol_id(Long rol_id) {
+        this.rol_id = rol_id;
+    }
+
+    
+    public Role getRoles() {
+        return roles;
+    }
+    public void setRoles(Role roles) {
+        this.roles = roles;
     }
 
 }
