@@ -72,7 +72,7 @@ const Navbar = () => {
         <Image
           className="mx-auto md:hidden"
           src="/logo.svg"
-          alt="Comfy logo"
+          alt="logo mobile"
           width={100}
           height={100}
         />

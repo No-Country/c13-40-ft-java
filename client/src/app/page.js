@@ -36,6 +36,7 @@ const Home = () => {
             src="/Garden.png"
             width={2000}
             height={500}
+            alt="portada"
           />
           <Slider />
           <Image
@@ -43,6 +44,7 @@ const Home = () => {
             src="/Divisor.png"
             width={1000}
             height={150}
+            alt="divisor"
           />
           <Categories />
           <Slider2 />
