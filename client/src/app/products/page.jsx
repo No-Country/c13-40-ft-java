@@ -1,7 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useQuery } from 'react-query' 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import getProducts from '../../services/products'
 import Image from "next/image";
 import { BiHeart } from "react-icons/bi";
 import { BiSolidHeart } from "react-icons/bi";
@@ -13,22 +15,16 @@ const Product = () => {
 
   const [like, setLike] = useState(false);
 
-  const [products, setProducts] = useState([]);
+  const queryProducts = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
+  });
+
+  console.log(queryProducts.data);
 
   useEffect(() => {
-    getProducts();
     AOS.init({ duration: 400 });
   }, []);
-
-  const getProducts = async () => {
-    const res = await fetch(
-      "https://rickandmortyapi.com/api/character"
-    );
-    const data = await res.json();
-    setProducts(data);
-    console.log(products);
-  };
-  
   
   const minus = () => {
     if (quantity > 1) {
@@ -41,14 +37,14 @@ const Product = () => {
   };
 
   return (
-    <div className="w-full mt-12 flex justify-start md:items-center flex-col px-6 my-12">
-      {/* {products.map((product) => (
-        <div key={product.id} className="w-full md:w-5/12">
+    <div className="w-full min-h-screen mt-12 flex justify-start md:items-center flex-col px-6 my-12">
+      {queryProducts?.data?.map((product) => (
+        <div key={product.id} className="w-full md:w-5/12 mb-12">
           <h1 className="text-xl md:text-2xl font-thin">{product.name}</h1>
           <div className="relative w-9/12 md:w-full mx-auto mt-8">
             <Image
-              className="w-full rounded-md"
-              src={`data:image/png;base64,${product.image}`}
+              className="w-full h-96 object-cover rounded-md"
+              src={product.image}
               width={1000}
               height={1000}
               alt={product.name}
@@ -113,7 +109,7 @@ const Product = () => {
             </div>
           </div>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };
