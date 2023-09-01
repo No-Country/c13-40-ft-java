@@ -14,8 +14,6 @@ module.exports = {
       },
       colors: {
         important: "#FF0000D6",
-        footer2: "#f3f6f5",
-        footer1: "#07484a",
         primary: {
           DEFAULT: "#CDA083",
         },
@@ -30,6 +28,9 @@ module.exports = {
         },
         fifth: {
           DEFAULT: "#D7B39C",
+        },
+        sixth: {
+          DEFAULT: "#49454F",
         },
       },
       fontFamily: {
