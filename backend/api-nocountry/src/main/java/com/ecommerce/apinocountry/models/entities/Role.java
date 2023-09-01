@@ -1,12 +1,13 @@
 package com.ecommerce.apinocountry.models.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "rol")
 public class Role {
 
     @Id
@@ -16,8 +17,9 @@ public class Role {
     private String description;
     private String name;
 
-    @OneToMany(mappedBy = "role")
-     List<User> users;
+    @OneToMany(mappedBy = "roles", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<User> users;
 
     public Role(){
 
