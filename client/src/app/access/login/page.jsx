@@ -1,5 +1,7 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/logo.svg";
@@ -9,6 +11,10 @@ import { IoMdLock } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
 
 const Login = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,7 +25,7 @@ const Login = () => {
   };
 
   return (
-    <main className="flex flex-col items-center h-full">
+    <main data-aos="fade" className="flex flex-col items-center h-full">
       {/* Logo */}
       <Image
         src={Logo}

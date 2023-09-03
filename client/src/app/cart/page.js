@@ -1,52 +1,19 @@
+'use client';
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Link from "next/link";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import CartItem from "../../components/cards/CartItem";
 
 export default function Cart() {
-  const product = [
-    {
-      id: 1,
-      name: "Producto 1",
-      description: "Descripción 1",
-      category: "Categoria",
-      price: "19.99",
-      image:
-        "https://images.unsplash.com/photo-1631125915902-?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      id: 2,
-      name: "Sofá de Tres Plazas",
-      description:
-        "Sofá elegante de tres plazas con tapizado de cuero sintético y cojines extraíbles.",
-      category: "Living",
-      price: 499.99,
-      image:
-        "https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      id: 3,
-      name: "Mesa de Centro",
-      description:
-        "Mesa de centro de vidrio templado con estructura de acero inoxidable.",
-      category: "Living",
-      price: 149.99,
-      image:
-        "https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    },
-    {
-      id: 4,
-      name: "Cama King Size",
-      description:
-        "Cama king size con cabecero de madera maciza y espacio de almacenamiento integrado.",
-      category: "BedRoom",
-      price: 799.99,
-      image:
-        "https://images.unsplash.com/photo-1631125915902-d8abe9225ff2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzB8fHByb2R1Y3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60",
-    },
-    // Simulando un mock
-  ];
+
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []);
+
   return (
-    <section className="flex flex-col w-full mb-6">
+    <section data-aos='fade' className="flex flex-col w-full mb-6">
       <div className="flex flex-col justify-center xl:mx-7  items-center w-full mt-10 mb-10">
         <p className="text-5xl font-ArchivoBlack  font-extrabold">YOUR CART</p>
         <div className="flex items-center">
