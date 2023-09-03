@@ -61,7 +61,7 @@ const Navbar = () => {
           onClick={() => setOpen(!open)}
           className="text-2xl text-black cursor-pointer md:hidden"
         />
-        <div className="hidden md:block flex justify-center items center text-black font-bold">
+        <div className="hidden md:flex justify-center items center text-black font-bold">
           {links.map((l) => (
             <Link
               key={l.name}
