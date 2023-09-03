@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -8,8 +8,15 @@ import Logo from "public/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 
 const Access = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
-    <main className="flex flex-col items-center h-full space-y-10">
+    <main
+      data-aos="fade"
+      className="flex flex-col items-center h-full space-y-10"
+    >
       {/* Logo */}
       <div
         style={{

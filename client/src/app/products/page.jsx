@@ -9,7 +9,8 @@ import { BiHeart } from "react-icons/bi";
 import { BiSolidHeart } from "react-icons/bi";
 import { FaTruck } from "react-icons/fa";
 
-const Product = () => {
+const Products = () => {
+  
   const [quantity, setQuantity] = useState(1);
 
   const [like, setLike] = useState(false);
@@ -116,4 +117,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Products;

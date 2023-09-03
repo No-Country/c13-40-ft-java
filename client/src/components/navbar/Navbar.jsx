@@ -100,10 +100,10 @@ const Navbar = () => {
                 }}
               >
                 <MenuList>
-                  <Link href="/login">
+                  <Link href="/access/login">
                     <MenuItem>Login</MenuItem>
                   </Link>
-                  <Link href="/register">
+                  <Link href="/access/register">
                     <MenuItem>Register</MenuItem>
                   </Link>
                 </MenuList>
