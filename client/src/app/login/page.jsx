@@ -1,11 +1,20 @@
+'use client';
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []);
+
   return (
-    <main className="flex flex-col items-center h-screen space-y-10">
+    <main data-aos="fade" className="flex flex-col items-center h-screen space-y-10">
       {/* Logo */}
       <div
         style={{

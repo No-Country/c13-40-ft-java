@@ -6,15 +6,18 @@ import { MdShoppingCart } from "react-icons/md";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { AiFillHome } from "react-icons/ai";
 import { BiSolidStore } from "react-icons/bi";
-import { BiSolidCategory } from "react-icons/bi";
 import { MdFavorite } from "react-icons/md";
 import { HiInformationCircle } from "react-icons/hi";
 import { AiFillMessage } from "react-icons/ai";
+import Paper from "@mui/material/Paper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
   const [open, setOpen] = useState(true);
+  const [access, setAccess] = useState(false);
 
   const links = [
     {
@@ -78,8 +81,35 @@ const Navbar = () => {
         />
         <div className="flex justify-center items-center">
           <ImSearch className="text-xl text-black cursor-pointer" />
-          <MdShoppingCart className="text-2xl mx-1 text-black cursor-pointer" />
-          <HiOutlineUserCircle className="text-2xl text-black cursor-pointer" />
+          <Link href="/cart">
+            <MdShoppingCart className="text-2xl mx-1 text-black cursor-pointer" />
+          </Link>
+          <div className="relative">
+            <HiOutlineUserCircle
+              onClick={() => setAccess(!access)}
+              className="text-2xl text-black cursor-pointer"
+            />
+            {access && (
+              <Paper
+                sx={{
+                  position: "absolute",
+                  top: "10",
+                  marginTop: "0.3rem",
+                  marginRight: "0.2rem",
+                  marginLeft: "-4rem",
+                }}
+              >
+                <MenuList>
+                  <Link href="/login">
+                    <MenuItem>Login</MenuItem>
+                  </Link>
+                  <Link href="/register">
+                    <MenuItem>Register</MenuItem>
+                  </Link>
+                </MenuList>
+              </Paper>
+            )}
+          </div>
         </div>
       </div>
       <div

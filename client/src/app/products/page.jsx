@@ -1,16 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useQuery } from 'react-query' 
+import { useQuery } from "react-query";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import getProducts from '../../services/products'
+import getProducts from "../../services/products";
 import Image from "next/image";
 import { BiHeart } from "react-icons/bi";
 import { BiSolidHeart } from "react-icons/bi";
 import { FaTruck } from "react-icons/fa";
 
 const Product = () => {
-  
   const [quantity, setQuantity] = useState(1);
 
   const [like, setLike] = useState(false);
@@ -25,7 +24,7 @@ const Product = () => {
   useEffect(() => {
     AOS.init({ duration: 400 });
   }, []);
-  
+
   const minus = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -37,7 +36,10 @@ const Product = () => {
   };
 
   return (
-    <div className="w-full min-h-screen mt-12 flex justify-start md:items-center flex-col px-6 my-12">
+    <div
+      data-aos="fade"
+      className="w-full min-h-screen mt-12 flex justify-start md:items-center flex-col px-6 my-12"
+    >
       {queryProducts?.data?.map((product) => (
         <div key={product.id} className="w-full md:w-5/12 mb-12">
           <h1 className="text-xl md:text-2xl font-thin">{product.name}</h1>
