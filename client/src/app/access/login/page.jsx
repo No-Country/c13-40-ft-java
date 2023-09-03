@@ -25,15 +25,21 @@ const Login = () => {
         src={Logo}
         alt="Comfy logo"
         quality={100}
-        className="mt-24 mb-16 max-w-xs max-w-[300px] w-[80vw] xl:max-w-[551px]"
+        className="mt-24 mb-16 w-[300px] h-[88px] xl:w-[551px] xl:h-[161px]"
       />
 
-      <div className="flex flex-col items-center justify-center w-[557px] h-[594px] border-[6px] border-fifth rounded-[20px]">
+      <div className="flex flex-col items-center w-full xl:w-[557px] xl:h-[594px] xl:border-[6px] border-fifth rounded-[20px]">
         {/* Form */}
-        <form onSubmit={handleSubmit} className="overflow-visible w-[500px]">
+        <form
+          onSubmit={handleSubmit}
+          className="overflow-visible w-[325px] xl:w-[500px]"
+        >
           {/* Email */}
-          <div className="flex items-center mb-6">
-            <label htmlFor="email" className="mr-6 text-[40px] text-sixth">
+          <div className="flex items-center mb-6 xl:mt-14">
+            <label
+              htmlFor="email"
+              className="mr-2 text-[34px] text-sixth xl:mr-6 xl:text-[40px]"
+            >
               <MdAlternateEmail />
             </label>
             <input
@@ -42,15 +48,18 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              className="border border-2 border-primary rounded-md outline-none px-4 py-2 w-[413px] h-[63px] text-[20px] text-sixth"
+              className="border border-2 border-primary xl:border-fourth rounded-md outline-none px-4 py-2 w-[269px] xl:w-[413px] xl:h-[63px] xl:text-[20px] text-sixth"
             />
           </div>
           {/* Password */}
-          <div className="flex items-center mb-4">
-            <label htmlFor="password" className="mr-6 text-[40px] text-sixth">
+          <div className="flex items-center mb-4 xl:mb-10">
+            <label
+              htmlFor="password"
+              className="mr-2 text-[34px] text-sixth xl:mr-6 xl:text-[40px]"
+            >
               <IoMdLock />
             </label>
-            <div className="border border-2 border-primary rounded-md pl-4 pr-2 py-2 flex items-center justify-between w-[413px] h-[63px] text-[20px] text-sixth">
+            <div className="border border-2 border-primary xl:border-fourth rounded-md pl-4 pr-2 py-2 w-[269px] flex items-center justify-between xl:w-[413px] xl:h-[63px] xl:text-[20px] text-sixth">
               <input
                 type="password"
                 id="password"
@@ -59,26 +68,26 @@ const Login = () => {
                 placeholder="Password"
                 className="w-full mr-2 outline-none"
               />
-              <span>
+              <span className="xl:text-[27px]">
                 <LuEye />
               </span>
             </div>
           </div>
           {/* Forgot Password */}
-          <div className="font-medium text-important text-xs underline mb-4 mx-auto pl-4">
+          <div className="font-medium text-important text-xs xl:text-[14px] xl:font-normal underline mb-4 xl:mb-8 mx-auto pl-4">
             <Link href="/">Forgot your password?</Link>
           </div>
           {/* Submit */}
-          <div>
+          <div className="xl:w-[477px]">
             <button
               type="submit"
-              className="button bg-secondary border rounded-md font-bold flex items-center justify-center ml-auto w-[156px] h-[38px]"
+              className="button bg-secondary border rounded-md font-bold flex items-center justify-center ml-auto w-[156px] h-[38px] xl:mb-4"
             >
               Continue
             </button>
           </div>
         </form>
-        <hr className="mt-12 border border-fifth w-full" />
+        <hr className="mt-12 border-t border-fifth w-full xl:w-[478.5px] xl:border-secondary" />
         {/* Google */}
         <div className="mt-12">
           <Link
@@ -90,7 +99,10 @@ const Login = () => {
           </Link>
         </div>
         {/* Guest */}
-        <Link href="/" className="font-medium text-secondary text-xs mt-6">
+        <Link
+          href="/"
+          className="font-medium text-secondary text-xs mt-6 xl:text-[16px]"
+        >
           ¿No tienes cuenta? <span className="underline">Regístrate</span>
         </Link>
       </div>

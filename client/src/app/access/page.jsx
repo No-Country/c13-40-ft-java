@@ -12,7 +12,7 @@ const Access = () => {
           src={Logo}
           alt="Comfy logo"
           quality={100}
-          className="overflow-visible w-[80vw] max-w-[300px] h-[80vw] max-h-[300px]"
+          className="overflow-visible w-[90vw] max-w-[300px] h-[88px]"
         />
       </div>
 
