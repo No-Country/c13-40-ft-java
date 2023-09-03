@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/logo2.svg";
@@ -20,10 +21,12 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
+  // const router = useRouter();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    return;
-    // Handle form submission logic here
+    // Perform form submission logic
+    router.push("/access/login"); // Navigate to the login page
   };
 
   return (
@@ -33,27 +36,20 @@ const Register = () => {
         src={Logo}
         alt="Comfy logo"
         quality={100}
-        style={{
-          width: "80vw",
-          maxWidth: "300px",
-          height: "100px",
-        }}
-        className="mt-24 mb-16"
+        className="mt-24 mb-16 w-[80vw] max-w-[300px] h-[100px]"
       />
 
       {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="overflow-visible text-sixth"
-        style={{ width: "335px" }}
+        className="overflow-visible text-sixth w-[335px]"
       >
         <div className="flex justify-between mb-5">
           {/* Name */}
           <div className="relative">
             <label
               htmlFor="name"
-              className="absolute bg-white w-10 text-center text-xs"
-              style={{ top: "-7px", left: "10px" }}
+              className="absolute bg-white w-10 text-center text-xs top-[-7px] left-[10px]"
             >
               Name
             </label>
@@ -62,16 +58,14 @@ const Register = () => {
               id="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              style={{ width: "162px", height: "41px" }}
-              className="outline-none border border-2 border-sixth rounded-md px-1"
+              className="outline-none border border-2 border-sixth rounded-md px-1 w-[162px] h-[41px]"
             />
           </div>
           {/* Last Name */}
           <div className="relative">
             <label
               htmlFor="lastName"
-              className="absolute bg-white w-16 text-center text-xs"
-              style={{ top: "-7px", left: "10px" }}
+              className="absolute bg-white w-16 text-center text-xs top-[-7px] left-[10px]"
             >
               Last Name
             </label>
@@ -80,8 +74,7 @@ const Register = () => {
               id="lastName"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              style={{ width: "162px", height: "41px" }}
-              className="outline-none border border-2 border-sixth rounded-md px-1"
+              className="outline-none border border-2 border-sixth rounded-md px-1 w-[162px] h-[41px]"
             />
           </div>
         </div>
@@ -91,15 +84,11 @@ const Register = () => {
           <div className="relative">
             <label
               htmlFor="email"
-              className="absolute bg-white w-9 text-center text-xs"
-              style={{ top: "-7px", left: "10px" }}
+              className="absolute bg-white w-9 text-center text-xs top-[-7px] left-[10px]"
             >
               E-mail
             </label>
-            <div
-              className="flex border border-2 border-sixth rounded-md"
-              style={{ width: "231px", height: "41px" }}
-            >
+            <div className="flex border border-2 border-sixth rounded-md w-[231px] h-[41px]">
               <span className="flex items-center mx-1">
                 <MdAlternateEmail />
               </span>
@@ -116,8 +105,7 @@ const Register = () => {
           <div className="relative">
             <label
               htmlFor="birthdate"
-              className="absolute bg-white w-16 text-center text-xs"
-              style={{ top: "-7px", left: "14px" }}
+              className="absolute bg-white w-16 text-center text-xs top-[-7px] left-[14px]"
             >
               Birth Date
             </label>
@@ -126,8 +114,7 @@ const Register = () => {
               id="birthdate"
               value={birthdate}
               onChange={(e) => setBirthdate(e.target.value)}
-              style={{ width: "91px", height: "41px" }}
-              className="outline-none border border-2 border-sixth rounded-md px-1"
+              className="outline-none border border-2 border-sixth rounded-md px-1 w-[91px] h-[41px]"
             />
           </div>
         </div>
@@ -137,8 +124,7 @@ const Register = () => {
           <div className="relative">
             <label
               htmlFor="country"
-              className="absolute bg-white w-12 text-center text-xs"
-              style={{ top: "-7px", left: "10px" }}
+              className="absolute bg-white w-12 text-center text-xs top-[-7px] left-[10px]"
             >
               Country
             </label>
@@ -147,8 +133,7 @@ const Register = () => {
               id="country"
               value={country}
               onChange={(e) => setCountry(e.target.value)}
-              style={{ width: "126px", height: "41px" }}
-              className="outline-none border border-2 border-sixth rounded-md px-1"
+              className="outline-none border border-2 border-sixth rounded-md px-1 w-[126px] h-[41px]"
             />
           </div>
 
@@ -156,15 +141,11 @@ const Register = () => {
           <div className="relative">
             <label
               htmlFor="numberCode"
-              className="absolute bg-white w-12 text-center text-xs"
-              style={{ top: "-8px", left: "10px", height: "13px" }}
+              className="absolute bg-white w-12 text-center text-xs top-[-8px] left-[10px] h-[13px]"
             >
               Number
             </label>
-            <div
-              className="flex border border-2 border-sixth rounded-md"
-              style={{ width: "186px", height: "41px" }}
-            >
+            <div className="flex border border-2 border-sixth rounded-md w-[186px] h-[41px]">
               <span className="flex items-center">
                 <AiOutlinePlus />
               </span>
@@ -173,16 +154,14 @@ const Register = () => {
                 id="numberCode"
                 value={numberCode}
                 onChange={(e) => setNumberCode(e.target.value)}
-                className="outline-none border-r border-sixth"
-                style={{ width: "20px" }}
+                className="outline-none border-r border-sixth w-[20px]"
               />
               <input
                 type="number"
                 id="number"
                 value={number}
                 onChange={(e) => setNumber(e.target.value)}
-                className="outline-none pl-1"
-                style={{ width: "140px" }}
+                className="outline-none pl-1 w-[140px]"
               />
             </div>
           </div>
@@ -192,15 +171,11 @@ const Register = () => {
         <div className="relative mb-5">
           <label
             htmlFor="password"
-            className="absolute bg-white w-14 text-center text-xs"
-            style={{ top: "-7.5px", left: "10px" }}
+            className="absolute bg-white w-14 text-center text-xs top-[-7.5px] left-[10px]"
           >
             Password
           </label>
-          <div
-            className="flex justify-between border border-2 border-sixth rounded-md"
-            style={{ width: "231px", height: "41px" }}
-          >
+          <div className="flex justify-between border border-2 border-sixth rounded-md w-[231px] h-[41px]">
             <span className="flex items-center mx-1">
               <IoMdLock />
             </span>
@@ -221,15 +196,11 @@ const Register = () => {
         <div className="relative mb-5">
           <label
             htmlFor="confirmPassword"
-            className="absolute bg-white w-26 text-center text-xs"
-            style={{ top: "-7.5px", left: "10px" }}
+            className="absolute bg-white w-26 text-center text-xs top-[-7.5px] left-[10px]"
           >
             Confirm Password
           </label>
-          <div
-            className="flex justify-between border border-2 border-sixth rounded-md"
-            style={{ width: "231px", height: "41px" }}
-          >
+          <div className="flex justify-between border border-2 border-sixth rounded-md w-[231px] h-[41px]">
             <span className="flex items-center mx-1">
               <IoMdLock />
             </span>
@@ -250,11 +221,7 @@ const Register = () => {
         <div>
           <button
             type="submit"
-            style={{
-              width: "156px",
-              height: "38px",
-            }}
-            className="button bg-secondary border rounded-md font-bold flex items-center justify-center ml-auto text-black"
+            className="button bg-secondary border rounded-md font-bold flex items-center justify-center ml-auto text-black w-[156px] h-[38px]"
           >
             Continue
           </button>
@@ -267,17 +234,9 @@ const Register = () => {
       <div className="mt-12">
         <Link
           href="/"
-          style={{
-            width: "292px",
-            height: "41px",
-          }}
-          className="flex items-center justify-start button border border-sixth border-2 rounded-md px-4 space-x-6"
+          className="flex items-center justify-start button border border-sixth border-2 rounded-md px-4 space-x-6 w-[292px] h-[41px]"
         >
-          <FcGoogle
-            style={{
-              fontSize: "33px",
-            }}
-          />
+          <FcGoogle className="text-[33px]" />
           <p>Continuar con Google</p>
         </Link>
       </div>

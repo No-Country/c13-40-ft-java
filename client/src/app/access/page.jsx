@@ -7,40 +7,20 @@ const Access = () => {
   return (
     <main className="flex flex-col items-center h-full space-y-10">
       {/* Logo */}
-      <div
-        style={{
-          width: "80vw",
-          maxWidth: "240px",
-          height: "80vw",
-          maxHeight: "240px",
-          borderRadius: "50%",
-          margin: "50px 0",
-        }}
-        className="bg-primary flex items-center justify-center"
-      >
+      <div className="bg-primary flex items-center justify-center w-[80vw] max-w-[240px] h-[80vw] max-h-[240px] rounded-[50%] my-[50px]">
         <Image
           src={Logo}
           alt="Comfy logo"
           quality={100}
-          className="overflow-visible"
-          style={{
-            width: "80vw",
-            maxWidth: "300px",
-            height: "80vw",
-            maxHeight: "300px",
-          }}
+          className="overflow-visible w-[80vw] max-w-[300px] h-[80vw] max-h-[300px]"
         />
       </div>
 
       {/* Login */}
-      <div className="flex justify-around w-full">
+      <div className="flex justify-around w-full max-w-[360px]">
         <Link
           href="/access/login"
-          style={{
-            width: "156px",
-            height: "38px",
-          }}
-          className="button bg-secondary border rounded-md font-bold flex items-center justify-center"
+          className="button bg-secondary border rounded-md font-bold flex items-center justify-center w-[156px] h-[38px]"
         >
           Login
         </Link>
@@ -48,11 +28,7 @@ const Access = () => {
         {/* Signup */}
         <Link
           href="/access/register"
-          style={{
-            width: "156px",
-            height: "38px",
-          }}
-          className="button border-secondary border-2 rounded-md flex items-center justify-center"
+          className="button border-secondary border-2 rounded-md flex items-center justify-center w-[156px] h-[38px]"
         >
           Sign Up
         </Link>
@@ -64,17 +40,9 @@ const Access = () => {
       <div>
         <Link
           href="/"
-          style={{
-            width: "292px",
-            height: "41px",
-          }}
-          className="flex items-center justify-start button border border-2 rounded-md px-4 space-x-6 border-sixth"
+          className="flex items-center justify-start button border border-2 rounded-md px-4 space-x-6 border-sixth w-[292px] h-[41px]"
         >
-          <FcGoogle
-            style={{
-              fontSize: "33px",
-            }}
-          />
+          <FcGoogle className="text-[33px]" />
           <p>Continuar con Google</p>
         </Link>
       </div>
