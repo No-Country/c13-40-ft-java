@@ -9,7 +9,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./src/main
+        
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
