@@ -50,4 +50,4 @@ jobs:
           app-name: 'comfy-nocountry'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0FE5F5EC34174EF784B07C4FFDFD1A8F }}
-          package: '*.war'
+          package: '*.jar'
