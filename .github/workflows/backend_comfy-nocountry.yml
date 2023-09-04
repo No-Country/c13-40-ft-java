@@ -21,9 +21,6 @@ jobs:
       - name: Debug
         run: pwd  # Imprime el directorio actual para depuración
 
-     - name: List files in current directory
-        run: ls -al
-
 
       - name: Build with Maven
         run: mvn clean install
