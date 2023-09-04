@@ -7,7 +7,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 import java.util.Date;
 
 @Entity
-@Table(name = "users") 
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
