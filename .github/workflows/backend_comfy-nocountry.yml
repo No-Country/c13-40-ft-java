@@ -11,19 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
           java-version: '17'
 
-      - name: Debug
-        run: pwd  # Imprime el directorio actual para depuración
-
-
       - name: Build with Maven
-        run: mvn clean install
+        run: |
+          mvn clean install
+          # Asegúrate de que se genera el archivo WAR correctamente
+          ls -R target/
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
