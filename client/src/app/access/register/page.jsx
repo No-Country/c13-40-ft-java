@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,22 +12,28 @@ import { LuEye } from "react-icons/lu";
 import { AiOutlinePlus } from "react-icons/ai";
 
 const Register = () => {
-  const [name, setName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthdate, setBirthdate] = useState("");
-  const [country, setCountry] = useState("");
-  const [numberCode, setNumberCode] = useState("");
-  const [number, setNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [user, setUser] = useState({
+    name: "",
+    lastName: "",
+    email: "",
+    birthDate: "",
+    country: "",
+    numberCode: "",
+    number: "",
+    password: "",
+    confirmPassword: "",
+  });
 
   // const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Perform form submission logic
-    router.push("/access/login"); // Navigate to the login page
+    axios
+      .post("/users", user)
+      .then(() => alert("You have registered!"))
+      .catch(() => alert("An error has occured"));
+    // Testing required
+    // router.push("/access/login"); // Navigate to the login page
   };
 
   return (
@@ -57,8 +64,8 @@ const Register = () => {
               <input
                 type="text"
                 id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={user.name}
+                onChange={(e) => setUser({ ...user, name: e.target.value })}
                 className="outline-none border border-2 border-sixth rounded-md px-1 w-[162px] h-[41px] xl:w-[256px] xl:mr-3"
               />
             </div>
@@ -73,8 +80,8 @@ const Register = () => {
               <input
                 type="text"
                 id="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                value={user.lastName}
+                onChange={(e) => setUser({ ...user, lastName: e.target.value })}
                 className="outline-none border border-2 border-sixth rounded-md px-1 w-[162px] h-[41px] xl:w-[256px]"
               />
             </div>
@@ -96,8 +103,8 @@ const Register = () => {
                 <input
                   type="email"
                   id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={user.email}
+                  onChange={(e) => setUser({ ...user, email: e.target.value })}
                   className="outline-none w-full mr-1 xl:px-1"
                 />
               </div>
@@ -105,16 +112,18 @@ const Register = () => {
             {/* Birth date */}
             <div className="relative">
               <label
-                htmlFor="birthdate"
+                htmlFor="birthDate"
                 className="absolute bg-white w-16 text-center text-xs top-[-7px] left-[14px] xl:w-[70px] xl:text-sm xl:h-[16px]"
               >
                 Birth Date
               </label>
               <input
                 type="text"
-                id="birthdate"
-                value={birthdate}
-                onChange={(e) => setBirthdate(e.target.value)}
+                id="birthDate"
+                value={user.birthDate}
+                onChange={(e) =>
+                  setUser({ ...user, birthDate: e.target.value })
+                }
                 className="outline-none border border-2 border-sixth rounded-md px-1 w-[91px] h-[41px] xl:w-[143px]"
               />
             </div>
@@ -132,8 +141,8 @@ const Register = () => {
               <input
                 type="text"
                 id="country"
-                value={country}
-                onChange={(e) => setCountry(e.target.value)}
+                value={user.country}
+                onChange={(e) => setUser({ ...user, country: e.target.value })}
                 className="outline-none border border-2 border-sixth rounded-md px-1 w-[126px] h-[41px] xl:w-[206px] xl:mr-3"
               />
             </div>
@@ -153,15 +162,17 @@ const Register = () => {
                 <input
                   type="number"
                   id="numberCode"
-                  value={numberCode}
-                  onChange={(e) => setNumberCode(e.target.value)}
+                  value={user.numberCode}
+                  onChange={(e) =>
+                    setUser({ ...user, numberCode: e.target.value })
+                  }
                   className="outline-none border-r border-sixth w-[20px] xl:w-[40px] xl:px-1"
                 />
                 <input
                   type="number"
                   id="number"
-                  value={number}
-                  onChange={(e) => setNumber(e.target.value)}
+                  value={user.number}
+                  onChange={(e) => setUser({ ...user, number: e.target.value })}
                   className="outline-none pl-1 w-[140px] xl:w-[190px]"
                 />
               </div>
@@ -183,8 +194,8 @@ const Register = () => {
               <input
                 type="password"
                 id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={user.password}
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
                 className="outline-none xl:mx-1 xl:w-full"
               />
               <span className="flex items-center mr-1">
@@ -208,8 +219,10 @@ const Register = () => {
               <input
                 type="password"
                 id="confirmPassword"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                value={user.confirmPassword}
+                onChange={(e) =>
+                  setUser({ ...user, confirmPassword: e.target.value })
+                }
                 className="outline-none xl:mx-1 xl:w-full"
               />
               <span className="flex items-center mr-1">

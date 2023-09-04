@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/logo.svg";
@@ -9,13 +11,21 @@ import { IoMdLock } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleSubmit = (e) => {
+  // const router = useRouter();
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    return;
-    // Handle form submission logic here
+    axios
+      .post("/users", user)
+      .then(() => alert("You have logged in!"))
+      .catch(() => alert("An error has occured"));
+    // Testing required
+    // router.push("/access/login"); // Navigate to the login page
   };
 
   return (
@@ -45,8 +55,8 @@ const Login = () => {
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={user.email}
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
               placeholder="Email"
               className="border border-2 border-primary xl:border-fourth rounded-md outline-none px-4 py-2 w-[269px] xl:w-[413px] xl:h-[63px] xl:text-[20px] text-sixth"
             />
@@ -63,8 +73,8 @@ const Login = () => {
               <input
                 type="password"
                 id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                value={user.password}
+                onChange={(e) => setUser({ ...user, password: e.target.value })}
                 placeholder="Password"
                 className="w-full mr-2 outline-none"
               />
