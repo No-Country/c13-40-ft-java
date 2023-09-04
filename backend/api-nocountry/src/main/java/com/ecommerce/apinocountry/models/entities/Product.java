@@ -13,12 +13,14 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
+import org.springframework.cache.annotation.CacheConfig;
 
 /**
  * This class represents the Product entity in the database.
  */
 @Entity
 @Table(name = "product")
+@CacheConfig(cacheNames = "product-cache")
 public class Product {
     private Long id;
     private String name;
