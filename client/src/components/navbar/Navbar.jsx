@@ -99,7 +99,7 @@ const Navbar = () => {
                   marginLeft: "-4rem",
                 }}
               >
-                <MenuList>
+                <MenuList onClick={() => setAccess(!access)}>
                   <Link href="/access/login">
                     <MenuItem>Login</MenuItem>
                   </Link>
