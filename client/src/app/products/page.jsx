@@ -8,9 +8,11 @@ import Image from "next/image";
 import { BiHeart } from "react-icons/bi";
 import { BiSolidHeart } from "react-icons/bi";
 import { FaTruck } from "react-icons/fa";
+import { useContext } from "react";
+import { ComfyContext } from "@/context/ComfyContext";
 
 const Products = () => {
-  
+  const { AddToCart } = useContext(ComfyContext);
   const [quantity, setQuantity] = useState(1);
 
   const [like, setLike] = useState(false);
@@ -106,7 +108,10 @@ const Products = () => {
                   +
                 </button>
               </div>
-              <button className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 py-2 rounded-lg hover:opacity-80">
+              <button
+                onClick={() => AddToCart(product)}
+                className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 py-2 rounded-lg hover:opacity-80"
+              >
                 Añadir al carrito
               </button>
             </div>

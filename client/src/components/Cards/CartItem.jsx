@@ -18,13 +18,13 @@ function CartItem({ Name, Category, Description, Price, ImgURL }) {
           <p className="lg:text-lg mt-3 sm:mt-0"> {Category} </p>
           <p className="hidden lg:table-cell text-left mt-5">{Description}</p>
           <div className="flex mt-5 sm:hidden">
-            <QuantityButtons />
+            <QuantityButtons product={{ Name, Price }} />
           </div>
         </div>
       </td>
       {/* fila cantidad oculta en mobile */}
       <td className="hidden sm:table-cell   text-center ">
-        <QuantityButtons />
+        <QuantityButtons product={{ Name, Price }} />
       </td>
       <td className="text-center">
         <span className="lg:text-xl font-medium font-ArchivoBlack">

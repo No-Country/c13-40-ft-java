@@ -1,7 +1,10 @@
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import { FaTrash } from "react-icons/fa";
+import { useContext } from "react";
+import { ComfyContext } from "@/context/ComfyContext";
 
-function QuantityButtons() {
+function QuantityButtons({ product }) {
+  const { RemoveFromCart } = useContext(ComfyContext);
   return (
     <div className=" flex items-center justify-center sm:mx-10">
       <div className="bg-orange-100 flex items-center justify-center gap-3 sm:gap-5 sm:h-10 w-28 sm:w-32 text-zinc-600  border border-zinc-950 ">
@@ -19,10 +22,11 @@ function QuantityButtons() {
           />
         </button>
       </div>
-      {/* <FaTrash
-        className=" ml-1 cursor-pointer hover:text-red-600 duration-300"
+      <FaTrash
+        onClick={() => RemoveFromCart(product)}
+        className=" ml-1 cursor-pointer hover:text-orange-900 duration-300"
         size="22px"
-      /> */}
+      />
     </div>
   );
 }
