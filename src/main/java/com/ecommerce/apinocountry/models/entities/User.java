@@ -15,9 +15,7 @@ public class User {
 
     private String firstName;
     private String lastName;
-    private Date birthDate;
     private String email;
-    private String country;
     private String password;
     private Long rol_id;
     
@@ -31,13 +29,11 @@ public class User {
 
     }
 
-    public User(Long id, String firstName, String lastName, Date birthDate, String email, String country, String password, Long rol_id,Role roles) {
+    public User(Long id, String firstName, String lastName, String email, String password, Long rol_id,Role roles) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthDate = birthDate;
         this.email = email;
-        this.country = country;
         this.password = password;
         this.rol_id = rol_id;
         this.roles = roles;
@@ -69,13 +65,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
 
     public String getEmail() {
         return email;
@@ -85,13 +74,6 @@ public class User {
         this.email = email;
     }
 
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
 
     public String getPassword() {
         return password;
