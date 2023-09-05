@@ -70,7 +70,7 @@ const Products = () => {
             <span className="text-gray-500 line-through text-lg">
               $ 53,000.00
             </span>
-            <span className="text-red-500 text-2xl mt-2">$ 2</span>
+            <span className="text-red-500 text-2xl mt-2">$ {product.price}</span>
             <span className="text-gray-500 underline text-xs md:text-sm">
               Ver más opciones
             </span>
