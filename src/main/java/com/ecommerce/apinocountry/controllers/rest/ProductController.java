@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author godoy
  */
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://no-country-comfy.vercel.app/"})
+@CrossOrigin(origins = "*")
 @RequestMapping("/")
 public class ProductController {
      /*
