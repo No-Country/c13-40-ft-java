@@ -22,8 +22,6 @@ const Products = () => {
     queryFn: () => getProducts(),
   });
 
-  console.log(queryProducts.data);
-
   useEffect(() => {
     AOS.init({ duration: 400 });
   }, []);
@@ -72,7 +70,9 @@ const Products = () => {
             <span className="text-gray-500 line-through text-lg">
               $ 53,000.00
             </span>
-            <span className="text-red-500 text-2xl mt-2">$ {product.price}</span>
+            <span className="text-red-500 text-2xl mt-2">
+              $ {product.price}
+            </span>
             <span className="text-gray-500 underline text-xs md:text-sm">
               Ver más opciones
             </span>
@@ -109,7 +109,10 @@ const Products = () => {
                 </button>
               </div>
               <button
-                onClick={() => AddToCart(product)}
+                onClick={() => {
+                  console.log("Product:", product);
+                  AddToCart(product);
+                }}
                 className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 py-2 rounded-lg hover:opacity-80"
               >
                 Añadir al carrito

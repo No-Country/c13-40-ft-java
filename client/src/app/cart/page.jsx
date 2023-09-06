@@ -9,6 +9,7 @@ import CartItem from "../../components/cards/CartItem";
 
 export default function Cart() {
   const { cart } = useContext(ComfyContext);
+
   useEffect(() => {
     AOS.init({ duration: 1200 });
   }, []);
@@ -29,7 +30,7 @@ export default function Cart() {
         </div>
       </div>
 
-      <table className="table-auto drop-shadow-xl mx-3 md:mx-32 lg:mx-52 xl:mx-20   rounded-md">
+      <table className="table-auto  mx-3 md:mx-32 lg:mx-52 xl:mx-20   rounded-md">
         <thead>
           <tr className="ml-6 border-b">
             <th className="text-left  text-sm opacity-60 font-semibold">
@@ -52,6 +53,7 @@ export default function Cart() {
               Category={product.category}
               ImgURL={product.image}
               Price={product.price}
+              product={product}
             />
           ))}
         </tbody>
@@ -61,7 +63,9 @@ export default function Cart() {
             <th className="text-left pt-8 text-xl font-ArchivoBlack font-medium xl:px-96">
               Subtotal
             </th>
-            <th className="text-center pt-8 text-xl font-medium ">$449.70</th>
+            <th className="text-center pt-8 text-xl font-medium ">
+              $449.70 {}
+            </th>
             <th className="text-center   text-xl  font-semibold  "></th>
           </tr>
           <tr className="">
@@ -78,7 +82,7 @@ export default function Cart() {
               TOTAL
             </th>
             <th className="text-center text-xl font-ArchivoBlack font-semibold ">
-              $499.70
+              $499.70 {}
             </th>
             <th className="text-center text-xl  font-semibold  "></th>
           </tr>

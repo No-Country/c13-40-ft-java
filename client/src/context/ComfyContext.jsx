@@ -6,19 +6,30 @@ export const ComfyContext = createContext();
 
 const ContextProvider = ({ children }) => {
   // Maneja el array de productos del carrito
+
   const [cart, setCart] = useState([]);
-  console.log(cart);
+
+  // function TotalOrder (ProductsInCart) (
+
+  // )
+
   function AddToCart(newProduct) {
     const isProducInCart = cart.some((product) => product.id === newProduct.id);
 
     if (isProducInCart) {
       alert(`${newProduct.name} is already added in cart`);
-    } else setCart([...cart, product]);
+    } else setCart([...cart, newProduct]);
+    // add react hook toast
   }
-  function RemoveFromCart(newProduct) {
-    setCart(cart.filter((product) => product.id !== newProduct.id));
-    alert(`${newProduct.name} Removed from cart`);
+
+  function RemoveFromCart(productToRemove) {
+    setCart(cart.filter((product) => product.name !== productToRemove.name));
+    setTimeout(() => {
+      alert(`${productToRemove.name} Removed from cart`);
+    }, 200);
+    // add react hook toast
   }
+
   // Maneja el array de productos favoritos
   const [favs, setFavs] = useState([]);
   // Maneja el booleano que muestra el modal de carga
