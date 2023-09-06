@@ -1,7 +1,7 @@
 import QuantityButtons from "../buttons/QuantityButtons";
 
 // nombres de props de ejemplo
-function CartItem() {
+function CartProduct() {
   
   return (
     <tr className="border-b">
@@ -39,4 +39,4 @@ function CartItem() {
   );
 }
 
-export default CartItem;
+export default CartProduct;
