@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useContext } from "react";
-
+import { useQuery } from "react-query";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import getProducts from "../services/products";
 import Slider from "../components/slider/Slider";
 import Slider2 from "../components/slider/Slider2";
 import LoadingModal from "../components/loadingModal/LoadingModal";
@@ -12,11 +13,20 @@ import { ComfyContext } from "../context/ComfyContext";
 import Categories from "../components/categories/Categories";
 
 const Home = () => {
+  
   const { loading, setLoading } = useContext(ComfyContext);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
+
+  const queryProducts = useQuery({
+    queryKey: ["products"],
+    queryFn: () => getProducts(),
+    retry: 10,
+  });
+
+  console.log(queryProducts.data);
 
   setTimeout(() => {
     setLoading(false);
