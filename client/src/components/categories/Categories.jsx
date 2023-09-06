@@ -1,4 +1,4 @@
-import CardCategories from "../Cards/CardCategories";
+import CardCategories from "../cards/CardCategories";
 
 export default function Categories() {
   return (
