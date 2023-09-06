@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import CartProduct from "../../components/cards/CartItem";
+import CartProduct from "../../components/card/CartItem";
 
 export default function Cart() {
   useEffect(() => {
