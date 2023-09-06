@@ -1,12 +1,8 @@
-import QuantityButtons from "../buttons/QuantityButtons";
+import QuantityButtons from "../button/QuantityButtons";
 
 // nombres de props de ejemplo
-function CartItem({
-  ProductName,
-  ProductDescription,
-  ProductPrice,
-  ProductImg,
-}) {
+function CartProduct() {
+  
   return (
     <tr className="border-b">
       <td className="flex py-3 ">
@@ -43,4 +39,4 @@ function CartItem({
   );
 }
 
-export default CartItem;
+export default CartProduct;
