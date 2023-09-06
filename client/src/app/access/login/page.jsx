@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
@@ -22,16 +22,18 @@ const Login = () => {
     password: "",
   });
 
-  // const router = useRouter();
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     axios
-      .post("/users", user)
-      .then(() => alert("You have logged in!"))
-      .catch(() => alert("An error has occured"));
+      .post("TBD", user)
+      .then(() => {
+        toast.success("You have registered!");
+        router.push("/"); // Navigate to the home page
+      })
+      .catch(() => toast.error("Something went wrong!"));
     // Testing required
-    // router.push("/access/login"); // Navigate to the login page
   };
 
   return (
