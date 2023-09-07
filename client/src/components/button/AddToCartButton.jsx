@@ -1,8 +1,4 @@
-import { ComfyContext } from "@/context/ComfyContext";
-import React, { useContext } from "react";
-
 function AddToCartButton({ product }) {
-  const { AddToCart } = useContext(ComfyContext);
   return (
     <a
       onClick={() => {

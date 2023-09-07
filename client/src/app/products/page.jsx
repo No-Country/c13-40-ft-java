@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -20,21 +20,12 @@ const Products = () => {
   const queryProducts = useQuery({
     queryKey: ["products"],
     queryFn: () => getProducts(),
+    retry: 10,
   });
 
   useEffect(() => {
     AOS.init({ duration: 400 });
   }, []);
-
-  const minus = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const plus = () => {
-    setQuantity(quantity + 1);
-  };
 
   return (
     <div

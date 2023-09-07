@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import Link from "next/link";
 import { ComfyContext } from "@/context/ComfyContext";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import CartItem from "../../components/cards/CartItem";
+import CartProduct from "../../components/card/CartItem";
 
 export default function Cart() {
   const { cart } = useContext(ComfyContext);
@@ -15,6 +15,7 @@ export default function Cart() {
   }, []);
 
   return (
+    <section data-aos="fade" className="flex flex-col w-full mb-6">
     <section data-aos="fade" className="flex flex-col w-full mb-6">
       <div className="flex flex-col justify-center xl:mx-7  items-center w-full mt-10 mb-10">
         <p className="text-5xl font-ArchivoBlack  font-extrabold">YOUR CART</p>
