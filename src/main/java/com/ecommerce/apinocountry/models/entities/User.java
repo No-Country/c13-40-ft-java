@@ -1,6 +1,5 @@
 package com.ecommerce.apinocountry.models.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.PositiveOrZero;
 
@@ -14,32 +13,27 @@ public class User {
 
     private String firstName;
     private String lastName;
-    private String email;
-    private String password;
-    private Long rol_id;
+   // private Long logins_id;
     
 
-    @ManyToOne
-    @JoinColumn(name = "rol_id", insertable = false, updatable = false)
-    @JsonBackReference
-    private Role roles;
-
+    
+    @ManyToOne(cascade = CascadeType.ALL) // Añadir la relación con Login y la cascada
+    @JoinColumn(name = "login_id") // Cambiar el nombre de la columna
+    private Login login; // Agregar el campo login
+    
     public User(){
 
     }
 
-    public User(Long id, String firstName, String lastName, String email, String password, Long rol_id,Role roles) {
+    public User(Long id, String firstName, String lastName, /*Long logins_id ,*/Login login) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.rol_id = rol_id;
-        this.roles = roles;
+       // this.logins_id = logins_id;
+        this.login = login;
     }
 
   
-
     public Long getId() {
         return id;
     }
@@ -64,40 +58,22 @@ public class User {
         this.lastName = lastName;
     }
 
-
-    public String getEmail() {
-        return email;
+   /* @Column(name = "login_id")
+    @PositiveOrZero(message = "login is required")
+    public Long getLogin_id() {
+        return logins_id;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLogin_id(Long login_id) {
+        this.login_id = login_id;
+    }*/
+
+    public Login getLogin() {
+        return login;
     }
 
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Column(name = "rol_id")
-    @PositiveOrZero(message = "rol is required")
-    public Long getRol_id() {
-        return rol_id;
-    }
-
-    public void setRol_id(Long rol_id) {
-        this.rol_id = rol_id;
-    }
-
-    
-    public Role getRoles() {
-        return roles;
-    }
-    public void setRoles(Role roles) {
-        this.roles = roles;
+    public void setLogin(Login login) {
+        this.login = login;
     }
 
 }
