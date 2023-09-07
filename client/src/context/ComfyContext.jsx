@@ -5,6 +5,7 @@ import { createContext, useState } from "react";
 export const ComfyContext = createContext();
 
 const ContextProvider = ({ children }) => {
+
   // Maneja el array de productos del carrito
   const [cart, setCart] = useState([]);
   // Maneja el array de productos favoritos
@@ -14,7 +15,14 @@ const ContextProvider = ({ children }) => {
 
   return (
     <ComfyContext.Provider
-      value={{ cart, setCart, favs, setFavs, loading, setLoading }}
+      value={{
+        cart,
+        setCart,
+        favs,
+        setFavs,
+        loading,
+        setLoading,
+      }}
     >
       {children}
     </ComfyContext.Provider>

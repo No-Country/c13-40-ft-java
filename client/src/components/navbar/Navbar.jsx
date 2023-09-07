@@ -14,10 +14,15 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
+  const pathname = usePathname();
+
   const [open, setOpen] = useState(true);
   const [access, setAccess] = useState(false);
+
+  console.log(pathname);
 
   const links = [
     {
@@ -66,7 +71,9 @@ const Navbar = () => {
             <Link
               key={l.name}
               href={l.link}
-              className="cursor-pointer mx-2 font-bold hover:text-white transition-all duration-500 ease"
+              className={`${
+                pathname == l.link ? "border-b-2 border-black" : ""
+              } cursor-pointer mx-4 font-bold hover:text-white`}
             >
               {l.name}
             </Link>
@@ -99,7 +106,7 @@ const Navbar = () => {
                   marginLeft: "-4rem",
                 }}
               >
-                <MenuList>
+                <MenuList onClick={() => setAccess(!access)}>
                   <Link href="/access/login">
                     <MenuItem>Login</MenuItem>
                   </Link>
