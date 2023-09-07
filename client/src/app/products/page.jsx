@@ -12,7 +12,7 @@ import { useContext } from "react";
 import { ComfyContext } from "@/context/ComfyContext";
 
 const Products = () => {
-  const { AddToCart } = useContext(ComfyContext);
+  const { AddToCart, AddToFav, RemoveFromFav } = useContext(ComfyContext);
   const [quantity, setQuantity] = useState(1);
 
   const [like, setLike] = useState(false);
@@ -55,13 +55,13 @@ const Products = () => {
             {!like ? (
               <BiHeart
                 data-aos="zoom-in"
-                onClick={() => setLike(!like)}
+                onClick={() => AddToFav(product)}
                 className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer"
               />
             ) : (
               <BiSolidHeart
                 data-aos="zoom-in"
-                onClick={() => setLike(!like)}
+                onClick={() => RemoveFromFav(product)}
                 className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer text-red-500"
               />
             )}

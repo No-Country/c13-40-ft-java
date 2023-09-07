@@ -64,7 +64,7 @@ export default function Cart() {
               Subtotal
             </th>
             <th className="text-center pt-8 text-xl font-medium ">
-              $449.70 {}
+              {/* {cart.map((product) => product.price)} */}
             </th>
             <th className="text-center   text-xl  font-semibold  "></th>
           </tr>

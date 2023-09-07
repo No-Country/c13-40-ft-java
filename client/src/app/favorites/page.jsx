@@ -1,9 +1,12 @@
-import FavoritesItem from "@/components/Cards/FavoritesItem";
+"use client";
+import FavoritesItem from "@/components/cards/FavoritesItem";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-
+import { ComfyContext } from "@/context/ComfyContext";
+import { useContext } from "react";
 function Favorites() {
+  const { favs } = useContext(ComfyContext);
   return (
     <section className="flex flex-col w-full mb-6">
       <div className="flex flex-col justify-center xl:mx-7  items-center w-full mt-10 mb-10">
@@ -17,12 +20,6 @@ function Favorites() {
             <AiOutlineArrowLeft size={"20px"} className="cursor-pointer  " />
             Continue Shoping
           </Link>
-          {/* <Link
-        href="/"
-        className="underline decoration-black hover:opacity-70 font-thin font-serif"
-      >
-        Continue Shoping
-      </Link> */}
         </div>
       </div>
 
@@ -44,9 +41,17 @@ function Favorites() {
           </tr>
         </thead>
         <tbody>
-          <FavoritesItem />
-          <FavoritesItem />
-          <FavoritesItem />
+          {favs.map((product) => (
+            <FavoritesItem
+              key={product.id}
+              Name={product.name}
+              Description={product.description}
+              Category={product.category}
+              ImgURL={product.image}
+              Price={product.price}
+              product={product}
+            />
+          ))}
         </tbody>
       </table>
       {/* boton de Accion */}

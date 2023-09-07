@@ -2,8 +2,6 @@ import QuantityButtons from "../buttons/QuantityButtons";
 
 // nombres de props de ejemplo
 function CartItem({ Name, Category, Description, Price, ImgURL, product }) {
-  console.log("cart item coust", Price);
-
   return (
     <tr className="border-b">
       <td className="flex py-3 ">
