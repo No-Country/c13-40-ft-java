@@ -35,4 +35,4 @@ function CartItem({ Name, Category, Description, Price, ImgURL, product }) {
   );
 }
 
-export default CartProduct;
+export default CartItem;
