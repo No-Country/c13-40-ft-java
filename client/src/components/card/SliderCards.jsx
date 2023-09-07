@@ -3,7 +3,6 @@ import getProducts from "../../services/products";
 import Image from "next/image";
 
 const SliderCards = (props) => {
-  
   const queryProducts = useQuery({
     queryKey: ["products"],
     queryFn: () => getProducts(),
@@ -14,10 +13,10 @@ const SliderCards = (props) => {
   return (
     <div>
       {queryProducts.data && (
-        <div className="h-auto">
+        <div className="h-52 md:h-72 lg:h-96">
           <div className="w-11/12 h-full rounded-lg overflow-hidden flex flex-col justify-center items-center">
             <Image
-              className=""
+              className="h-3/5 w-auto"
               src={queryProducts.data.image}
               width={1000}
               height={1000}
