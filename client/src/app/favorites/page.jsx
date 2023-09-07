@@ -1,5 +1,5 @@
 "use client";
-import FavoritesItem from "@/components/cards/FavoritesItem";
+import FavoritesItem from "@/components/card/FavoritesItem";
 import Link from "next/link";
 import React from "react";
 import { AiOutlineArrowLeft } from "react-icons/ai";

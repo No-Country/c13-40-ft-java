@@ -1,5 +1,5 @@
 import { HiOutlineTrash } from "react-icons/hi";
-import AddToCartButton from "../buttons/AddToCartButton";
+import AddToCartButton from "../button/AddToCartButton";
 
 // nombres de props de ejemplo
 function FavoritesItem({
