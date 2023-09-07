@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "public/logo2.svg";
@@ -13,20 +14,42 @@ import { LuEye } from "react-icons/lu";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
-  const { register, handleSubmit } = useForm();
+  const schema = yup.object().shape({
+    name: yup
+      .string()
+      .min(2, "Your name needs to have 2 characters at least")
+      .max(40, "Your name can't have more than 40 characters")
+      .required("Your name is required"),
+    lastName: yup
+      .string()
+      .min(2, "Your last name needs to have 2 characters at least")
+      .max(40, "Your last name can't have more than 40 characters")
+      .required("You last name is required"),
+    email: yup
+      .string()
+      .email("Make sure you are writing a valid e-mail")
+      .required("Your e-mail is required"),
+    password: yup
+      .string()
+      .min(6, "Your password needs to have 6 characters at least")
+      .max(20, "Your password can't have more than 20 characters")
+      .required("Your password is required"),
+    confirmPassword: yup
+      .string()
+      .oneOf([yup.ref("password"), null], "Passwords must match"),
+  });
 
-  const [user, setUser] = useState({
-    name: "",
-    lastName: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
   });
 
   const router = useRouter();
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  const onSubmit = async (user) => {
     axios
       .post("https://comfy-nocountry.azurewebsites.net/insertUser", user)
       .then(() => {
@@ -34,7 +57,6 @@ const Register = () => {
         router.push("/access/login"); // Navigate to the login page
       })
       .catch(() => toast.error("Something went wrong!"));
-    // Testing required
   };
 
   return (
@@ -65,10 +87,14 @@ const Register = () => {
               <input
                 type="text"
                 id="name"
-                value={user.name}
-                onChange={(e) => setUser({ ...user, name: e.target.value })}
+                {...register("name")}
                 className="outline-none border border-[3px] border-sixth rounded-md px-1 w-[162px] h-[41px] xl:w-[256px] xl:mr-3"
               />
+              {errors.name && (
+                <div className="text-important text-[10px] mt-1 max-w-[162px] xl:text-sm xl:max-w-[256px]">
+                  {errors.name.message}
+                </div>
+              )}
             </div>
             {/* Last Name */}
             <div className="relative">
@@ -81,10 +107,14 @@ const Register = () => {
               <input
                 type="text"
                 id="lastName"
-                value={user.lastName}
-                onChange={(e) => setUser({ ...user, lastName: e.target.value })}
+                {...register("lastName")}
                 className="outline-none border border-[3px] border-sixth rounded-md px-1 w-[162px] h-[41px] xl:w-[256px]"
               />
+              {errors.lastName && (
+                <div className="text-important text-[10px] mt-1 max-w-[162px] xl:text-sm xl:max-w-[256px]">
+                  {errors.lastName.message}
+                </div>
+              )}
             </div>
           </div>
 
@@ -104,11 +134,15 @@ const Register = () => {
                 <input
                   type="email"
                   id="email"
-                  value={user.email}
-                  onChange={(e) => setUser({ ...user, email: e.target.value })}
+                  {...register("email")}
                   className="outline-none w-full mr-1 xl:mx-1"
                 />
               </div>
+              {errors.email && (
+                <div className="text-important text-[10px] mt-1 max-w-[286px] xl:text-sm xl:max-w-[420px]">
+                  {errors.email.message}
+                </div>
+              )}
             </div>
           </div>
 
@@ -127,14 +161,18 @@ const Register = () => {
               <input
                 type="password"
                 id="password"
-                value={user.password}
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
+                {...register("password")}
                 className="outline-none w-[180px] pr-1 xl:mx-1 xl:w-full"
               />
               <span className="flex items-center mr-1">
                 <LuEye />
               </span>
             </div>
+            {errors.password && (
+              <div className="text-important text-[10px] mt-1 max-w-[231px] xl:text-sm xl:max-w-[311px]">
+                {errors.password.message}
+              </div>
+            )}
           </div>
 
           {/* Confirm Password */}
@@ -152,16 +190,18 @@ const Register = () => {
               <input
                 type="password"
                 id="confirmPassword"
-                value={user.confirmPassword}
-                onChange={(e) =>
-                  setUser({ ...user, confirmPassword: e.target.value })
-                }
+                {...register("confirmPassword")}
                 className="outline-none w-[180px] pr-1 xl:mx-1 xl:w-full"
               />
               <span className="flex items-center mr-1">
                 <LuEye />
               </span>
             </div>
+            {errors.confirmPassword && (
+              <div className="text-important text-[10px] mt-1 max-w-[231px] xl:text-sm xl:max-w-[311px]">
+                {errors.confirmPassword.message}
+              </div>
+            )}
           </div>
 
           {/* Submit */}
@@ -175,7 +215,7 @@ const Register = () => {
           </div>
         </form>
 
-        <hr className="mt-8 border-t w-[95vw] border-sixth xl:mt-8" />
+        <hr className="mt-8 border-t w-[95vw] max-w-[400px] border-sixth xl:mt-8 xl:w-full xl:max-w-none" />
 
         {/* Google */}
         <div className="mt-8 xl:mt-8">
