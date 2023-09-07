@@ -3,29 +3,29 @@ import getProducts from "../../services/products";
 import Image from "next/image";
 
 const SliderCards = (props) => {
+  
   const queryProducts = useQuery({
     queryKey: ["products"],
     queryFn: () => getProducts(),
     retry: 10,
+    select: (data) => data[props.idx],
   });
 
   return (
     <div>
-      {queryProducts?.data
-        ?.filter((product) => product.id === props.id)
-        .map((product) => (
-          <div key={product.id} className="h-auto">
-            <div className="w-11/12 h-full rounded-lg overflow-hidden flex flex-col justify-center items-center">
-              <Image
-                className=""
-                src={product.image}
-                width={1000}
-                height={1000}
-              />
-              <span className="mt-2 text-xs">{product.name}</span>
-            </div>
+      {queryProducts.data && (
+        <div className="h-auto">
+          <div className="w-11/12 h-full rounded-lg overflow-hidden flex flex-col justify-center items-center">
+            <Image
+              className=""
+              src={queryProducts.data.image}
+              width={1000}
+              height={1000}
+            />
+            <span className="mt-2 text-xs">{queryProducts.data.name}</span>
           </div>
-        ))}
+        </div>
+      )}
     </div>
   );
 };
