@@ -15,7 +15,7 @@ import { toast } from "react-hot-toast";
 
 const Register = () => {
   const schema = yup.object().shape({
-    name: yup
+    firstName: yup
       .string()
       .min(2, "Your name needs to have 2 characters at least")
       .max(40, "Your name can't have more than 40 characters")
@@ -50,8 +50,21 @@ const Register = () => {
   const router = useRouter();
 
   const onSubmit = async (user) => {
+    const transformedUser = {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      login: {
+        email: user.email,
+        password: user.password,
+        rol: "cliente",
+      },
+    };
+    console.log(transformedUser);
     axios
-      .post("https://comfy-nocountry.azurewebsites.net/insertUser", user)
+      .post(
+        "https://comfy-nocountry.azurewebsites.net/insertUser",
+        transformedUser
+      )
       .then(() => {
         toast.success("You have registered!");
         router.push("/access/login"); // Navigate to the login page
@@ -87,12 +100,12 @@ const Register = () => {
               <input
                 type="text"
                 id="name"
-                {...register("name")}
+                {...register("firstName")}
                 className="outline-none border border-[3px] border-sixth rounded-md px-1 w-[162px] h-[41px] xl:w-[256px] xl:mr-3"
               />
-              {errors.name && (
+              {errors.firstName && (
                 <div className="text-important text-[10px] mt-1 max-w-[162px] xl:text-sm xl:max-w-[256px]">
-                  {errors.name.message}
+                  {errors.firstName.message}
                 </div>
               )}
             </div>
