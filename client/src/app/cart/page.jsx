@@ -1,12 +1,20 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
+import { ComfyContext } from "@/context/ComfyContext";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-import CartProduct from "../../components/card/CartItem";
+import CartItem from "../../components/card/CartItem";
 
 export default function Cart() {
+  const { cart } = useContext(ComfyContext);
+  const subtotal = cart.reduce((total, product) => {
+    return total + product.price;
+  }, 0);
+  const costoEnvio = 120;
+  const total = subtotal + costoEnvio;
+
   useEffect(() => {
     AOS.init({ duration: 1200 });
   }, []);
@@ -24,16 +32,10 @@ export default function Cart() {
             <AiOutlineArrowLeft size={"20px"} className="cursor-pointer  " />
             Continue Shoping
           </Link>
-          {/* <Link
-            href="/"
-            className="underline decoration-black hover:opacity-70 font-thin font-serif"
-          >
-            Continue Shoping
-          </Link> */}
         </div>
       </div>
 
-      <table className="table-auto drop-shadow-2xl mx-3 md:mx-32 lg:mx-52 xl:mx-20   rounded-md">
+      <table className="table-auto  mx-3 md:mx-32 lg:mx-52 xl:mx-20   rounded-md">
         <thead>
           <tr className="ml-6 border-b">
             <th className="text-left  text-sm opacity-60 font-semibold">
@@ -48,17 +50,27 @@ export default function Cart() {
           </tr>
         </thead>
         <tbody>
-          <CartProduct />
-          <CartProduct />
-          <CartProduct />
+          {cart.map((product) => (
+            <CartItem
+              key={product.id}
+              Name={product.name}
+              Description={product.description}
+              Category={product.category}
+              ImgURL={product.image}
+              Price={product.price}
+              product={product}
+            />
+          ))}
         </tbody>
-        {/* refactor foot o crear una nueva tabla */}
+
         <tfoot>
           <tr className="">
             <th className="text-left pt-8 text-xl font-ArchivoBlack font-medium xl:px-96">
               Subtotal
             </th>
-            <th className="text-center pt-8 text-xl font-medium ">$449.70</th>
+            <th className="text-center pt-8 text-xl font-medium ">
+              ${subtotal}
+            </th>
             <th className="text-center   text-xl  font-semibold  "></th>
           </tr>
           <tr className="">
@@ -66,7 +78,7 @@ export default function Cart() {
               Delivery Fee
             </th>
             <th className="text-center text-xl font-ArchivoBlack font-medium ">
-              $50.00
+              ${costoEnvio}
             </th>
             <th className="text-center text-xl  font-semibold  "></th>
           </tr>
@@ -75,19 +87,17 @@ export default function Cart() {
               TOTAL
             </th>
             <th className="text-center text-xl font-ArchivoBlack font-semibold ">
-              $499.70
+              ${total}
             </th>
             <th className="text-center text-xl  font-semibold  "></th>
           </tr>
         </tfoot>
       </table>
+      {/* boton de Checkout */}
       <div className="flex justify-center items-center">
         <a
           href="#_"
-          className="inline-flex items-center justify-center w-full px-6 xl:px-10 py-3 mb-2 xl:text-xl text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0"
-          data-primary="green-400"
-          data-rounded="rounded-2xl"
-          data-primary-reset="{}"
+          className="inline-flex items-center justify-center w-full px-6 xl:px-10 py-3 mb-2 xl:text-xl text-black bg-orange-100 border border-black hover:bg-orange-200 sm:w-auto sm:mb-0"
         >
           Checkout
           <svg

@@ -1,14 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
 import { BiHeart } from "react-icons/bi";
 import { BiSolidHeart } from "react-icons/bi";
 import { FaTruck } from "react-icons/fa";
+import { ComfyContext } from "@/context/ComfyContext";
 
-const BigProductCard = ({ id, name, image, price }) => {
-
+const BigProductCard = ({ id, name, image, price, product }) => {
+  const { AddToCart, AddToFav, RemoveFromFav } = useContext(ComfyContext);
   const [quantity, setQuantity] = useState(1);
 
   const [like, setLike] = useState(false);
@@ -41,12 +42,14 @@ const BigProductCard = ({ id, name, image, price }) => {
         {!like ? (
           <BiHeart
             data-aos="zoom-in"
+            //  onClick={() => AddToFav(product)}
             onClick={() => setLike(!like)}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer"
           />
         ) : (
           <BiSolidHeart
             data-aos="zoom-in"
+            // onClick={() => RemoveFromFav(product)}
             onClick={() => setLike(!like)}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer text-red-500"
           />
@@ -88,7 +91,13 @@ const BigProductCard = ({ id, name, image, price }) => {
               +
             </button>
           </div>
-          <button className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 py-2 rounded-lg hover:opacity-80">
+          <button
+            onClick={() => {
+              console.log("Product:", product);
+              AddToCart(product);
+            }}
+            className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 py-2 rounded-lg hover:opacity-80"
+          >
             Añadir al carrito
           </button>
         </div>
