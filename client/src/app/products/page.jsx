@@ -7,7 +7,6 @@ import getProducts from "../../services/products";
 import BigProductCard from "@/components/card/BigProductCard";
 
 const Products = () => {
-
   const queryProducts = useQuery({
     queryKey: ["products"],
     queryFn: () => getProducts(),
@@ -32,6 +31,7 @@ const Products = () => {
           name={product.name}
           image={product.image}
           price={product.price}
+          product={product}
         />
       ))}
     </div>
