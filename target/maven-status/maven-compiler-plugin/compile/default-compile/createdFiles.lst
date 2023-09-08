@@ -1,4 +1,5 @@
 com\ecommerce\apinocountry\repositories\CategoryRepository.class
+com\ecommerce\apinocountry\services\LoginResponse.class
 com\ecommerce\apinocountry\models\entities\Category.class
 com\ecommerce\apinocountry\controllers\rest\ProductController.class
 com\ecommerce\apinocountry\services\JwtService.class
@@ -11,11 +12,11 @@ com\ecommerce\apinocountry\controllers\rest\LoginController.class
 com\ecommerce\apinocountry\models\entities\User.class
 com\ecommerce\apinocountry\services\CategoryService.class
 com\ecommerce\apinocountry\services\ProductService.class
+com\ecommerce\apinocountry\services\FilterInternal.class
 com\ecommerce\apinocountry\controllers\rest\CategoryController.class
 com\ecommerce\apinocountry\ApiNocountryApplication.class
 com\ecommerce\apinocountry\models\entities\Product.class
 com\ecommerce\apinocountry\models\entities\Login.class
 com\ecommerce\apinocountry\repositories\UserRepository.class
 com\ecommerce\apinocountry\services\JwtConfig.class
-.netbeans_automatic_build
 com\ecommerce\apinocountry\services\UserService.class
