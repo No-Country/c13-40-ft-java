@@ -42,4 +42,10 @@ public class JwtService {
                 .parseClaimsJws(token)
                 .getBody();
     }
+
+    public String getEmailFromToken(String header){
+        String token = header.replace("Bearer ", "");
+        Claims body = parseToken(token);
+        return body.getSubject();
+    }
 }
