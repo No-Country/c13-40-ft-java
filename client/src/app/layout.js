@@ -7,6 +7,7 @@ import { Roboto } from "next/font/google";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 import ContextProvider from "@/context/ComfyContext";
+import ToasterContext from "@/context/ToasterContext";
 import { Toaster } from "react-hot-toast";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
       <body className={roboto.className}>
         <QueryClientProvider client={queryClient}>
           <ContextProvider>
+            <ToasterContext />
             <Toaster position="bottom-center" reverseOrder={false} />
             <Navbar />
             {children}
