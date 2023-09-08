@@ -9,6 +9,11 @@ import CartItem from "../../components/card/CartItem";
 
 export default function Cart() {
   const { cart } = useContext(ComfyContext);
+  const subtotal = cart.reduce((total, product) => {
+    return total + product.price;
+  }, 0);
+  const costoEnvio = 120;
+  const total = subtotal + costoEnvio;
 
   useEffect(() => {
     AOS.init({ duration: 1200 });
@@ -57,14 +62,14 @@ export default function Cart() {
             />
           ))}
         </tbody>
-        {/* refactor foot o crear una nueva tabla */}
+
         <tfoot>
           <tr className="">
             <th className="text-left pt-8 text-xl font-ArchivoBlack font-medium xl:px-96">
               Subtotal
             </th>
             <th className="text-center pt-8 text-xl font-medium ">
-              {/* {cart.map((product) => product.price)} */}
+              ${subtotal}
             </th>
             <th className="text-center   text-xl  font-semibold  "></th>
           </tr>
@@ -73,7 +78,7 @@ export default function Cart() {
               Delivery Fee
             </th>
             <th className="text-center text-xl font-ArchivoBlack font-medium ">
-              $50.00
+              ${costoEnvio}
             </th>
             <th className="text-center text-xl  font-semibold  "></th>
           </tr>
@@ -82,7 +87,7 @@ export default function Cart() {
               TOTAL
             </th>
             <th className="text-center text-xl font-ArchivoBlack font-semibold ">
-              $499.70 
+              ${total}
             </th>
             <th className="text-center text-xl  font-semibold  "></th>
           </tr>

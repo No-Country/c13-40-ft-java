@@ -2,6 +2,7 @@ import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import { FaTrash } from "react-icons/fa";
 import { useContext } from "react";
 import { ComfyContext } from "@/context/ComfyContext";
+import { Tooltip } from "@mui/material";
 
 function QuantityButtons({ product }) {
   const { RemoveFromCart } = useContext(ComfyContext);
@@ -23,14 +24,19 @@ function QuantityButtons({ product }) {
           />
         </button>
       </div>
-      <FaTrash
-        onClick={() => {
-          console.log("elimar el siguiente:", product);
-          RemoveFromCart(product);
-        }}
-        className=" ml-1 cursor-pointer hover:text-orange-900 duration-300"
-        size="22px"
-      />
+      <Tooltip title="Delete" placement="right">
+        <button
+          onClick={() => {
+            console.log("elimar el siguiente:", product);
+            RemoveFromCart(product);
+          }}
+        >
+          <FaTrash
+            className=" ml-1 cursor-pointer hover:text-orange-900 duration-300"
+            size="22px"
+          />
+        </button>
+      </Tooltip>
     </div>
   );
 }

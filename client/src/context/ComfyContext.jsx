@@ -1,33 +1,31 @@
 "use client";
 
 import { createContext, useState } from "react";
+import { toast } from "react-hot-toast";
 
 export const ComfyContext = createContext();
 
 const ContextProvider = ({ children }) => {
-
   // Maneja el array de productos del carrito
 
   const [cart, setCart] = useState([]);
 
-  // function TotalOrder (ProductsInCart) (
-
-  // )
-
   function AddToCart(newProduct) {
-    const isProducInCart = cart.some((product) => product.id === newProduct.id);
+    const isProductInCart = cart.some(
+      (product) => product.id === newProduct.id
+    );
 
-    if (isProducInCart) {
-      alert(`${newProduct.name} is already added in cart`);
-    } else setCart([...cart, newProduct]);
-    // add react hook toast
+    if (isProductInCart) {
+      toast.error(`${newProduct.name} already in the cart.`);
+    } else {
+      setCart([...cart, newProduct]);
+      toast.success(`${newProduct.name} has been added to your cart.`);
+    }
   }
 
   function RemoveFromCart(productToRemove) {
     setCart(cart.filter((product) => product.name !== productToRemove.name));
-    setTimeout(() => {
-      alert(`${productToRemove.name} Removed from cart`);
-    }, 200);
+    toast.error(`${productToRemove.name} removed from cart`);
     // add react hook toast
   }
 
