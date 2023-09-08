@@ -29,9 +29,12 @@ const BigProductCard = ({ id, name, image, price, product }) => {
   };
 
   return (
-    <div key={id} className="w-full md:w-5/12 mb-12">
+    <div
+      key={id}
+      className="w-full h-[750px] md:w-5/12 lg:w-4/12 mb-12 flex flex-col justify-between"
+    >
       <h1 className="text-xl md:text-2xl font-thin">{name}</h1>
-      <div className="relative w-9/12 md:w-full mx-auto mt-8">
+      <div className="relative w-9/12 md:w-full mx-auto mt-4 md:-mt-16">
         <Image
           className="w-full h-auto rounded-md"
           src={image}
@@ -55,7 +58,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
           />
         )}
       </div>
-      <div className="mt-12 flex flex-col">
+      <div className="flex flex-col md:-mt-24">
         <span className="text-gray-500 line-through text-lg">$ 53,000.00</span>
         <span className="text-red-500 text-2xl mt-2">$ {price}</span>
         <span className="text-gray-500 underline text-xs md:text-sm">
