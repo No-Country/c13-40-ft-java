@@ -1,7 +1,12 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
@@ -11,27 +16,49 @@ import { FcGoogle } from "react-icons/fc";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
 
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .email("Make sure you are writing a valid e-mail")
+      .required("Your e-mail is required"),
+    password: yup
+      .string()
+      .min(6, "Your password needs to have 6 characters at least")
+      .max(20, "Your password can't have more than 20 characters")
+      .required("Your password is required"),
   });
 
-  // const router = useRouter();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const router = useRouter();
+
+  const onSubmit = async (user) => {
     axios
-      .post("/users", user)
-      .then(() => alert("You have logged in!"))
-      .catch(() => alert("An error has occured"));
-    // Testing required
-    // router.push("/access/login"); // Navigate to the login page
+      .post("https://comfy-nocountry.azurewebsites.net/login", user)
+      .then(() => {
+        login(); // Set isLoggedIn to true
+        toast.success("You have logged in!");
+        router.push("/"); // Navigate to the home page
+      })
+      .catch((error) => {
+        toast.error("Something went wrong!");
+        console.log(error);
+      });
   };
 
   return (
@@ -47,47 +74,60 @@ const Login = () => {
       <div className="flex flex-col items-center w-full xl:w-[557px] xl:h-[594px] xl:border-[6px] border-fifth rounded-[20px]">
         {/* Form */}
         <form
-          onSubmit={handleSubmit}
+          onSubmit={handleSubmit(onSubmit)}
           className="overflow-visible w-[325px] xl:w-[500px]"
         >
           {/* Email */}
-          <div className="flex items-center mb-6 xl:mt-14">
-            <label
-              htmlFor="email"
-              className="mr-2 text-[34px] text-sixth xl:mr-6 xl:text-[40px]"
-            >
-              <MdAlternateEmail />
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={user.email}
-              onChange={(e) => setUser({ ...user, email: e.target.value })}
-              placeholder="Email"
-              className="border border-2 border-primary xl:border-fourth rounded-md outline-none px-4 py-2 w-[269px] xl:w-[413px] xl:h-[63px] xl:text-[20px] text-sixth"
-            />
-          </div>
-          {/* Password */}
-          <div className="flex items-center mb-4 xl:mb-10">
-            <label
-              htmlFor="password"
-              className="mr-2 text-[34px] text-sixth xl:mr-6 xl:text-[40px]"
-            >
-              <IoMdLock />
-            </label>
-            <div className="border border-2 border-primary xl:border-fourth rounded-md pl-4 pr-2 py-2 w-[269px] flex items-center justify-between xl:w-[413px] xl:h-[63px] xl:text-[20px] text-sixth">
+          <div className="mb-6 xl:mt-14">
+            <div className="flex items-center">
+              <label
+                htmlFor="email"
+                className="mr-2 text-[34px] text-sixth xl:mr-6 xl:text-[40px]"
+              >
+                <MdAlternateEmail />
+              </label>
               <input
-                type="password"
-                id="password"
-                value={user.password}
-                onChange={(e) => setUser({ ...user, password: e.target.value })}
-                placeholder="Password"
-                className="w-full mr-2 outline-none"
+                type="email"
+                id="email"
+                {...register("email")}
+                placeholder="Email"
+                className="border border-2 border-primary xl:border-fourth rounded-md outline-none px-4 py-2 w-[269px] xl:w-[413px] xl:h-[63px] xl:text-[20px] text-sixth"
               />
-              <span className="xl:text-[27px]">
-                <LuEye />
-              </span>
             </div>
+            {errors.email && (
+              <div className="text-important ml-12 text-[10px] mt-2 max-w-[250px] xl:text-sm xl:max-w-[400px] xl:ml-[70px] xl:mt-3">
+                {errors.email.message}
+              </div>
+            )}
+          </div>
+
+          {/* Password */}
+          <div className="mb-4 xl:mb-10">
+            <div className="flex items-center">
+              <label
+                htmlFor="password"
+                className="mr-2 text-[34px] text-sixth xl:mr-6 xl:text-[40px]"
+              >
+                <IoMdLock />
+              </label>
+              <div className="border border-2 border-primary xl:border-fourth rounded-md pl-4 pr-2 py-2 w-[269px] flex items-center justify-between xl:w-[413px] xl:h-[63px] xl:text-[20px] text-sixth">
+                <input
+                  type="password"
+                  id="password"
+                  {...register("password")}
+                  placeholder="Password"
+                  className="w-full mr-2 outline-none"
+                />
+                <span className="xl:text-[27px]">
+                  <LuEye />
+                </span>
+              </div>
+            </div>
+            {errors.password && (
+              <div className="text-important ml-12 text-[10px] mt-2 max-w-[250px] xl:text-sm xl:max-w-[400px] xl:ml-[70px] xl:mt-3">
+                {errors.password.message}
+              </div>
+            )}
           </div>
           {/* Forgot Password */}
           <div className="font-medium text-important text-xs xl:text-[14px] xl:font-normal underline mb-4 xl:mb-8 mx-auto pl-4">
