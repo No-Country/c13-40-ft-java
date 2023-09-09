@@ -1,5 +1,5 @@
 "use client";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImSearch } from "react-icons/im";
 import { MdShoppingCart } from "react-icons/md";
