@@ -22,7 +22,7 @@ const Products = () => {
   return (
     <div
       data-aos="fade"
-      className="w-full min-h-screen mt-12 flex justify-start md:items-center flex-col px-6 my-12"
+      className="w-full min-h-screen mt-12 grid grid-cols-1 md:grid-cols-2 place-items-center gap-2 px-6 my-12"
     >
       {queryProducts?.data?.map((product) => (
         <BigProductCard

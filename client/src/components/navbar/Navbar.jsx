@@ -93,7 +93,7 @@ const Navbar = () => {
         <div className="flex justify-center items-center">
           <ImSearch className="text-xl text-black cursor-pointer" />
           <Link href="/cart">
-            <MdShoppingCart className="text-2xl mx-1 text-black cursor-pointer" />
+            <MdShoppingCart className="text-2xl mx-1 md:mx-4 text-black cursor-pointer" />
           </Link>
           <div className="relative">
             <HiOutlineUserCircle

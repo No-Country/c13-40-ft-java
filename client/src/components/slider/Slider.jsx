@@ -28,11 +28,11 @@ export default class MultipleItems extends Component {
       <div className="w-full lg:w-8/12 overflow-hidden cursor-pointer ml-16 lg:ml-0 z-0 mt-6">
         <h2 className="font-medium text-xl mb-2"> ¡Lo más buscado! </h2>
         <Slider {...settings}>
-          <SliderCards id={19} />
-          <SliderCards id={20} />
-          <SliderCards id={21} />
-          <SliderCards id={22} />
-          <SliderCards id={23} />
+          <SliderCards idx={0} />
+          <SliderCards idx={1} />
+          <SliderCards idx={2} />
+          <SliderCards idx={3} />
+          <SliderCards idx={4} />
         </Slider>
       </div>
     );

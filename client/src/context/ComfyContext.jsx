@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 export const ComfyContext = createContext();
 
 const ContextProvider = ({ children }) => {
+
   // Maneja el array de productos del carrito
 
   const [cart, setCart] = useState([]);
