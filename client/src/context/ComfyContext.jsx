@@ -10,6 +10,8 @@ const ContextProvider = ({ children }) => {
 
   const [cart, setCart] = useState([]);
 
+  let badgeCart = cart.length;
+
   function AddToCart(newProduct) {
     const isProductInCart = cart.some(
       (product) => product.id === newProduct.id
@@ -56,6 +58,7 @@ const ContextProvider = ({ children }) => {
     <ComfyContext.Provider
       value={{
         cart,
+        badgeCart,
         setCart,
         AddToCart,
         RemoveFromCart,
