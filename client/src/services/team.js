@@ -17,7 +17,7 @@ const teamMembers = [
   {
     position: "Frontend Developer",
     name: "Joaquin Bianchi",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/joaquin-bianchi-89725721a/",
   },
   {
     position: "Frontend Developer",
