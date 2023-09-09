@@ -6,7 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function About() {
   return (
-    <div className="w-full my-20 mx-auto md:w-8/12 lg:w-6/12 px-8">
+    <div className="w-full min-h-screen my-20 mx-auto md:w-8/12 lg:w-6/12 px-8">
       <Accordion
         sx={{
           boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
@@ -63,19 +63,15 @@ export default function About() {
           <Typography>Agradecimientos:</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            <ul className="pl-2 list-disc text-gray-400">
-              <li>Nara Humano</li>
-              <li>Joaquin Bianchi</li>
-              <li>Tomás Arteaga</li>
-              <li>Mario Godoy</li>
-              <li>Samantha Sánchez</li>
-              <li>Ezequiel Soto</li>
-              <li>Emilia Quintana</li>
-              <li>Alex Martín</li>
-              <li>TL Masiel Venegas</li>
-            </ul>
-          </Typography>
+          <Typography>Nara Humano</Typography>
+          <Typography>Joaquin Bianchi</Typography>
+          <Typography>Tomás Arteaga</Typography>
+          <Typography>Mario Godoy</Typography>
+          <Typography>Samantha Sánchez</Typography>
+          <Typography>Ezequiel Soto</Typography>
+          <Typography>EmiTypographya Quintana</Typography>
+          <Typography>Alex Martín</Typography>
+          <Typography>TL Masiel Venegas</Typography>
         </AccordionDetails>
       </Accordion>
     </div>
