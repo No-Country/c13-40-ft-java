@@ -1,3 +1,7 @@
+"use client";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -5,8 +9,15 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function About() {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
-    <div className="w-full min-h-screen my-20 mx-auto md:w-8/12 lg:w-6/12 px-8">
+    <div
+      data-aos="fade"
+      className="w-full min-h-screen my-20 mx-auto md:w-8/12 lg:w-6/12 px-8"
+    >
       <Accordion
         sx={{
           boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
