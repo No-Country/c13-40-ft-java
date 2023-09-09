@@ -15,12 +15,16 @@ import MenuList from "@mui/material/MenuList";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 
 const Navbar = () => {
   const pathname = usePathname();
 
   const [open, setOpen] = useState(true);
   const [access, setAccess] = useState(false);
+
+  const { isLoggedIn, logout } = useContext(AuthContext);
 
   console.log(pathname);
 
@@ -107,12 +111,18 @@ const Navbar = () => {
                 }}
               >
                 <MenuList onClick={() => setAccess(!access)}>
-                  <Link href="/access/login">
-                    <MenuItem>Login</MenuItem>
-                  </Link>
-                  <Link href="/access/register">
-                    <MenuItem>Register</MenuItem>
-                  </Link>
+                  {isLoggedIn ? (
+                    <MenuItem onClick={logout}>Sign Out</MenuItem>
+                  ) : (
+                    <>
+                      <Link href="/access/login">
+                        <MenuItem>Login</MenuItem>
+                      </Link>
+                      <Link href="/access/register">
+                        <MenuItem>Register</MenuItem>
+                      </Link>
+                    </>
+                  )}
                 </MenuList>
               </Paper>
             )}

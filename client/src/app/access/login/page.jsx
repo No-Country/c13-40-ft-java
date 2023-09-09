@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
@@ -17,6 +19,8 @@ import { LuEye } from "react-icons/lu";
 import { toast } from "react-hot-toast";
 
 const Login = () => {
+  const { login } = useContext(AuthContext);
+
   useEffect(() => {
     AOS.init({ duration: 1000 });
   }, []);
@@ -47,10 +51,14 @@ const Login = () => {
     axios
       .post("https://comfy-nocountry.azurewebsites.net/login", user)
       .then(() => {
-        toast.success("You have registered!");
+        login(); // Set isLoggedIn to true
+        toast.success("You have logged in!");
         router.push("/"); // Navigate to the home page
       })
-      .catch(() => toast.error("Something went wrong!"));
+      .catch((error) => {
+        toast.error("Something went wrong!");
+        console.log(error);
+      });
   };
 
   return (
