@@ -31,7 +31,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
   return (
     <div
       key={id}
-      className="w-full h-[750px] md:w-5/12 lg:w-4/12 mb-12 flex flex-col justify-between"
+      className="w-full h-[750px] md:w-5/12 lg:w-4/12 mb-36 flex flex-col justify-between"
     >
       <h1 className="text-xl md:text-2xl font-thin">{name}</h1>
       <div className="relative w-9/12 md:w-full mx-auto mt-4 md:-mt-16">
@@ -99,7 +99,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
               console.log("Product:", product, quantity);
               AddToCart(product, quantity);
             }}
-            className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 py-2 rounded-lg hover:opacity-80"
+            className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 md:px-6 py-2 rounded-lg hover:opacity-80"
           >
             Añadir al carrito
           </button>
