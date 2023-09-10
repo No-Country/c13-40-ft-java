@@ -32,6 +32,7 @@ const Products = () => {
           image={product.image}
           price={product.price}
           product={product}
+          quantity={product.quantity}
         />
       ))}
     </div>
