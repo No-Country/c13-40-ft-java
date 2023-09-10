@@ -8,16 +8,19 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import CartItem from "../../components/card/CartItem";
 
 export default function Cart() {
-  const { cart } = useContext(ComfyContext);
-  const subtotal = cart.reduce((total, product) => {
-    return total + product.price;
-  }, 0);
-  const costoEnvio = 120;
-  const total = subtotal + costoEnvio;
-
   useEffect(() => {
     AOS.init({ duration: 1200 });
   }, []);
+  const { cart } = useContext(ComfyContext);
+  const shippingCost = 120;
+  const subtotal = cart.reduce(
+    (accumulator, item) => accumulator + item.product.price * item.quantity,
+    0
+  );
+
+  // Calcular el total sumando el subtotal y el costo de envío
+  const total = subtotal + shippingCost;
+  console.log("este es el carrito", cart);
 
   return (
     <section data-aos="fade" className="flex flex-col w-full mb-6">
@@ -50,17 +53,22 @@ export default function Cart() {
           </tr>
         </thead>
         <tbody>
-          {cart.map((product) => (
-            <CartItem
-              key={product.id}
-              Name={product.name}
-              Description={product.description}
-              Category={product.category}
-              ImgURL={product.image}
-              Price={product.price}
-              product={product}
-            />
-          ))}
+          {cart.map((i) => {
+            const productTotal = i.product.price * i.quantity;
+            const formattedPrice = productTotal.toFixed(2);
+            return (
+              <CartItem
+                key={i.product.id}
+                Name={i.product.name}
+                Description={i.product.description}
+                Category={i.product.category}
+                ImgURL={i.product.image}
+                Price={formattedPrice}
+                Product={i.product}
+                Quantity={i.quantity}
+              />
+            );
+          })}
         </tbody>
 
         <tfoot>
@@ -78,7 +86,7 @@ export default function Cart() {
               Delivery Fee
             </th>
             <th className="text-center text-xl font-ArchivoBlack font-medium ">
-              ${costoEnvio}
+              ${shippingCost}
             </th>
             <th className="text-center text-xl  font-semibold  "></th>
           </tr>

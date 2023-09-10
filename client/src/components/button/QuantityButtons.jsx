@@ -4,20 +4,30 @@ import { useContext } from "react";
 import { ComfyContext } from "@/context/ComfyContext";
 import { Tooltip } from "@mui/material";
 
-function QuantityButtons({ product }) {
-  const { RemoveFromCart } = useContext(ComfyContext);
+function QuantityButtons({ product, quantity }) {
+  const { RemoveFromCart, updateCartItemQuantity } = useContext(ComfyContext);
+  console.log("boton de", quantity);
+  const handleQuantityIncrease = () => {
+    updateCartItemQuantity(product.id, quantity + 1);
+  };
+
+  const handleQuantityDecrease = () => {
+    if (quantity > 1) {
+      updateCartItemQuantity(product.id, quantity - 1);
+    }
+  };
 
   return (
     <div className=" flex items-center justify-center sm:mx-10">
       <div className="bg-orange-100 flex items-center justify-center gap-3 sm:gap-5 sm:h-10 w-28 sm:w-32 text-zinc-600  border border-zinc-950 ">
-        <button>
+        <button onClick={handleQuantityDecrease}>
           <IoIosRemove
             className="cursor-pointer text-black hover:opacity-50"
             size="20px"
           />
         </button>
-        <span className="text-xl text-black"> 1 </span>
-        <button>
+        <span className="text-xl text-black"> {quantity} </span>
+        <button onClick={handleQuantityIncrease}>
           <IoIosAdd
             className="cursor-pointer text-black hover:opacity-50"
             size="20px"

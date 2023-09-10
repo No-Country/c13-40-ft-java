@@ -96,8 +96,8 @@ const BigProductCard = ({ id, name, image, price, product }) => {
           </div>
           <button
             onClick={() => {
-              console.log("Product:", product);
-              AddToCart(product);
+              console.log("Product:", product, quantity);
+              AddToCart(product, quantity);
             }}
             className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 py-2 rounded-lg hover:opacity-80"
           >
