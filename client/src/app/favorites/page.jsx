@@ -54,27 +54,6 @@ function Favorites() {
           ))}
         </tbody>
       </table>
-      {/* boton de Accion */}
-      {/* <div className="flex justify-center items-center">
-        <a
-          href="#_"
-          className="inline-flex items-center justify-center w-full px-6 xl:px-10 py-3 mb-2 xl:text-xl text-black bg-orange-100 border border-black hover:bg-orange-200 sm:w-auto sm:mb-0"
-        >
-          Checkout
-          <svg
-            className="w-4 h-4 ml-1"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-        </a>
-      </div> */}
     </section>
   );
 }

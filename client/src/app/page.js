@@ -9,6 +9,7 @@ import Image from "next/image";
 import { ComfyContext } from "../context/ComfyContext";
 
 import Categories from "../components/categories/Categories";
+import BrandsCard from "@/components/card/BrandsCard";
 
 const Home = () => {
   const { loading, setLoading } = useContext(ComfyContext);
@@ -54,6 +55,8 @@ const Home = () => {
             </div>
           </div>
           <Slider />
+          <Categories />
+          <BrandsCard />
           <Image
             className="md:hidden mt-8 h-8"
             src="/Divisor.png"
@@ -61,7 +64,6 @@ const Home = () => {
             height={150}
             alt="divisor"
           />
-          <Categories />
           <Slider2 />
         </div>
       )}

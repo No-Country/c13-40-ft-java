@@ -59,7 +59,7 @@ const ContextProvider = ({ children }) => {
   }
 
   function RemoveFromFav(favoriteToRemove) {
-    setCart(cart.filter((product) => product.name !== favoriteToRemove.name));
+    setCart(favs.filter((product) => product.name !== favoriteToRemove.name));
     setTimeout(() => {
       alert(`${favoriteToRemove.name} Removed from favorites`);
     }, 200);
