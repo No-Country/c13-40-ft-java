@@ -17,8 +17,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
-
+import { Badge } from "@mui/material";
+import { ComfyContext } from "@/context/ComfyContext";
 const Navbar = () => {
+  const { badgeCart } = useContext(ComfyContext);
   const pathname = usePathname();
 
   const [open, setOpen] = useState(true);
@@ -90,10 +92,12 @@ const Navbar = () => {
           width={100}
           height={100}
         />
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center md:gap-1 items-center">
           <ImSearch className="text-xl text-black cursor-pointer" />
           <Link href="/cart">
-            <MdShoppingCart className="text-2xl mx-1 md:mx-4 text-black cursor-pointer" />
+            <Badge color="error" badgeContent={badgeCart}>
+              <MdShoppingCart className="text-2xl mx-1 text-black cursor-pointer" />
+            </Badge>
           </Link>
           <div className="relative">
             <HiOutlineUserCircle
