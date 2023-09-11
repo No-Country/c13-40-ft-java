@@ -36,7 +36,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
       key={id}
       className="w-full h-[750px] md:w-5/12 lg:w-4/12 mb-36 flex flex-col justify-between"
     >
-      <h1 className="text-xl md:text-2xl font-thin">{name}</h1>
+      <h1 className="text-lg font-thin">{name}</h1>
       <div className="relative w-9/12 md:w-full mx-auto mt-4 md:-mt-16">
         <Image
           className="w-full h-auto rounded-md"
