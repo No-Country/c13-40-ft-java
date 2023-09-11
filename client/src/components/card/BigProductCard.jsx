@@ -99,7 +99,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
               console.log("Product:", product);
               AddToCart(product);
             }}
-            className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 md:px-6 py-2 rounded-lg hover:opacity-80"
+            className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 md:px-6 py-2 rounded-lg hover:opacity-80 text-base md:text-xs"
           >
             Añadir al carrito
           </button>
