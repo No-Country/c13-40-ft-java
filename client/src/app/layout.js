@@ -30,7 +30,6 @@ export default function RootLayout({ children }) {
           <AuthContextProvider>
             <ContextProvider>
               <ToasterContext />
-              <Toaster position="bottom-center" reverseOrder={false} />
               <Navbar />
               {children}
               <Footer />
