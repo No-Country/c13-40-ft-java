@@ -11,6 +11,7 @@ import { FcGoogle } from "react-icons/fc";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
 import { LuEye } from "react-icons/lu";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
   const schema = yup.object().shape({
