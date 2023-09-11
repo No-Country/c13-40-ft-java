@@ -94,10 +94,9 @@ const Navbar = () => {
         />
         <div className="flex justify-center md:gap-1 items-center">
           <ImSearch className="text-xl text-black cursor-pointer" />
-          <Link href="/cart">
-            <Badge color="error" badgeContent={badgeCart}>
-              <MdShoppingCart className="text-2xl mx-1 text-black cursor-pointer" />
-            </Badge>
+          <Link className="relative mx-2" href="/cart">
+            <Badge sx={{ position: 'absolute', top: '0', right: '0' }} color="error" badgeContent={badgeCart} />
+            <MdShoppingCart className="text-2xl text-black cursor-pointer" />
           </Link>
           <div className="relative">
             <HiOutlineUserCircle

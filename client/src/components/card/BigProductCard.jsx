@@ -2,14 +2,17 @@
 import { useState, useEffect, useContext } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { toast } from "react-hot-toast";
 import Image from "next/image";
 import { BiHeart } from "react-icons/bi";
 import { BiSolidHeart } from "react-icons/bi";
 import { FaTruck } from "react-icons/fa";
 import { ComfyContext } from "@/context/ComfyContext";
+import { AuthContext } from "@/context/AuthContext";
 
 const BigProductCard = ({ id, name, image, price, product }) => {
   const { AddToCart, AddToFav, RemoveFromFav } = useContext(ComfyContext);
+  const { isLoggedIn } = useContext(AuthContext);
   const [quantity, setQuantity] = useState(1);
 
   const [like, setLike] = useState(false);
@@ -96,8 +99,9 @@ const BigProductCard = ({ id, name, image, price, product }) => {
           </div>
           <button
             onClick={() => {
-              console.log("Product:", product, quantity);
-              AddToCart(product, quantity);
+              // console.log("Product:", product, quantity);
+              isLoggedIn ? AddToCart(product, quantity) : toast.error("Inicia sesión para agregar al carrito");
+              // AddToCart(product, quantity);
             }}
             className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 md:px-6 py-2 rounded-lg hover:opacity-80 text-base md:text-xs"
           >
