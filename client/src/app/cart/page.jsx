@@ -7,6 +7,7 @@ import { ComfyContext } from "@/context/ComfyContext";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import CartItem from "../../components/card/CartItem";
 import EmptyCartCard from "@/components/card/EmptyCartCard";
+import EmptyCartCard from "@/components/card/EmptyCartCard";
 
 export default function Cart() {
   useEffect(() => {
@@ -22,14 +23,25 @@ export default function Cart() {
   // Calcular el total sumando el subtotal y el costo de envío
   const total = subtotal + shippingCost;
   console.log("este es el carrito", cart);
+  const { cart } = useContext(ComfyContext);
+  const shippingCost = 120;
+  const subtotal = cart.reduce(
+    (accumulator, item) => accumulator + item.product.price * item.quantity,
+    0
+  );
+
+  // Calcular el total sumando el subtotal y el costo de envío
+  const total = subtotal + shippingCost;
+  console.log("este es el carrito", cart);
 
   return (
     <section data-aos="fade" className="flex flex-col w-full mb-6">
       <div className="flex flex-col justify-center  items-center w-full mt-10 mb-10">
+      <div className="flex flex-col justify-center  items-center w-full mt-10 mb-10">
         <p className="text-5xl font-ArchivoBlack  font-extrabold">YOUR CART</p>
         <div className="flex items-center">
           <Link
-            href="/products"
+            href="/productsproducts"
             className="flex items-center cursor-pointer underline decoration-black hover:opacity-70  font-serif 
             duration-200"
           >
@@ -38,6 +50,42 @@ export default function Cart() {
           </Link>
         </div>
       </div>
+      {cart.length === 0 ? (
+        <EmptyCartCard />
+      ) : (
+        <>
+          <table className="table-auto  mx-3 md:mx-32 lg:mx-52 xl:mx-20   rounded-md">
+            <thead>
+              <tr className="ml-6 border-b">
+                <th className="text-left  text-sm opacity-60 font-semibold">
+                  PRODUCT
+                </th>
+                <th className="hidden sm:table-cell text-center text-sm opacity-60 font-semibold">
+                  QUANTITY
+                </th>
+                <th className="text-center text-sm opacity-60 font-semibold ">
+                  PRICE
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((i) => {
+                const productTotal = i.product.price * i.quantity;
+                const formattedPrice = productTotal.toFixed(2);
+                return (
+                  <CartItem
+                    key={i.product.id}
+                    Name={i.product.name}
+                    Description={i.product.description}
+                    Category={i.product.category}
+                    ImgURL={i.product.image}
+                    Price={formattedPrice}
+                    Product={i.product}
+                    Quantity={i.quantity}
+                  />
+                );
+              })}
+            </tbody>
       {cart.length === 0 ? (
         <EmptyCartCard />
       ) : (
