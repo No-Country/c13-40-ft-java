@@ -52,10 +52,10 @@ const Footer = () => {
           <h6 className="font-bold">My Account</h6>
           <ul className="space-y-2">
             <li>
-              <Link href="/">Sign in</Link>
+              <Link href="/access/login">Sign in</Link>
             </li>
             <li>
-              <Link href="/">Register</Link>
+              <Link href="/access/register">Register</Link>
             </li>
             <li>
               <Link href="/cart">Order Status</Link>
