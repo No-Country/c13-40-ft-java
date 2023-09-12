@@ -21,7 +21,7 @@ export default function Cart() {
   );
 
   // Calcular el total sumando el subtotal y el costo de envío
-  const total = subtotal + shippingCost;
+  const total = (subtotal + shippingCost).toFixed(2);
   console.log("este es el carrito", cart);
 
   return (
