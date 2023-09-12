@@ -65,7 +65,7 @@ const Home = () => {
           <BrandsCard />
           <Slider2 />
           <Galery />
-          <InfoCard />
+          {/* <InfoCard /> */}
         </div>
       )}
     </>

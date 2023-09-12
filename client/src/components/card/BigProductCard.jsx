@@ -48,7 +48,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
             //  onClick={() => AddToFav(product)}
             onClick={() => {
               AddToFav(product, quantity);
-              console.log(product);
+              setLike(product);
             }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer"
           />
