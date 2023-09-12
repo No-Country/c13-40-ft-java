@@ -7,6 +7,7 @@ import { ComfyContext } from "@/context/ComfyContext";
 import { useContext } from "react";
 function Favorites() {
   const { favs } = useContext(ComfyContext);
+  console.log("list favorites", favs);
   return (
     <section className="flex flex-col w-full mb-6">
       <div className="flex flex-col justify-center xl:mx-7  items-center w-full mt-10 mb-10">

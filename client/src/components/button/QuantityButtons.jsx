@@ -19,7 +19,7 @@ function QuantityButtons({ product, quantity }) {
 
   return (
     <div className=" flex items-center justify-center sm:mx-10">
-      <div className="bg-orange-100 flex items-center justify-center gap-3 sm:gap-5 sm:h-10 w-28 sm:w-32 text-zinc-600  border border-zinc-950 ">
+      <div className="bg-[#eee3d7] flex items-center justify-center gap-3 sm:gap-5 sm:h-10 w-28 sm:w-32 text-zinc-600  border border-zinc-950 ">
         <button onClick={handleQuantityDecrease}>
           <IoIosRemove
             className="cursor-pointer text-black hover:opacity-50"

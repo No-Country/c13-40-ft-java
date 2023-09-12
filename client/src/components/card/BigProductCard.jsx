@@ -46,14 +46,19 @@ const BigProductCard = ({ id, name, image, price, product }) => {
           <BiHeart
             data-aos="zoom-in"
             //  onClick={() => AddToFav(product)}
-            onClick={() => setLike(!like)}
+            onClick={() => {
+              AddToFav(product, quantity);
+              console.log(product);
+            }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer"
           />
         ) : (
           <BiSolidHeart
             data-aos="zoom-in"
             // onClick={() => RemoveFromFav(product)}
-            onClick={() => setLike(!like)}
+            onClick={() => {
+              setLike(!like);
+            }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer text-red-500"
           />
         )}

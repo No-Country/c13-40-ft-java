@@ -53,17 +53,27 @@ const ContextProvider = ({ children }) => {
     const isProducInFav = favs.some((product) => product.id === newFavorite.id);
 
     if (isProducInFav) {
-      alert(`${newFavorite.name} is already added in fav`);
+      toast.error(`${newFavorite.name} is already added in fav`);
     } else setFavs([...favs, newFavorite]);
+
     // add react hook toast
   }
 
   function RemoveFromFav(favoriteToRemove) {
-    setCart(favs.filter((product) => product.name !== favoriteToRemove.name));
+    setFavs(favs.filter((product) => product.name !== favoriteToRemove.name));
     setTimeout(() => {
-      alert(`${favoriteToRemove.name} Removed from favorites`);
+      toast.error(`${favoriteToRemove.name} Removed from favorites`);
     }, 200);
-    // add react hook toast
+  }
+  function AddFromFavToCart(product) {
+    const isProductInCart = cart.some((item) => item.id === product.id);
+
+    if (isProductInCart) {
+      toast.error(`${product.name} is already in the cart.`);
+    } else {
+      setCart([...cart, product]);
+      toast.success(`${product.name} has been added to your cart.`);
+    }
   }
 
   // Maneja el booleano que muestra el modal de carga
@@ -81,6 +91,7 @@ const ContextProvider = ({ children }) => {
         favs,
         setFavs,
         AddToFav,
+        AddFromFavToCart,
         RemoveFromFav,
         loading,
         setLoading,

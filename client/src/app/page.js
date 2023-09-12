@@ -10,6 +10,9 @@ import { ComfyContext } from "../context/ComfyContext";
 
 import Categories from "../components/categories/Categories";
 import BrandsCard from "@/components/card/BrandsCard";
+import Link from "next/link";
+import Galery from "@/components/galery/Galery";
+import InfoCard from "@/components/card/InfoCard";
 
 const Home = () => {
   const { loading, setLoading } = useContext(ComfyContext);
@@ -40,9 +43,12 @@ const Home = () => {
               <p className="mb-8 text-xs md:text-base w-11/12">
                 Explore different categories. Find the best deals.
               </p>
-              <button className="bg-secondary text-black font-bold py-4 px-12 rounded-md">
+              <Link
+                href="/products"
+                className="bg-secondary text-white font-bold py-4 px-12 rounded-md"
+              >
                 Shop now
-              </button>
+              </Link>
             </div>
             <div className="w-full md:w-6/12 h-auto md:mb-16 md:mt-8">
               <Image
@@ -57,14 +63,9 @@ const Home = () => {
           <Slider />
           <Categories />
           <BrandsCard />
-          <Image
-            className="md:hidden mt-8 h-8"
-            src="/Divisor.png"
-            width={1000}
-            height={150}
-            alt="divisor"
-          />
           <Slider2 />
+          <Galery />
+          <InfoCard />
         </div>
       )}
     </>

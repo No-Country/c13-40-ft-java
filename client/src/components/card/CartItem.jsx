@@ -23,8 +23,8 @@ function CartItem({
           <p className="text-lg lg:text-xl font-ArchivoBlack font-medium Display uppercase ">
             {Name}
           </p>
-          <p className="lg:text-lg mt-3 sm:mt-0"> {Category} </p>
-          <p className="hidden lg:table-cell text-left mt-5">{Description}</p>
+          <p className="lg:text-lg mt-3 sm:mt-0"> {Description} </p>
+          <p className="hidden text-left mt-5"></p>
           <div className="flex mt-5 sm:hidden">
             {console.log("cantidad es ", Quantity)}
             <QuantityButtons product={Product} quantity={Quantity} />

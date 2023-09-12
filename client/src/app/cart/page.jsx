@@ -109,7 +109,7 @@ export default function Cart() {
           <div className="flex justify-center items-center">
             <a
               href="#_"
-              className="inline-flex items-center justify-center w-full px-6 xl:px-10 py-3 mb-2 xl:text-xl text-black bg-orange-100 border border-black hover:bg-orange-200 sm:w-auto sm:mb-0"
+              className="inline-flex items-center justify-center w-full px-6 xl:px-10 py-3 mb-2 xl:text-xl text-black bg-[#eee3d7] border border-black hover:bg-[#d4b69d] sm:w-auto sm:mb-0"
             >
               Checkout
               <svg
