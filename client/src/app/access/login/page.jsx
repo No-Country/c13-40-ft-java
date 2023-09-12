@@ -51,8 +51,7 @@ const Login = () => {
     axios
       .post("https://comfy-nocountry.azurewebsites.net/login", user)
       .then(() => {
-        login(); // Set isLoggedIn to true
-        toast.success("You have logged in!");
+        login(user.email); // Set isLoggedIn to true
         router.push("/"); // Navigate to the home page
       })
       .catch((error) => {
