@@ -65,16 +65,6 @@ const ContextProvider = ({ children }) => {
       toast.error(`${favoriteToRemove.name} Removed from favorites`);
     }, 200);
   }
-  function AddFromFavToCart(product) {
-    const isProductInCart = cart.some((item) => item.id === product.id);
-
-    if (isProductInCart) {
-      toast.error(`${product.name} is already in the cart.`);
-    } else {
-      setCart([...cart, product]);
-      toast.success(`${product.name} has been added to your cart.`);
-    }
-  }
 
   // Maneja el booleano que muestra el modal de carga
   const [loading, setLoading] = useState(true);
@@ -91,7 +81,6 @@ const ContextProvider = ({ children }) => {
         favs,
         setFavs,
         AddToFav,
-        AddFromFavToCart,
         RemoveFromFav,
         loading,
         setLoading,

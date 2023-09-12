@@ -47,7 +47,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
             data-aos="zoom-in"
             //  onClick={() => AddToFav(product)}
             onClick={() => {
-              AddToFav(product, quantity);
+              AddToFav(product);
               setLike(product);
             }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer"

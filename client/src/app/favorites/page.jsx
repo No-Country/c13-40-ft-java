@@ -42,6 +42,7 @@ function Favorites() {
           </tr>
         </thead>
         <tbody>
+       
           {favs.map((product) => (
             <FavoritesItem
               key={product.id}
