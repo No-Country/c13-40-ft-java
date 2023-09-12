@@ -48,7 +48,7 @@ function Favorites() {
               key={product.id}
               Name={product.name}
               Description={product.description}
-              Category={product.category}
+              // Category={product.category}
               ImgURL={product.image}
               Price={product.price}
               product={product}

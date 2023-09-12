@@ -151,7 +151,7 @@ const Navbar = () => {
         </div>
         <div
           className={`absolute top-0 mt-20 ${
-            open ? "translate-x-[-900px]" : "translate-x-0"
+            open ? "translate-x-[-900px]" : "translate-x-[-20px]"
           } md:hidden h-screen w-6/12 z-10 bg-primary transition-all duration-700 ease`}
         >
           <div className="flex flex-col justify-center items-start p-4">

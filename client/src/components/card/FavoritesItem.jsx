@@ -5,7 +5,7 @@ import RemoveFavButton from "../button/RemoveFavButton";
 // nombres de props de ejemplo
 function FavoritesItem({
   Name,
-  Category,
+  // Category,
   Description,
   Price,
   ImgURL,
@@ -24,7 +24,7 @@ function FavoritesItem({
           <p className="text-lg lg:text-xl font-ArchivoBlack font-medium Display uppercase ">
             {Name}
           </p>
-          <p className="lg:text-lg mt-3 sm:mt-0"> {Category}</p>
+          {/* <p className="lg:text-lg mt-3 sm:mt-0"> {Category}</p> */}
           <p className="hidden lg:table-cell text-left mt-5">{Description}</p>
           <div className="flex mt-5 sm:hidden">
             <AddToCartButton product={product} />
