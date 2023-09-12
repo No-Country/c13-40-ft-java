@@ -2,7 +2,7 @@ import React from "react";
 
 function Galery() {
   return (
-    <div className="mx-auto px-5 py-2 lg:px-32 lg:pt-24 mb-10">
+    <div className="mx-auto px-5 py-2 lg:px-32 lg:pt-24 mb-16">
       <div className="flex justify-center">
         <h4 className="text-xl  lg:text-3xl font-bold mb-44  sm:mb-10">
           Takes your inspiration to another level
