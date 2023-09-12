@@ -7,6 +7,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Image from "next/image";
 
 export default function About() {
   useEffect(() => {
@@ -16,8 +17,15 @@ export default function About() {
   return (
     <div
       data-aos="fade"
-      className="w-full min-h-screen my-20 mx-auto md:w-8/12 lg:w-6/12 px-8"
+      className="relative w-full min-h-screen my-4 mx-auto md:w-8/12 lg:w-6/12 px-8"
     >
+      <Image
+        className="w-full absolute mt-40 top-0 opacity-60"
+        src="/about.svg"
+        width={1000}
+        height={1000}
+        alt="about"
+      />
       <Accordion
         sx={{
           boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
