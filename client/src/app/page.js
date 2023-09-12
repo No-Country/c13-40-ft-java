@@ -6,6 +6,7 @@ import Slider from "../components/slider/Slider";
 import Slider2 from "../components/slider/Slider2";
 import LoadingModal from "../components/loadingModal/LoadingModal";
 import Image from "next/image";
+import Link from "next/link";
 import { ComfyContext } from "../context/ComfyContext";
 
 import Categories from "../components/categories/Categories";
@@ -39,9 +40,11 @@ const Home = () => {
               <p className="mb-8 text-xs md:text-base w-11/12">
                 Explore different categories. Find the best deals.
               </p>
-              <button className="bg-secondary text-black font-bold py-4 px-12 rounded-md">
-                Shop now
-              </button>
+              <Link href="/products">
+                <button className="bg-secondary text-black font-bold py-4 px-12 rounded-md">
+                  Shop now
+                </button>
+              </Link>
             </div>
             <div className="w-full md:w-6/12 h-auto md:mb-16 md:mt-8">
               <Image

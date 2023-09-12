@@ -1,3 +1,5 @@
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { useQuery } from "react-query";
 import getProducts from "../../services/products";
 import Image from "next/image";
@@ -12,6 +14,13 @@ const SliderCards = (props) => {
 
   return (
     <div>
+      {queryProducts.isLoading && (
+        <div className="h-52 md:h-72 lg:h-96">
+          <div className="w-11/12 h-full rounded-lg overflow-hidden flex flex-col justify-center items-center">
+            <Skeleton height={200} width={200} />
+          </div>
+        </div>
+      )}
       {queryProducts.data && (
         <div className="h-52 md:h-72 lg:h-96">
           <div className="w-11/12 h-full rounded-lg overflow-hidden flex flex-col justify-center items-center">

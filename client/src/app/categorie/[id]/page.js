@@ -5,17 +5,15 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import getProducts from "../../services/products";
 import BigProductCard from "@/components/card/BigProductCard";
+import getCategories from "../../../services/categorie";
 
-const Products = () => {
-  const queryProducts = useQuery({
-    queryKey: ["products"],
-    queryFn: () => getProducts(),
+const Categorie = ({ params }) => {
+  const queryCategorie = useQuery({
+    queryKey: ["categorie"],
+    queryFn: () => getCategories(params.id),
     retry: 10,
   });
-
-  console.log(queryProducts.data);
 
   useEffect(() => {
     AOS.init({ duration: 400 });
@@ -26,7 +24,7 @@ const Products = () => {
       data-aos="fade"
       className="w-full min-h-screen mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-2 px-6 my-12"
     >
-      {queryProducts.isLoading && (
+      {queryCategorie.isLoading && (
         <div className="w-9/12 md:w-full flex flex-col justify-center items-center md:flex-row -mt-72">
           <div>
             <Skeleton width={"100%"} height={200} />
@@ -36,7 +34,7 @@ const Products = () => {
           </div>
         </div>
       )}
-      {queryProducts?.data?.map((product) => (
+      {queryCategorie?.data?.products?.map((product) => (
         <BigProductCard
           key={product.id}
           id={product.id}
@@ -51,4 +49,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Categorie;
