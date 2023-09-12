@@ -26,7 +26,9 @@ const Navbar = () => {
   const [open, setOpen] = useState(true);
   const [access, setAccess] = useState(false);
 
-  const { isLoggedIn, logout } = useContext(AuthContext);
+  const { isLoggedIn, logout, userEmail } = useContext(AuthContext);
+
+  const emailFirstChar = userEmail?.charAt(0).toUpperCase();
 
   console.log(pathname);
 
@@ -99,10 +101,19 @@ const Navbar = () => {
             <MdShoppingCart className="text-2xl text-black cursor-pointer" />
           </Link>
           <div className="relative">
-            <HiOutlineUserCircle
-              onClick={() => setAccess(!access)}
-              className="text-2xl text-black cursor-pointer"
-            />
+            {isLoggedIn ? (
+              <button
+                className="text-2xl text-white cursor-pointer rounded-[50%] bg-[#6a358d] w-8 h-8 flex justify-center items-center"
+                onClick={() => setAccess(!access)}
+              >
+                {emailFirstChar}
+              </button>
+            ) : (
+              <HiOutlineUserCircle
+                onClick={() => setAccess(!access)}
+                className="text-2xl text-black cursor-pointer"
+              />
+            )}
             {access && (
               <Paper
                 sx={{
