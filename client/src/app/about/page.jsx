@@ -84,7 +84,7 @@ export default function About() {
         <AccordionDetails>
           <Typography>Nara Humano</Typography>
           <Typography>Joaquin Bianchi</Typography>
-          <Typography>Tomás Arteaga</Typography>
+          <Typography>Tomás Echeveste Arteaga</Typography>
           <Typography>Mario Godoy</Typography>
           <Typography>Samantha Sánchez</Typography>
           <Typography>Ezequiel Soto</Typography>
