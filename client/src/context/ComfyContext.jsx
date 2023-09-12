@@ -53,17 +53,17 @@ const ContextProvider = ({ children }) => {
     const isProducInFav = favs.some((product) => product.id === newFavorite.id);
 
     if (isProducInFav) {
-      alert(`${newFavorite.name} is already added in fav`);
+      toast.error(`${newFavorite.name} is already added in fav`);
     } else setFavs([...favs, newFavorite]);
+
     // add react hook toast
   }
 
   function RemoveFromFav(favoriteToRemove) {
-    setCart(cart.filter((product) => product.name !== favoriteToRemove.name));
+    setFavs(favs.filter((product) => product.name !== favoriteToRemove.name));
     setTimeout(() => {
-      alert(`${favoriteToRemove.name} Removed from favorites`);
+      toast.error(`${favoriteToRemove.name} Removed from favorites`);
     }, 200);
-    // add react hook toast
   }
 
   // Maneja el booleano que muestra el modal de carga

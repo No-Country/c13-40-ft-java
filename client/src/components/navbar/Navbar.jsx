@@ -18,6 +18,7 @@ import { usePathname } from "next/navigation";
 import { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
 import { Badge } from "@mui/material";
+
 import { ComfyContext } from "@/context/ComfyContext";
 const Navbar = () => {
   const { badgeCart } = useContext(ComfyContext);
@@ -95,70 +96,76 @@ const Navbar = () => {
           height={100}
         />
         <div className="flex justify-center md:gap-1 items-center">
-          <ImSearch className="text-xl text-black cursor-pointer" />
-          <Link className="relative mx-2" href="/cart">
-            <Badge sx={{ position: 'absolute', top: '0', right: '0' }} color="error" badgeContent={badgeCart} />
-            <MdShoppingCart className="text-2xl text-black cursor-pointer" />
-          </Link>
-          <div className="relative">
-            {isLoggedIn ? (
-              <button
-                className="text-2xl text-white cursor-pointer rounded-[50%] bg-[#6a358d] w-8 h-8 flex justify-center items-center"
-                onClick={() => setAccess(!access)}
-              >
-                {emailFirstChar}
-              </button>
-            ) : (
-              <HiOutlineUserCircle
-                onClick={() => setAccess(!access)}
-                className="text-2xl text-black cursor-pointer"
+          <div className="flex justify-center md:gap-1 items-center">
+            <ImSearch className="text-xl text-black cursor-pointer" />
+            <Link className="relative mx-2" href="/cart">
+              <Badge
+                sx={{ position: "absolute", top: "0", right: "0" }}
+                color="error"
+                badgeContent={badgeCart}
               />
-            )}
-            {access && (
-              <Paper
-                sx={{
-                  position: "absolute",
-                  top: "10",
-                  marginTop: "0.3rem",
-                  marginRight: "0.2rem",
-                  marginLeft: "-4rem",
-                }}
-              >
-                <MenuList onClick={() => setAccess(!access)}>
-                  {isLoggedIn ? (
-                    <MenuItem onClick={logout}>Sign Out</MenuItem>
-                  ) : (
-                    <>
-                      <Link href="/access/login">
-                        <MenuItem>Login</MenuItem>
-                      </Link>
-                      <Link href="/access/register">
-                        <MenuItem>Register</MenuItem>
-                      </Link>
-                    </>
-                  )}
-                </MenuList>
-              </Paper>
-            )}
+              <MdShoppingCart className="text-2xl text-black cursor-pointer" />
+            </Link>
+            <div className="relative">
+              {isLoggedIn ? (
+                <button
+                  className="text-2xl text-white cursor-pointer rounded-[50%] bg-[#6a358d] w-8 h-8 flex justify-center items-center"
+                  onClick={() => setAccess(!access)}
+                >
+                  {emailFirstChar}
+                </button>
+              ) : (
+                <HiOutlineUserCircle
+                  onClick={() => setAccess(!access)}
+                  className="text-2xl text-black cursor-pointer"
+                />
+              )}
+              {access && (
+                <Paper
+                  sx={{
+                    position: "absolute",
+                    top: "10",
+                    marginTop: "0.3rem",
+                    marginRight: "0.2rem",
+                    marginLeft: "-4rem",
+                  }}
+                >
+                  <MenuList onClick={() => setAccess(!access)}>
+                    {isLoggedIn ? (
+                      <MenuItem onClick={logout}>Sign Out</MenuItem>
+                    ) : (
+                      <>
+                        <Link href="/access/login">
+                          <MenuItem>Login</MenuItem>
+                        </Link>
+                        <Link href="/access/register">
+                          <MenuItem>Register</MenuItem>
+                        </Link>
+                      </>
+                    )}
+                  </MenuList>
+                </Paper>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        className={`absolute top-0 mt-20 ${
-          open ? "translate-x-[-900px]" : "translate-x-0"
-        } md:hidden h-screen w-6/12 z-10 bg-primary transition-all duration-700 ease`}
-      >
-        <div className="flex flex-col justify-center items-start p-4">
-          {links.map((l) => (
-            <Link
-              className="my-2 flex justify-center items-center font-bold hover:text-white transition-all duration-500 ease"
-              key={l.name}
-              href={l.link}
-              onClick={() => setOpen(!open)}
-            >
-              {l.icon} {l.name}
-            </Link>
-          ))}
+        <div
+          className={`absolute top-0 mt-20 ${
+            open ? "translate-x-[-900px]" : "translate-x-0"
+          } md:hidden h-screen w-6/12 z-10 bg-primary transition-all duration-700 ease`}
+        >
+          <div className="flex flex-col justify-center items-start p-4">
+            {links.map((l) => (
+              <Link
+                className="my-2 flex justify-center items-center font-bold hover:text-white transition-all duration-500 ease"
+                key={l.name}
+                href={l.link}
+                onClick={() => setOpen(!open)}
+              >
+                {l.icon} {l.name}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -15,10 +15,10 @@ module.exports = {
       colors: {
         important: "#FF0000D6",
         primary: {
-          DEFAULT: "#CDA083",
+          DEFAULT: "#eee3d7",
         },
         secondary: {
-          DEFAULT: "#A88B64",
+          DEFAULT: "#b57a5a",
         },
         tertiary: {
           DEFAULT: "#DCDDDF",

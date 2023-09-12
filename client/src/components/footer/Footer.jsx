@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-fifth p-4 pt-16 pb-12 space-y-8 sm:px-8 md:pb-8 md:pr-4 lg:px-10 text-lg text-black xl:pb-12 xl:pt-24 xl:pl-20 2xl:pl-32 2xl:pt-32 mt-20">
+    <footer className="bg-primary p-4 pt-16 pb-12 space-y-8 sm:px-8 md:pb-8 md:pr-4 lg:px-10 text-lg text-black xl:pb-12 xl:pt-24 xl:pl-20 2xl:pl-32 2xl:pt-16 mt-20">
       {/* Logo */}
       <div className="grid grid-cols-2 gap-y-10 sm:grid-cols-4 md:grid-cols-6 md:gap-x-4 lg:grid-cols-11 lg:gap-x-0">
         <div className="col-span-2 sm:col-span-4 md:col-span-2 lg:col-span-3">
@@ -37,7 +37,7 @@ const Footer = () => {
           <h6 className="font-bold">Shop</h6>
           <ul className="space-y-2">
             <li>
-              <Link href="/">All Products</Link>
+              <Link href="/products">All Products</Link>
             </li>
             <li>
               <Link href="/">Bedroom</Link>
@@ -58,7 +58,7 @@ const Footer = () => {
               <Link href="/">Register</Link>
             </li>
             <li>
-              <Link href="/">Order Status</Link>
+              <Link href="/cart">Order Status</Link>
             </li>
           </ul>
         </div>
@@ -67,13 +67,13 @@ const Footer = () => {
           <h6 className="font-bold">Help</h6>
           <ul className="space-y-2">
             <li>
-              <Link href="/">Shipping</Link>
+              <Link href="/products">Shipping</Link>
             </li>
             <li>
-              <Link href="/">Returns</Link>
+              <Link href="/products">Returns</Link>
             </li>
             <li>
-              <Link href="/">Sizing</Link>
+              <Link href="/products">Sizing</Link>
             </li>
           </ul>
         </div>
@@ -95,7 +95,7 @@ const Footer = () => {
       </div>
       {/* Copyright */}
       <p className="text-center text-base sm:text-left">
-        Copyright ©2020 COMFY. All Rights Reserved.
+        Copyright ©2023 COMFY. All Rights Reserved.
       </p>
     </footer>
   );

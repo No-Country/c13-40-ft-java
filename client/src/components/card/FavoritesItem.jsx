@@ -1,5 +1,6 @@
 import { HiOutlineTrash } from "react-icons/hi";
 import AddToCartButton from "../button/AddToCartButton";
+import RemoveFavButton from "../button/RemoveFavButton";
 
 // nombres de props de ejemplo
 function FavoritesItem({
@@ -27,19 +28,14 @@ function FavoritesItem({
           <p className="hidden lg:table-cell text-left mt-5">{Description}</p>
           <div className="flex mt-5 sm:hidden">
             <AddToCartButton product={product} />
-            <button
-              type="button"
-              className="lg:hidden px-3 py-2.5 inline-flex justify-center items-center gap-2 rounded-lg border-2 border-red-200 font-semibold text-red-500 hover:text-white hover:bg-red-500 hover:border-red-500    transition-all text-sm "
-            >
-              <HiOutlineTrash product={product} size="22px" />
-            </button>
+            <RemoveFavButton product={product} />
             {/* // Add to cart btn */}
           </div>
         </div>
       </td>
       {/* fila cantidad oculta en mobile */}
       <td className="hidden sm:table-cell   text-center ">
-        <AddToCartButton />
+        <AddToCartButton product={product} />
       </td>
       <td className="text-center">
         <span className="lg:text-xl font-medium font-ArchivoBlack">
@@ -48,12 +44,7 @@ function FavoritesItem({
       </td>
 
       <td className="hidden md:table-cell text-center">
-        <button
-          type="button"
-          className="px-3 py-2.5 inline-flex justify-center items-center gap-2 rounded-lg border-2 border-red-200  text-red-500 hover:text-white hover:bg-red-500 hover:border-red-500  transition-all"
-        >
-          <HiOutlineTrash product={product} size="22px" />
-        </button>
+        <RemoveFavButton product={product}></RemoveFavButton>
       </td>
     </tr>
   );
