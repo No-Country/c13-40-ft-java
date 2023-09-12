@@ -11,7 +11,7 @@ import { ComfyContext } from "../context/ComfyContext";
 
 import Categories from "../components/categories/Categories";
 import BrandsCard from "@/components/card/BrandsCard";
-import Link from "next/link";
+
 import Galery from "@/components/galery/Galery";
 import InfoCard from "@/components/card/InfoCard";
 
