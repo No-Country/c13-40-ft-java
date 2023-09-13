@@ -69,6 +69,9 @@ const ContextProvider = ({ children }) => {
   // Maneja el booleano que muestra el modal de carga
   const [loading, setLoading] = useState(true);
 
+  // String de bùsqueda
+  const [search, setSearch] = useState("");
+
   return (
     <ComfyContext.Provider
       value={{
@@ -84,6 +87,8 @@ const ContextProvider = ({ children }) => {
         RemoveFromFav,
         loading,
         setLoading,
+        search,
+        setSearch,
       }}
     >
       {children}
