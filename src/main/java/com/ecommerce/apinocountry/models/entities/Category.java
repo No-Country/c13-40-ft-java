@@ -1,6 +1,5 @@
 package com.ecommerce.apinocountry.models.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -12,12 +11,14 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import java.util.List;
+
 /**
  * This class represents the Category entity in the database.
  */
 @Entity
 @Table(name = "Category")
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_category")

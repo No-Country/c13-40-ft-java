@@ -22,6 +22,7 @@ import org.springframework.cache.annotation.CacheConfig;
 @Table(name = "product")
 @CacheConfig(cacheNames = "product-cache")
 public class Product {
+
     private Long id;
     private String name;
     private String description;
@@ -29,13 +30,12 @@ public class Product {
     private Integer stock;
     private Double price;
     private Long category;
-    
-    
+
     private Category categorys;// Reference to the associated Category entity
 
     public Product() {
     }
-    
+
     /**
      * Constructor to initialize all fields of the Product entity.
      *
@@ -58,12 +58,14 @@ public class Product {
         this.category = category;
         this.categorys = categorys;
     }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_product")
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -73,6 +75,7 @@ public class Product {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -82,6 +85,7 @@ public class Product {
     public String getDescription() {
         return description;
     }
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -92,6 +96,7 @@ public class Product {
     public String getImage() {
         return image;
     }
+
     public void setImage(String image) {
         this.image = image;
     }
@@ -101,6 +106,7 @@ public class Product {
     public Integer getStock() {
         return stock;
     }
+
     public void setStock(Integer stock) {
         this.stock = stock;
     }
@@ -110,6 +116,7 @@ public class Product {
     public Double getPrice() {
         return price;
     }
+
     public void setPrice(Double price) {
         this.price = price;
     }
@@ -119,6 +126,7 @@ public class Product {
     public Long getCategory() {
         return category;
     }
+
     public void setCategory(Long category) {
         this.category = category;
     }
@@ -129,6 +137,7 @@ public class Product {
     public Category getCategoria() {
         return categorys;
     }
+
     public void setCategoria(Category categorys) {
         this.categorys = categorys;
     }

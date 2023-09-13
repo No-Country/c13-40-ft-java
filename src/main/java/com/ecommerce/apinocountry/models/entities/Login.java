@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -17,7 +18,8 @@ import jakarta.validation.constraints.NotBlank;
 @Entity
 @Table(name = "login")
 public class Login {
-   @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -27,14 +29,14 @@ public class Login {
 
     @NotBlank(message = "Password is required")
     private String password;
-    
+
     private String rol;
 
+    @Transient
     @OneToOne(mappedBy = "login", cascade = CascadeType.ALL) // Establecer la relación inversa con User y la cascada
     private User user; // Agregar el campo user
 
-    
-    public Login(){
+    public Login() {
 
     }
 
@@ -85,7 +87,4 @@ public class Login {
         this.user = user;
     }
 
-    
 }
-
-

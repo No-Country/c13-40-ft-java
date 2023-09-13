@@ -15,8 +15,8 @@ public class LoginService {
         this.loginRepository = loginRepository;
     }
 
-
     public Optional<Login> findUserByEmail(String email) {
-        System.out.println(email);return loginRepository.findByEmail(email);
+        System.out.println(email);
+        return loginRepository.findByEmail(email);
     }
 }

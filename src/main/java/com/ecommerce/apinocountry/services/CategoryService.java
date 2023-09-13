@@ -1,30 +1,32 @@
 package com.ecommerce.apinocountry.services;
 
-
 import com.ecommerce.apinocountry.models.entities.Category;
 import org.springframework.stereotype.Service;
 import com.ecommerce.apinocountry.repositories.CategoryRepository;
 import java.util.List;
 import java.util.Optional;
+
 /**
- * This class provides implementation for the CategoryService interface.
- * It manages the business logic for working with Category entities.
+ * This class provides implementation for the CategoryService interface. It
+ * manages the business logic for working with Category entities.
  */
 
 @Service
 public class CategoryService implements ICategory {
+
     private CategoryRepository categoryRepository;
 
-      /**
+    /**
      * Constructor to inject the CategoryRepository dependency.
      *
-     * @param categoryRepository The repository to interact with Category entities.
+     * @param categoryRepository The repository to interact with Category
+     * entities.
      */
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
-      /**
+    /**
      * Retrieves a list of all categories.
      *
      * @return List of Category objects.
@@ -55,8 +57,8 @@ public class CategoryService implements ICategory {
     public Optional<Category> getCategoryByName(String name) {
         return categoryRepository.findByName(name);
     }
- 
-      /**
+
+    /**
      * Inserts a new category.
      *
      * @param category The Category object to insert.
@@ -67,7 +69,7 @@ public class CategoryService implements ICategory {
         return categoryRepository.save(category);
     }
 
-     /**
+    /**
      * Updates an existing category.
      *
      * @param category The Category object to update.
@@ -78,7 +80,7 @@ public class CategoryService implements ICategory {
         return categoryRepository.save(category);
     }
 
-     /**
+    /**
      * Deletes a category by its ID.
      *
      * @param id The ID of the category to delete.
@@ -90,6 +92,6 @@ public class CategoryService implements ICategory {
 
     @Override
     public Optional<Category> getCategory() {
-        throw new UnsupportedOperationException("Not supported yet."); 
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

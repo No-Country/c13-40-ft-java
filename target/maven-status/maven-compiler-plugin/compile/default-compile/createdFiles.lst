@@ -16,6 +16,7 @@ com\ecommerce\apinocountry\services\FilterInternal.class
 com\ecommerce\apinocountry\controllers\rest\CategoryController.class
 com\ecommerce\apinocountry\ApiNocountryApplication.class
 com\ecommerce\apinocountry\models\entities\Product.class
+com\ecommerce\apinocountry\services\LoginService.class
 com\ecommerce\apinocountry\models\entities\Login.class
 com\ecommerce\apinocountry\repositories\UserRepository.class
 com\ecommerce\apinocountry\services\JwtConfig.class

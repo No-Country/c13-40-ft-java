@@ -43,7 +43,7 @@ public class JwtService {
                 .getBody();
     }
 
-    public String getEmailFromToken(String header){
+    public String getEmailFromToken(String header) {
         String token = header.replace("Bearer ", "");
         Claims body = parseToken(token);
         return body.getSubject();

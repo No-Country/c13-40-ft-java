@@ -5,20 +5,13 @@ import com.ecommerce.apinocountry.repositories.ProductRepository;
 import java.util.List;
 import java.util.Optional;
 
-
 import org.springframework.stereotype.Service;
-
 
 @Service
 public class ProductService implements IProduct {
 
-     private ProductRepository productrepository;
+    private ProductRepository productrepository;
 
-    /**
-     * Constructor to inject the ProductRepository dependency.
-     *
-     * @param productRepository The repository to interact with Product entities.
-     */
     public ProductService(ProductRepository productrepository) {
         this.productrepository = productrepository;
     }
@@ -32,6 +25,7 @@ public class ProductService implements IProduct {
     public List<Product> listProducts() {
         return productrepository.findAll();
     }
+
     /**
      * Retrieves a product by its ID.
      *
@@ -53,6 +47,7 @@ public class ProductService implements IProduct {
     public Optional<Product> getProductByName(String name) {
         return productrepository.findByName(name);
     }
+
     /**
      * Inserts a new product.
      *
@@ -63,6 +58,7 @@ public class ProductService implements IProduct {
     public Product inserProduct(Product product) {
         return productrepository.save(product);
     }
+
     /**
      * Updates an existing product.
      *
@@ -73,6 +69,7 @@ public class ProductService implements IProduct {
     public Product updateProduct(Product product) {
         return productrepository.save(product);
     }
+
     /**
      * Deletes a product by its ID.
      *

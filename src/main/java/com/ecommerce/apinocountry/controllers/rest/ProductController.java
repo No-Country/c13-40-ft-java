@@ -30,34 +30,35 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = {"http://localhost:3000", "https://no-country-comfy.vercel.app"})
 @RequestMapping("/")
 public class ProductController {
-     /*
+
+    /*
         *Dependency injection of product and category services
-        */
-     private IProduct iproduct;
-     
+     */
+    private IProduct iproduct;
+
     @Autowired
-    public ProductController(IProduct iproduct){
+    public ProductController(IProduct iproduct) {
         this.iproduct = iproduct;
     }
-    
-      /*
+
+    /*
      *Endpoint to retrieve all products
      */
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getAllProducts(){
+    public ResponseEntity<List<Product>> getAllProducts() {
         return ResponseEntity.ok(iproduct.listProducts());
     }
 
     /*
     *Endpoint to retrieve a product by its ID
-    */
+     */
     @GetMapping("/idproducts/{id}")
-    public ResponseEntity<Object> getProductById(@PathVariable("id") Long id){
+    public ResponseEntity<Object> getProductById(@PathVariable("id") Long id) {
         Optional<Product> product = iproduct.getProduct(id);
-        if(product.isPresent()){
+        if (product.isPresent()) {
             return ResponseEntity.ok(product.get());
         } else {
-            String errorMessage = "No existe el producto con ID: " + id; 
+            String errorMessage = "No existe el producto con ID: " + id;
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("error", errorMessage);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);
@@ -66,11 +67,11 @@ public class ProductController {
 
     /*
     *Endpoint to retrieve a product by its name
-    */
+     */
     @GetMapping("/nameproducts/{name}")
-    public ResponseEntity<?> getProductByName(@PathVariable("name") String name){
+    public ResponseEntity<?> getProductByName(@PathVariable("name") String name) {
         Optional<Product> product = iproduct.getProductByName(name);
-        if(product.isPresent()){
+        if (product.isPresent()) {
             return ResponseEntity.ok(product.get());
         } else {
             String errorMessage = "No existe el producto con Nombre: " + name;
@@ -82,7 +83,7 @@ public class ProductController {
 
     /*
     * Endpoint to insert a new product
-    */
+     */
     @PostMapping(path = "/insertProduct", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> saveProduct(@Valid @RequestBody Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -95,7 +96,7 @@ public class ProductController {
             return ResponseEntity.badRequest().body(errors);
         }
         Product savedProduct = iproduct.inserProduct(product);
-        
+
         if (savedProduct != null) {
             return ResponseEntity.ok(savedProduct);
         } else {
@@ -106,7 +107,7 @@ public class ProductController {
 
     /*
     * Endpoint to update an existing product
-    */
+     */
     @PutMapping("/updateProduct/{id}")
     public ResponseEntity<Object> updateProduct(@PathVariable("id") Long id, @Valid @RequestBody Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -141,17 +142,17 @@ public class ProductController {
 
     /*
     * Endpoint to delete a product by its ID
-    */
+     */
     @DeleteMapping("/deleteProduct/{id}")
-    public ResponseEntity<Map<String, String>> deleteProduct(@PathVariable("id") Long id){
+    public ResponseEntity<Map<String, String>> deleteProduct(@PathVariable("id") Long id) {
         Optional<Product> product = iproduct.getProduct(id);
-        if(product.isPresent()){
+        if (product.isPresent()) {
             iproduct.deleteProduct(id);
             Map<String, String> successResponse = new HashMap<>();
             successResponse.put("message", "Producto eliminado exitosamente");
             return ResponseEntity.ok(successResponse);
-        }else{
-           String errorMessage = "No existe el producto con ID: " + id + " para eliminar.";
+        } else {
+            String errorMessage = "No existe el producto con ID: " + id + " para eliminar.";
             Map<String, String> errorResponse = new HashMap<>();
             errorResponse.put("error", errorMessage);
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorResponse);

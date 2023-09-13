@@ -5,10 +5,10 @@ package com.ecommerce.apinocountry.services;
  * @author godoy
  */
 public class LoginResponse {
-     private String mensaje;
-     private boolean success;
-     private String token;
-    
+
+    private String mensaje;
+    private boolean success;
+    private String token;
 
     public LoginResponse() {
     }
@@ -42,6 +42,5 @@ public class LoginResponse {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-    
-    
+
 }

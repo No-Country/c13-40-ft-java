@@ -14,11 +14,13 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final LoginRepository loginRepository;
+
     @Autowired
-    public UserService(UserRepository userRepository, JwtService jwtService, LoginRepository loginRepository){
+    public UserService(UserRepository userRepository, JwtService jwtService, LoginRepository loginRepository) {
         this.userRepository = userRepository;
         this.jwtService = jwtService;
         this.loginRepository = loginRepository;
@@ -34,17 +36,17 @@ public class UserService {
 
     public LoginResponse saveUser(User user) {
 
-        if(user.getFirstName() == null || user.getLastName() == null || user.getLogin().getEmail()==null || user.getLogin().getPassword() == null || !Objects.equals(user.getLogin().getRol(), "cliente")){
+        if (user.getFirstName() == null || user.getLastName() == null || user.getLogin().getEmail() == null || user.getLogin().getPassword() == null || !Objects.equals(user.getLogin().getRol(), "cliente")) {
             return new LoginResponse(null, false, "Faltan datos del usuario requeridos para el registro");
         }
-        if(!user.getLogin().getEmail().matches("^[A-Za-z0-9+_.-]+@(.+)$")){
+        if (!user.getLogin().getEmail().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
             return new LoginResponse(null, false, "El correo electronico no es valido");
         }
         Optional<Login> userExist = loginRepository.findByEmail(user.getLogin().getEmail());
-        if(userExist.isPresent()){
+        if (userExist.isPresent()) {
             return new LoginResponse(null, false, "El correo electronico ya esta registrado");
         }
-        User userCreated =userRepository.save(user);
+        User userCreated = userRepository.save(user);
         String token = jwtService.generateToken(userCreated.getLogin().getEmail());
         return new LoginResponse(token, true, "Usuario registrado correctamente");
     }
@@ -58,11 +60,10 @@ public class UserService {
 
         return userRepository.save(existingUser);
 
-}
+    }
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
     }
-
 
 }
