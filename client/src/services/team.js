@@ -21,8 +21,8 @@ const teamMembers = [
   },
   {
     position: "Frontend Developer",
-    name: "Tomás Arteaga",
-    linkedin: "",
+    name: "Tomás Echeveste Arteaga",
+    linkedin: "https://www.linkedin.com/in/tomasecheveste/",
   },
   {
     position: "QA",
