@@ -37,13 +37,19 @@ const Footer = () => {
           <h6 className="font-bold">Shop</h6>
           <ul className="space-y-2">
             <li>
-              <Link href="/products">All Products</Link>
+              <Link href="/products" className="hover:text-white">
+                All Products
+              </Link>
             </li>
             <li>
-              <Link href="/">Bedroom</Link>
+              <Link href="/products" className="hover:text-white">
+                Bedroom
+              </Link>
             </li>
             <li>
-              <Link href="/">Dining Room</Link>
+              <Link href="/products" className="hover:text-white">
+                Dining Room
+              </Link>
             </li>
           </ul>
         </div>
@@ -52,13 +58,19 @@ const Footer = () => {
           <h6 className="font-bold">My Account</h6>
           <ul className="space-y-2">
             <li>
-              <Link href="/access/login">Sign in</Link>
+              <Link href="/access/login" className="hover:text-white">
+                Sign in
+              </Link>
             </li>
             <li>
-              <Link href="/access/register">Register</Link>
+              <Link href="/access/register" className="hover:text-white">
+                Register
+              </Link>
             </li>
             <li>
-              <Link href="/cart">Order Status</Link>
+              <Link href="/cart" className="hover:text-white">
+                Order Status
+              </Link>
             </li>
           </ul>
         </div>
@@ -67,13 +79,19 @@ const Footer = () => {
           <h6 className="font-bold">Help</h6>
           <ul className="space-y-2">
             <li>
-              <Link href="/products">Shipping</Link>
+              <Link href="/products" className="hover:text-white">
+                Shipping
+              </Link>
             </li>
             <li>
-              <Link href="/products">Returns</Link>
+              <Link href="/products" className="hover:text-white">
+                Returns
+              </Link>
             </li>
             <li>
-              <Link href="/products">Sizing</Link>
+              <Link href="/products" className="hover:text-white">
+                Sizing
+              </Link>
             </li>
           </ul>
         </div>
@@ -82,13 +100,19 @@ const Footer = () => {
           <h6 className="font-bold">Legal Stuff</h6>
           <ul className="space-y-2">
             <li>
-              <Link href="/">Shipping & Delivery</Link>
+              <Link href="/" className="hover:text-white">
+                Shipping & Delivery
+              </Link>
             </li>
             <li>
-              <Link href="/">Terms & Conditions</Link>
+              <Link href="/" className="hover:text-white">
+                Terms & Conditions
+              </Link>
             </li>
             <li>
-              <Link href="/">Privacy & Policy</Link>
+              <Link href="/" className="hover:text-white">
+                Privacy & Policy
+              </Link>
             </li>
           </ul>
         </div>
