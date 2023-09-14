@@ -50,8 +50,11 @@ const BigProductCard = ({ id, name, image, price, product }) => {
             data-aos="zoom-in"
             //  onClick={() => AddToFav(product)}
             onClick={() => {
-              AddToFav(product);
-              setLike(product);
+              isLoggedIn
+                ? AddToFav(product)
+                : isLoggedIn
+                ? setLike(product)
+                : toast.error("Inicia sesión para agregar a favoritos");
             }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer"
           />
@@ -105,7 +108,9 @@ const BigProductCard = ({ id, name, image, price, product }) => {
           <button
             onClick={() => {
               // console.log("Product:", product, quantity);
-              isLoggedIn ? AddToCart(product, quantity) : toast.error("Inicia sesión para agregar al carrito");
+              isLoggedIn
+                ? AddToCart(product, quantity)
+                : toast.error("Inicia sesión para agregar al carrito");
               // AddToCart(product, quantity);
             }}
             className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 md:px-6 py-2 rounded-lg hover:opacity-80 text-base md:text-xs"
