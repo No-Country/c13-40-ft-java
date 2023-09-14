@@ -48,21 +48,22 @@ const BigProductCard = ({ id, name, image, price, product }) => {
         {!like ? (
           <BiHeart
             data-aos="zoom-in"
-            //  onClick={() => AddToFav(product)}
             onClick={() => {
-              isLoggedIn
-                ? AddToFav(product)
-                : isLoggedIn
-                ? setLike(product)
-                : toast.error("Inicia sesión para agregar a favoritos");
+              if(isLoggedIn) {
+                AddToFav(product)
+                setLike(!like)
+              }
+              else {
+                toast.error("Inicia sesión para agregar a favoritos");
+              }
             }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer"
           />
         ) : (
           <BiSolidHeart
             data-aos="zoom-in"
-            // onClick={() => RemoveFromFav(product)}
             onClick={() => {
+              RemoveFromFav(product);
               setLike(!like);
             }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer text-red-500"

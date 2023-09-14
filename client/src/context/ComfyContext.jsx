@@ -60,7 +60,8 @@ const ContextProvider = ({ children }) => {
   }
 
   function RemoveFromFav(favoriteToRemove) {
-    setFavs(favs.filter((product) => product.name !== favoriteToRemove.name));
+    let removed = favs.filter((product) => product.name !== favoriteToRemove.name);
+    setFavs(removed);
     setTimeout(() => {
       toast.error(`${favoriteToRemove.name} Removed from favorites`);
     }, 200);

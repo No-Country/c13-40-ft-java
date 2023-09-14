@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -15,11 +15,12 @@ import Logo from "public/logo.svg";
 import { FcGoogle } from "react-icons/fc";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
-import { LuEye } from "react-icons/lu";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import { toast } from "react-hot-toast";
 
 const Login = () => {
   const { login } = useContext(AuthContext);
+  const [visibility, setVisibility] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });
@@ -112,14 +113,18 @@ const Login = () => {
               </label>
               <div className="border border-2 border-primary xl:border-fourth rounded-md pl-4 pr-2 py-2 w-[269px] flex items-center justify-between xl:w-[413px] xl:h-[63px] xl:text-[20px] text-sixth">
                 <input
-                  type="password"
+                  type={visibility ? "text" : "password"}
                   id="password"
                   {...register("password")}
                   placeholder="Password"
                   className="w-full mr-2 outline-none"
                 />
-                <span className="xl:text-[27px]">
-                  <LuEye />
+                <span className="xl:text-[27px] cursor-pointer">
+                  {visibility ? (
+                    <LuEye onClick={() => setVisibility(!visibility)} />
+                  ) : (
+                    <LuEyeOff onClick={() => setVisibility(!visibility)} />
+                  )}
                 </span>
               </div>
             </div>
