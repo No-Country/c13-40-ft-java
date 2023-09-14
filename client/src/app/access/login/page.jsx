@@ -66,8 +66,9 @@ const Login = () => {
       <Image
         src={Logo}
         alt="Comfy logo"
-        quality={100}
-        className="mt-24 mb-16 w-[300px] h-[88px] xl:w-[551px] xl:h-[161px]"
+        width={1000}
+        height={1000}
+        className="mt-24 mb-16 w-[150px]"
       />
 
       <div className="flex flex-col items-center w-full xl:w-[557px] xl:h-[594px] xl:border-[6px] border-fifth rounded-[20px]">

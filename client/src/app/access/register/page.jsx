@@ -78,8 +78,9 @@ const Register = () => {
       <Image
         src={Logo}
         alt="Comfy logo"
-        quality={100}
-        className="mt-16 mb-12 w-[320px] xl:w-[590px]"
+        width={1000}
+        height={1000}
+        className="mt-16 mb-12 w-[150px]"
       />
 
       <div className="flex flex-col items-center w-full xl:w-[557px] xl:h-[594px] xl:border-[6px] border-black rounded-[20px] xl:px-[12px] xl:pt-[35px]">
