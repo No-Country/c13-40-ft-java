@@ -30,6 +30,8 @@ export const AuthContextProvider = ({ children }) => {
     setUserEmail("");
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("userEmail");
+    localStorage.removeItem("favs");
+    localStorage.removeItem("cart");
     toast.success("You have signed out!");
   };
 
