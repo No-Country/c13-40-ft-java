@@ -88,7 +88,7 @@ export default function About() {
           <Typography>Mario Godoy</Typography>
           <Typography>Samantha Sánchez</Typography>
           <Typography>Ezequiel Soto</Typography>
-          <Typography>EmiTypographya Quintana</Typography>
+          <Typography>Emilia Quintana</Typography>
           <Typography>Alex Martín</Typography>
           <Typography>TL Masiel Venegas</Typography>
         </AccordionDetails>
