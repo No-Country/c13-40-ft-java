@@ -233,7 +233,7 @@ const Register = () => {
           <div>
             <button
               type="submit"
-              className="button bg-secondary border rounded-md font-bold flex items-center justify-center ml-auto text-black w-[156px] h-[38px]"
+              className="button text-white bg-secondary border rounded-md font-bold flex items-center justify-center ml-auto  w-[156px] h-[38px]"
             >
               Continue
             </button>
