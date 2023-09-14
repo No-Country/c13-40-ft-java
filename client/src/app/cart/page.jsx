@@ -108,8 +108,8 @@ export default function Cart() {
           </table>
 
           <div className="flex justify-center items-center">
-            <a
-              href="#_"
+            <Link
+              href="/cart/checkout"
               className="inline-flex items-center justify-center w-full px-6 xl:px-10 py-3 mb-2 xl:text-xl text-black bg-[#eee3d7] border border-black hover:bg-[#d4b69d] sm:w-auto sm:mb-0"
             >
               Checkout
@@ -125,7 +125,7 @@ export default function Cart() {
                   clipRule="evenodd"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </>
       )}
