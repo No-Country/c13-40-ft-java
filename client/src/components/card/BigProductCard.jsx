@@ -35,12 +35,12 @@ const BigProductCard = ({ id, name, image, price, product }) => {
   return (
     <div
       key={id}
-      className="w-full h-[750px] md:w-5/12 lg:w-4/12 mb-36 flex flex-col justify-between"
+      className="w-full md:w-11/12 md:h-[700px] mb-36 md:mb-0 flex flex-col justify-around"
     >
-      <h1 className="text-lg font-thin">{name}</h1>
-      <div className="relative w-9/12 md:w-full mx-auto mt-4 md:-mt-16">
+      <h1 className="text-lg font-thin md:-mb-16">{name}</h1>
+      <div className="relative w-full md:w-full mx-auto mt-4 md:-mt-16">
         <Image
-          className="w-full h-auto rounded-md"
+          className="w-auto mx-auto h-52 object-cover rounded-md"
           src={image}
           width={1000}
           height={1000}
