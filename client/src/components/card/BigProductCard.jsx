@@ -11,11 +11,12 @@ import { ComfyContext } from "@/context/ComfyContext";
 import { AuthContext } from "@/context/AuthContext";
 
 const BigProductCard = ({ id, name, image, price, product }) => {
-  const { AddToCart, AddToFav, RemoveFromFav } = useContext(ComfyContext);
+  const { AddToCart, AddToFav, RemoveFromFav, favs } = useContext(ComfyContext);
   const { isLoggedIn } = useContext(AuthContext);
   const [quantity, setQuantity] = useState(1);
 
-  const [like, setLike] = useState(false);
+  const isProducInFav = favs.some((product) => product.id === id);
+  const [like, setLike] = useState(isProducInFav);
 
   useEffect(() => {
     AOS.init({ duration: 400 });
@@ -49,11 +50,10 @@ const BigProductCard = ({ id, name, image, price, product }) => {
           <BiHeart
             data-aos="zoom-in"
             onClick={() => {
-              if(isLoggedIn) {
-                AddToFav(product)
-                setLike(!like)
-              }
-              else {
+              if (isLoggedIn) {
+                AddToFav(product);
+                setLike(!like);
+              } else {
                 toast.error("Inicia sesión para agregar a favoritos");
               }
             }}
