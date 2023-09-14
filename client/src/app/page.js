@@ -36,7 +36,7 @@ const Home = () => {
           className="w-full h-full flex justify-start items-center flex-col"
         >
           <div className="w-full lg:h-5/6 flex justify-center items-center bg-primary md:rounded-b-3xl">
-            <div className="hidden md:block md:w-6/12 md:h-full flex flex-col justify-center items-center pl-20">
+            <div className="hidden md:block md:w-6/12 md:h-full  justify-center items-center pl-20">
               <h2 className="xl:text-6xl text-3xl -mt-12 mb-2">Exclusive</h2>
               <h2 className="xl:text-6xl text-3xl mb-8">
                 Furniture Collection

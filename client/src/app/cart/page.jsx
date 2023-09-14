@@ -15,13 +15,15 @@ export default function Cart() {
 
   const { cart } = useContext(ComfyContext);
   const shippingCost = 120;
-  const subtotal = cart.reduce(
-    (accumulator, item) => accumulator + item.product.price * item.quantity,
-    0
-  );
+  const subtotal = cart
+    .reduce(
+      (accumulator, item) => accumulator + item.product.price * item.quantity,
+      0
+    )
+    .toFixed(2);
 
   // Calcular el total sumando el subtotal y el costo de envío
-  const total = (subtotal + shippingCost).toFixed(2);
+  const total = (parseFloat(subtotal) + shippingCost).toFixed(2);
   console.log("este es el carrito", cart);
 
   return (

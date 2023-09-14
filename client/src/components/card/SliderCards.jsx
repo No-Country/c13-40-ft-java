@@ -30,7 +30,7 @@ const SliderCards = (props) => {
               width={1000}
               height={1000}
             />
-            <span className="mt-2 uppercase text-xs">
+            <span className="mt-2 uppercase font-bold text-xs">
               {queryProducts.data.name}
             </span>
           </div>
