@@ -76,13 +76,15 @@ const Navbar = () => {
   return (
     <div className="w-full sticky top-0 z-40">
       <div className="h-20 w-full bg-primary flex justify-between items-center p-4">
-        <Image
-          className="hidden md:block"
-          src="/logo.svg"
-          alt="Comfy logo"
-          width={100}
-          height={100}
-        />
+        <Link href="/">
+          <Image
+            className="hidden md:block"
+            src="/logo.svg"
+            alt="Comfy logo"
+            width={100}
+            height={100}
+          />
+        </Link>
         {open ? (
           <GiHamburgerMenu
             data-aos="zoom-in"
@@ -120,7 +122,7 @@ const Navbar = () => {
           <div className="flex justify-center md:gap-1 items-center">
             {pathname == "/search" ? (
               <input
-                placeholder="Buscar..."
+                placeholder="Search..."
                 className="w-32 rounded-full indent-2"
                 onChange={handleSearch}
                 type="text"

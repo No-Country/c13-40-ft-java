@@ -12,7 +12,7 @@ const teamMembers = [
   {
     position: "Backend Developer",
     name: "Ezequiel Soto",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/ezequiel-soto/",
   },
   {
     position: "Frontend Developer",
@@ -27,12 +27,13 @@ const teamMembers = [
   {
     position: "QA",
     name: "Emilia Quintana",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/emiliaquintana/",
   },
   {
     position: "UX/UI",
     name: "Samantha Sánchez",
-    linkedin: "",
+    linkedin:
+      "https://www.linkedin.com/in/samantha-s%C3%A1nchez-carranza-5ab509264/",
   },
   {
     position: "Frontend Developer",
