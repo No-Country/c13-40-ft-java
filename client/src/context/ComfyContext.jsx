@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 
 export const ComfyContext = createContext();
@@ -11,6 +11,17 @@ const ContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   let badgeCart = cart.length;
+
+  useEffect(() => {
+    const storedCart = localStorage.getItem("cart");
+    if (storedCart) {
+      setCart(JSON.parse(storedCart));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   function AddToCart(newProduct, quantity) {
     const isProductInCart = cart.some(
@@ -49,6 +60,18 @@ const ContextProvider = ({ children }) => {
   // Maneja el array de productos favoritos
 
   const [favs, setFavs] = useState([]);
+
+  useEffect(() => {
+    const storedFavs = localStorage.getItem("favs");
+    if (storedFavs) {
+      setFavs(JSON.parse(storedFavs));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favs", JSON.stringify(favs));
+  }, [favs]);
+
   function AddToFav(newFavorite) {
     const isProducInFav = favs.some((product) => product.id === newFavorite.id);
 
@@ -60,7 +83,9 @@ const ContextProvider = ({ children }) => {
   }
 
   function RemoveFromFav(favoriteToRemove) {
-    let removed = favs.filter((product) => product.name !== favoriteToRemove.name);
+    let removed = favs.filter(
+      (product) => product.name !== favoriteToRemove.name
+    );
     setFavs(removed);
     setTimeout(() => {
       toast.error(`${favoriteToRemove.name} Removed from favorites`);
