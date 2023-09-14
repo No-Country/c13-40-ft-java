@@ -1,6 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { AuthContext } from "@/context/AuthContext";
+import { usePathname } from "next/navigation";
+import debounce from "lodash.debounce";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdArrowBack } from "react-icons/io";
 import { ImSearch } from "react-icons/im";
 import { MdShoppingCart } from "react-icons/md";
 import { HiOutlineUserCircle } from "react-icons/hi";
@@ -14,24 +20,30 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useContext } from "react";
-import { AuthContext } from "@/context/AuthContext";
 import { Badge } from "@mui/material";
 
 import { ComfyContext } from "@/context/ComfyContext";
 const Navbar = () => {
-  const { badgeCart } = useContext(ComfyContext);
+  const { badgeCart, setSearch } = useContext(ComfyContext);
   const pathname = usePathname();
 
   const [open, setOpen] = useState(true);
   const [access, setAccess] = useState(false);
 
+  useEffect(() => {
+    AOS.init({ duration: 500 });
+  }, []);
+
   const { isLoggedIn, logout, userEmail } = useContext(AuthContext);
 
   const emailFirstChar = userEmail?.charAt(0).toUpperCase();
 
-  console.log(pathname);
+  // console.log(pathname);
+
+  const handleSearch = debounce((e) => {
+    setSearch(e?.target?.value);
+  }, 1000);
 
   const links = [
     {
@@ -71,10 +83,19 @@ const Navbar = () => {
           width={100}
           height={100}
         />
-        <GiHamburgerMenu
-          onClick={() => setOpen(!open)}
-          className="text-2xl text-black cursor-pointer md:hidden"
-        />
+        {open ? (
+          <GiHamburgerMenu
+            data-aos="zoom-in"
+            onClick={() => setOpen(!open)}
+            className="text-2xl text-black cursor-pointer md:hidden"
+          />
+        ) : (
+          <IoMdArrowBack
+            data-aos="zoom-in"
+            onClick={() => setOpen(!open)}
+            className="text-2xl text-black cursor-pointer md:hidden"
+          />
+        )}
         <div className="hidden md:flex justify-center items center text-black font-bold">
           {links.map((l) => (
             <Link
@@ -97,7 +118,21 @@ const Navbar = () => {
         />
         <div className="flex justify-center md:gap-1 items-center">
           <div className="flex justify-center md:gap-1 items-center">
-            <ImSearch className="text-xl text-black cursor-pointer" />
+            {pathname == "/search" ? (
+              <input
+                placeholder="Buscar..."
+                className="w-32 rounded-full indent-2"
+                onChange={handleSearch}
+                type="text"
+              />
+            ) : (
+              <Link href="/search">
+                <ImSearch
+                  data-aos="zoom-in"
+                  className="text-xl text-black cursor-pointer"
+                />
+              </Link>
+            )}
             <Link className="relative mx-2" href="/cart">
               <Badge
                 sx={{ position: "absolute", top: "0", right: "0" }}
@@ -151,7 +186,7 @@ const Navbar = () => {
         </div>
         <div
           className={`absolute top-0 mt-20 ${
-            open ? "translate-x-[-900px]" : "translate-x-0"
+            open ? "translate-x-[-900px]" : "translate-x-[-20px]"
           } md:hidden h-screen w-6/12 z-10 bg-primary transition-all duration-700 ease`}
         >
           <div className="flex flex-col justify-center items-start p-4">

@@ -60,7 +60,8 @@ const ContextProvider = ({ children }) => {
   }
 
   function RemoveFromFav(favoriteToRemove) {
-    setFavs(favs.filter((product) => product.name !== favoriteToRemove.name));
+    let removed = favs.filter((product) => product.name !== favoriteToRemove.name);
+    setFavs(removed);
     setTimeout(() => {
       toast.error(`${favoriteToRemove.name} Removed from favorites`);
     }, 200);
@@ -68,6 +69,9 @@ const ContextProvider = ({ children }) => {
 
   // Maneja el booleano que muestra el modal de carga
   const [loading, setLoading] = useState(true);
+
+  // String de bùsqueda
+  const [search, setSearch] = useState("");
 
   return (
     <ComfyContext.Provider
@@ -84,6 +88,8 @@ const ContextProvider = ({ children }) => {
         RemoveFromFav,
         loading,
         setLoading,
+        search,
+        setSearch,
       }}
     >
       {children}

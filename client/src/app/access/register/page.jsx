@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
@@ -10,10 +11,12 @@ import Logo from "public/logo2.svg";
 import { FcGoogle } from "react-icons/fc";
 import { MdAlternateEmail } from "react-icons/md";
 import { IoMdLock } from "react-icons/io";
-import { LuEye } from "react-icons/lu";
+import { LuEye, LuEyeOff } from "react-icons/lu";
 import { toast } from "react-hot-toast";
 
 const Register = () => {
+  const [visibility, setVisibility] = useState(false);
+
   const schema = yup.object().shape({
     firstName: yup
       .string()
@@ -78,8 +81,9 @@ const Register = () => {
       <Image
         src={Logo}
         alt="Comfy logo"
-        quality={100}
-        className="mt-16 mb-12 w-[320px] xl:w-[590px]"
+        width={1000}
+        height={1000}
+        className="mt-16 mb-12 w-[150px]"
       />
 
       <div className="flex flex-col items-center w-full xl:w-[557px] xl:h-[594px] xl:border-[6px] border-black rounded-[20px] xl:px-[12px] xl:pt-[35px]">
@@ -172,13 +176,17 @@ const Register = () => {
                 <IoMdLock />
               </span>
               <input
-                type="password"
+                type={visibility ? "text" : "password"}
                 id="password"
                 {...register("password")}
                 className="outline-none w-[180px] pr-1 xl:mx-1 xl:w-full"
               />
-              <span className="flex items-center mr-1">
-                <LuEye />
+              <span className="flex items-center mr-1 cursor-pointer">
+                {visibility ? (
+                  <LuEye onClick={() => setVisibility(!visibility)} />
+                ) : (
+                  <LuEyeOff onClick={() => setVisibility(!visibility)} />
+                )}
               </span>
             </div>
             {errors.password && (
@@ -201,13 +209,17 @@ const Register = () => {
                 <IoMdLock />
               </span>
               <input
-                type="password"
+                type={visibility ? "text" : "password"}
                 id="confirmPassword"
                 {...register("confirmPassword")}
                 className="outline-none w-[180px] pr-1 xl:mx-1 xl:w-full"
               />
-              <span className="flex items-center mr-1">
-                <LuEye />
+              <span className="flex items-center mr-1 cursor-pointer">
+                {visibility ? (
+                  <LuEye onClick={() => setVisibility(!visibility)} />
+                ) : (
+                  <LuEyeOff onClick={() => setVisibility(!visibility)} />
+                )}
               </span>
             </div>
             {errors.confirmPassword && (

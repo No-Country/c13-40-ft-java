@@ -22,7 +22,7 @@ export default function Categories() {
           href="/categorie/3"
         >
           <CardCategories
-            Categorie="Dining Romm"
+            Categorie="Dining Room"
             imageUrl="https://images.unsplash.com/photo-1604578762246-41134e37f9cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y29tZWRvcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
           />
         </Link>

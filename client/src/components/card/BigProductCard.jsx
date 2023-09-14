@@ -11,11 +11,12 @@ import { ComfyContext } from "@/context/ComfyContext";
 import { AuthContext } from "@/context/AuthContext";
 
 const BigProductCard = ({ id, name, image, price, product }) => {
-  const { AddToCart, AddToFav, RemoveFromFav } = useContext(ComfyContext);
+  const { AddToCart, AddToFav, RemoveFromFav, favs } = useContext(ComfyContext);
   const { isLoggedIn } = useContext(AuthContext);
   const [quantity, setQuantity] = useState(1);
 
-  const [like, setLike] = useState(false);
+  const isProducInFav = favs.some((product) => product.id === id);
+  const [like, setLike] = useState(isProducInFav);
 
   useEffect(() => {
     AOS.init({ duration: 400 });
@@ -48,21 +49,21 @@ const BigProductCard = ({ id, name, image, price, product }) => {
         {!like ? (
           <BiHeart
             data-aos="zoom-in"
-            //  onClick={() => AddToFav(product)}
             onClick={() => {
-              isLoggedIn
-                ? AddToFav(product)
-                : isLoggedIn
-                ? setLike(product)
-                : toast.error("Inicia sesión para agregar a favoritos");
+              if (isLoggedIn) {
+                AddToFav(product);
+                setLike(!like);
+              } else {
+                toast.error("Inicia sesión para agregar a favoritos");
+              }
             }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer"
           />
         ) : (
           <BiSolidHeart
             data-aos="zoom-in"
-            // onClick={() => RemoveFromFav(product)}
             onClick={() => {
+              RemoveFromFav(product);
               setLike(!like);
             }}
             className="absolute bottom-0 right-0 -mb-10 text-3xl cursor-pointer text-red-500"
