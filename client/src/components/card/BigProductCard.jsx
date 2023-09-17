@@ -31,6 +31,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
   const plus = () => {
     setQuantity(quantity + 1);
   };
+  const previousPrice = (price * 1.3).toFixed(2);
 
   return (
     <div
@@ -71,24 +72,28 @@ const BigProductCard = ({ id, name, image, price, product }) => {
         )}
       </div>
       <div className="flex flex-col md:-mt-24">
-        <span className="text-gray-500 line-through text-lg">$ 53,000.00</span>
-        <span className="text-red-500 text-2xl mt-2">$ {price}</span>
+        <span className="text-gray-500 line-through text-lg">
+          $ {previousPrice}
+        </span>
+        <span className="text-[#5c3b32] font-semibold text-2xl mt-2">
+          $ {price}
+        </span>
         <span className="text-gray-500 underline text-xs md:text-sm">
-          Ver más opciones
+          See more options
         </span>
         <div className="flex justify-start items-center mt-2">
           <FaTruck className="text-lg mr-2" />
           <span className="text-gray-500 text-xs md:text-sm">
-            Envíos gratis
+            Free shipping
           </span>
         </div>
         <div className="mt-2">
           <p className="text-sm md:text-base text-gray-500">
-            Talla: <span className="text-black">56 cm x 50 cm</span>
+            Size: <span className="text-black">56 cm x 50 cm</span>
           </p>
         </div>
         <div className="mt-2">
-          <span className="text-sm md:text-base text-gray-500">Cantidad: </span>
+          <span className="text-sm md:text-base text-gray-500">Quantity:</span>
           <div className="flex justify-start items-center mt-2 mb-4">
             <button
               onClick={minus}
@@ -116,7 +121,7 @@ const BigProductCard = ({ id, name, image, price, product }) => {
             }}
             className="bg-secondary active:relative active:top-0.5 text-white font-bold w-full mx-auto flex justify-center items-center px-12 md:px-6 py-2 rounded-lg hover:opacity-80 text-base md:text-xs"
           >
-            Añadir al carrito
+            Add To Cart
           </button>
         </div>
       </div>

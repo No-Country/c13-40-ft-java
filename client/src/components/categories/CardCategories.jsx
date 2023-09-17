@@ -1,4 +1,3 @@
-import Link from "next/link";
 // Add Imagen de fondo y eskeleton
 // Add Prop de Href
 function CardCategories({ Categorie, imageUrl }) {
@@ -8,9 +7,9 @@ function CardCategories({ Categorie, imageUrl }) {
        transition ease-in-out duration-1000 delay-75 hover:saturate-200"
       style={{ backgroundImage: `url("${imageUrl}")` }}
     >
-      <Link href="" className="text-3xl text-gray-50 font-sans font-extrabold">
+      <h4 className="text-3xl text-gray-50 font-sans font-extrabold">
         {Categorie}
-      </Link>
+      </h4>
     </article>
   );
 }
