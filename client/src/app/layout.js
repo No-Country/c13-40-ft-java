@@ -2,7 +2,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import "./globals.css";
 import { Roboto } from "next/font/google";
-import { Toaster } from "react-hot-toast";
+// import { Toaster } from "react-hot-toast";
 
 // Components
 import Navbar from "../components/navbar/Navbar";
@@ -15,11 +15,11 @@ import { AuthContextProvider } from "@/context/AuthContext";
 
 const roboto = Roboto({ subsets: ["latin"], weight: "400" });
 
-export const metadata = {
-  title: "Comfy Store",
-  description:
-    "Comfy Store: Tu destino en línea para muebles de alta calidad. Explora una amplia gama de muebles para el hogar, desde sofás cómodos hasta elegantes mesas de comedor. Descubre opciones de diseño moderno y clásico que se adaptan a cualquier estilo de decoración. ¡Encuentra la comodidad que necesitas para tu hogar en Comfy Store!",
-};
+// export const metadata = {
+//   title: "Comfy Store",
+//   description:
+//     "Comfy Store: Tu destino en línea para muebles de alta calidad. Explora una amplia gama de muebles para el hogar, desde sofás cómodos hasta elegantes mesas de comedor. Descubre opciones de diseño moderno y clásico que se adaptan a cualquier estilo de decoración. ¡Encuentra la comodidad que necesitas para tu hogar en Comfy Store!",
+// };
 
 export default function RootLayout({ children }) {
   const queryClient = new QueryClient();
