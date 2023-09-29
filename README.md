@@ -3,7 +3,8 @@
 
 ## Descripción 
 
-COMFY E-commerce es un proyecto que forma parte de las emulaciones laborales de No Country, se realizo  ha desarrollado utilizando un conjunto específico de tecnologías tanto en el frontend como en el backend. A continuación, se detallan las tecnologías clave utilizadas en este proyecto:
+COMFY E-commerce es un proyecto que forma parte de las emulaciones laborales de No Country, se realizo  ha desarrollado utilizando un conjunto específico de tecnologías tanto en el frontend como en el backend. A continuación el link a la demo https://no-country-comfy.vercel.app/ 
+
 # Algunas imagenes del projecto 
  *Home desktop*
 ![COMFY](https://github.com/No-Country/c13-40-ft-java/raw/frontend/client/public/portada.png)
