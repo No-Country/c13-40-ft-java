@@ -11,7 +11,7 @@ COMFY E-commerce es un proyecto que forma parte de las emulaciones laborales de 
  *Home Mobile*
 ![COMFY](https://github.com/No-Country/c13-40-ft-java/raw/frontend/client/public/mobile.png)
 ![COMFY](https://github.com/No-Country/c13-40-ft-java/raw/frontend/client/public/favorites.png)
-![COMFY](https://github.com/No-Country/c13-40-ft-java/raw/frontend/client/public/cart.png)
+![COMFY](https://github.com/No-Country/c13-40-ft-java/raw/frontend/client/public/cart.png) 
 
 
 ### Frontend:
