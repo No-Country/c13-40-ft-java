@@ -1,0 +1,36 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^3.3.1",
+    "@mui/icons-material": "^5.14.8",
+    "@mui/material": "^5.14.7",
+    "aos": "^2.3.4",
+    "autoprefixer": "10.4.15",
+    "axios": "^1.5.0",
+    "eslint": "8.47.0",
+    "eslint-config-next": "13.4.17",
+    "next": "13.4.17",
+    "postcss": "8.4.28",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.46.1",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.10.1",
+    "react-loading-skeleton": "^3.3.1",
+    "react-query": "^3.39.3",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "tailwindcss": "3.3.3",
+    "yup": "^1.2.0"
+  }
+}
