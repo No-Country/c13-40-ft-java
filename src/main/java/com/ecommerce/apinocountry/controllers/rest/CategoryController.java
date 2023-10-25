@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author godoy
  */
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://no-country-comfy.vercel.app/"})
+@CrossOrigin(origins = {"http://localhost:3000", "https://no-country-comfy.vercel.app/", "https://3000-monospace-c13-40-ft-java-1698186246285.cluster-lknrrkkitbcdsvoir6wqg4mwt6.cloudworkstations.dev"})
 @RequestMapping("/")
 public class CategoryController {
 
